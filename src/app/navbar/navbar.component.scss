@@ -1,0 +1,42 @@
+@import '../../styles.scss';
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  height: 80px;
+  background-color: $secondary-color;
+  box-shadow: 0px 0px 0.7rem 0.5rem #140d01;
+}
+.navbar-headline,
+.navbar-links {
+  @include center-text;
+  margin: 0rem 2rem;
+  color: $primary-color;
+}
+.navbar-headline {
+  font-size: $font-size-headline;
+}
+.navbar-links {
+  font-size: $font-size-links;
+}
+.nav-github-text {
+  font-size: 1rem;
+  margin-left: 0.5rem;
+}
+.technologies-link {
+  margin-left: 1rem;
+  margin-right: 5rem;
+}
+.logo-github {
+  width: 30px;
+}
+.github-link {
+  @include center-text;
+}
+a:hover {
+  background-color: #082858;
+}
+a {
+  border-radius: 2px;
+  padding: 0.5rem;
+}

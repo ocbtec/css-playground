@@ -1,1 +1,30 @@
-/* You can add global styles to this file, and also import other style files */
+// CSS resets
+* {
+  margin: 0;
+  padding: 0;
+  color: inherit;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+// Fonts
+$font-size-headline: 2rem;
+$font-size-links: 1.5rem;
+
+// Colors
+$primary-color: #fefefe;
+$secondary-color: #083272;
+
+// Mixins
+@mixin center-text {
+  display: flex;
+  align-items: center;
+}
