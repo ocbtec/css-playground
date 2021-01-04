@@ -1,8 +1,12 @@
+.top-wrapper {
+  background-color: #bde0ff66;
+}
+
 .top-container {
   display: flex;
   justify-content: space-around;
   margin: 0 auto;
-  margin-top: 4rem;
+  padding: 4rem;
   width: 70rem;
 }
 
@@ -33,6 +37,7 @@
 .explanation-text {
   background-color: #2298f854;
   color: white;
+  border: 0.2rem solid white;
   box-shadow: 5px 5px 20px 2px #898989;
   font-size: 1.2rem;
   padding: 2rem;
