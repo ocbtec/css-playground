@@ -4,10 +4,10 @@
 
 .top-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   margin: 0 auto;
   padding: 4rem;
-  width: 70rem;
+  width: 1000px;
 }
 
 .logo-container {
@@ -15,33 +15,33 @@
   align-items: center;
   justify-content: center;
   background-color: #2298f854;
-  border: 0.5rem solid white;
-  box-shadow: 5px 10px 20px 2px #898989;
+  border: 0.5rem solid #2299f8;
+  box-shadow: 10px 10px 30px 0px #898989;
   border-radius: 50%;
-  width: 25rem;
-  height: 25rem;
+  width: 300px;
+  height: 300px;
   animation: logo-hover 5s cubic-bezier(0.25, 0.1, 0.24, 0.99) infinite;
 }
 
 .css-logo {
-  width: 18rem;
-  height: 18rem;
+  width: 200px;
+  height: 200px;
+  margin-top: 1.5rem;
 }
 
 .site-explanation {
   display: flex;
   align-items: center;
-  width: 30rem;
+  width: 480px;
 }
 
 .explanation-text {
   background-color: #2298f854;
-  color: white;
-  border: 0.2rem solid white;
-  box-shadow: 5px 5px 20px 2px #898989;
+  color: #505050;
+  box-shadow: 10px 10px 30px -10px #898989;
   font-size: 1.2rem;
   padding: 2rem;
-  border-radius: 0.5rem;
+  margin: 0;
 }
 
 @keyframes logo-hover {
