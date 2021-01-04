@@ -8,13 +8,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PlaygroundInputComponent } from './playground-input/playground-input.component';
 import { PlaygroundOutputComponent } from './playground-output/playground-output.component';
 import { MatSliderModule } from '@angular/material/slider';
+import { TopContainerComponent } from './top-container/top-container.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     PlaygroundInputComponent,
-    PlaygroundOutputComponent
+    PlaygroundOutputComponent,
+    TopContainerComponent
   ],
   imports: [
     BrowserModule,
