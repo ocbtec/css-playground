@@ -12,6 +12,7 @@ import { PlaygroundOutputComponent } from './playground-output/playground-output
 import { TopContainerComponent } from './top-container/top-container.component';
 import { FooterComponent } from './footer/footer.component';
 import { SettingsTabComponent } from './settings-tab/settings-tab.component';
+import { TransformTabComponent } from './transform-tab/transform-tab.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { SettingsTabComponent } from './settings-tab/settings-tab.component';
     PlaygroundOutputComponent,
     TopContainerComponent,
     FooterComponent,
-    SettingsTabComponent
+    SettingsTabComponent,
+    TransformTabComponent
   ],
   imports: [
     BrowserModule,
