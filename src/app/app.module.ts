@@ -9,6 +9,7 @@ import { PlaygroundInputComponent } from './playground-input/playground-input.co
 import { PlaygroundOutputComponent } from './playground-output/playground-output.component';
 import { MatSliderModule } from '@angular/material/slider';
 import { TopContainerComponent } from './top-container/top-container.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { TopContainerComponent } from './top-container/top-container.component';
     NavbarComponent,
     PlaygroundInputComponent,
     PlaygroundOutputComponent,
-    TopContainerComponent
+    TopContainerComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
