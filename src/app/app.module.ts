@@ -1,15 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatSliderModule } from '@angular/material/slider';
+
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PlaygroundInputComponent } from './playground-input/playground-input.component';
 import { PlaygroundOutputComponent } from './playground-output/playground-output.component';
-import { MatSliderModule } from '@angular/material/slider';
 import { TopContainerComponent } from './top-container/top-container.component';
 import { FooterComponent } from './footer/footer.component';
+import { SettingsTabComponent } from './settings-tab/settings-tab.component';
 
 @NgModule({
   declarations: [
@@ -18,13 +20,15 @@ import { FooterComponent } from './footer/footer.component';
     PlaygroundInputComponent,
     PlaygroundOutputComponent,
     TopContainerComponent,
-    FooterComponent
+    FooterComponent,
+    SettingsTabComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatSliderModule
+    MatSliderModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
