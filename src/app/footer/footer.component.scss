@@ -1,12 +1,50 @@
 @import '../../styles.scss';
 
 .footer-wrapper {
-  height: 10rem;
   margin-top: 10rem;
   background-image: url(../../assets/footer-pattern.svg);
 }
 
 .footer-container {
-  height: 10rem;
+  height: 12rem;
   background-color: #083272f5;
+  color: $primary-color;
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  padding-bottom: 1rem;
+}
+
+.footer-headline {
+  font-size: 1.3rem;
+}
+
+.link-flex {
+  display: flex;
+  align-items: center;
+}
+
+.logo-linkedIn {
+  width: 1.6rem;
+  height: 1.6rem;
+  margin-right: 0.8rem;
+}
+
+.logo-homepage {
+  width: 1.6rem;
+  height: 1.6rem;
+  margin-right: 0.8rem;
+}
+
+.inspired-text {
+  padding: 0.5rem;
+}
+
+a {
+  padding: 0.5rem;
+}
+
+a:hover {
+  background-color: #082858;
 }
