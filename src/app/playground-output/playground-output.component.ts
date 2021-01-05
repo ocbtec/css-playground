@@ -8,7 +8,7 @@ import { SettingsService } from '../service/settings.service';
 })
 export class PlaygroundOutputComponent implements OnInit {
 
-  constructor(private settingsService: SettingsService) { }
+  constructor(public settingsService: SettingsService) { }
 
   ngOnInit(): void { }
 
