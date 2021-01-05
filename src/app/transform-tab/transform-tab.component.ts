@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSliderChange } from '@angular/material/slider';
+import { SettingsService } from './../service/settings.service';
 
 @Component({
   selector: 'app-transform-tab',
@@ -8,14 +9,14 @@ import { MatSliderChange } from '@angular/material/slider';
 })
 export class TransformTabComponent implements OnInit {
 
-  constructor() { }
+  constructor(private settingsService: SettingsService) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   getSliderValue(sliderEvent: MatSliderChange) {
-    console.log(sliderEvent.value);
-    return sliderEvent.value;
+    if (sliderEvent.value !== null) {
+      this.settingsService.changeSize(sliderEvent.value);
+    }
   }
 
 }

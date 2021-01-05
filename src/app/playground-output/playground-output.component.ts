@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SettingsService } from '../service/settings.service';
 
 @Component({
   selector: 'app-playground-output',
@@ -7,9 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlaygroundOutputComponent implements OnInit {
 
-  constructor() { }
+  constructor(private settingsService: SettingsService) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
 }

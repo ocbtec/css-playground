@@ -14,6 +14,8 @@ import { FooterComponent } from './footer/footer.component';
 import { SettingsTabComponent } from './settings-tab/settings-tab.component';
 import { TransformTabComponent } from './transform-tab/transform-tab.component';
 
+import { SettingsService } from './service/settings.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +34,7 @@ import { TransformTabComponent } from './transform-tab/transform-tab.component';
     MatSliderModule,
     MatTabsModule
   ],
-  providers: [],
+  providers: [SettingsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
