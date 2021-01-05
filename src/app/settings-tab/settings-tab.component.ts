@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-settings-tab',
   templateUrl: './settings-tab.component.html',
-  styleUrls: ['./settings-tab.component.scss']
+  styleUrls: ['./settings-tab.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class SettingsTabComponent implements OnInit {
 
