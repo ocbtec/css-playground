@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatSliderChange } from '@angular/material/slider';
+import { SettingsService } from '../service/settings.service';
 
 @Component({
   selector: 'app-slider',
@@ -26,14 +27,42 @@ export class SliderComponent implements OnInit {
     unit: ''
   }
 
-  constructor() { }
+  constructor(private settingsService: SettingsService) { }
 
   ngOnInit(): void {
   }
 
   getSliderType(sliderEvent: MatSliderChange) {
-    console.log(sliderEvent.source._elementRef.nativeElement.id);
-    console.log(sliderEvent.value);
+    if (sliderEvent.value !== null) {
+      if (sliderEvent.source._elementRef.nativeElement.id === 'size') {
+        this.changeSize(sliderEvent.value);
+      }
+      if (sliderEvent.source._elementRef.nativeElement.id === 'hMovement') {
+        this.moveHorizontally(sliderEvent.value);
+      }
+      if (sliderEvent.source._elementRef.nativeElement.id === 'vMovement') {
+        this.moveVertically(sliderEvent.value);
+      }
+      if (sliderEvent.source._elementRef.nativeElement.id === 'rotate') {
+        this.rotate(sliderEvent.value);
+      }
+    }
+  }
+
+  changeSize(value: number) {
+    this.settingsService.changeSize(value);
+  }
+
+  moveHorizontally(value: number) {
+    this.settingsService.moveHorizontally(value);
+  }
+
+  moveVertically(value: number) {
+    this.settingsService.moveVertically(value);
+  }
+
+  rotate(value: number) {
+    this.settingsService.rotate(value);
   }
 
 }
