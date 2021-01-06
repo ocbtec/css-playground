@@ -15,6 +15,7 @@ import { SettingsTabComponent } from './settings-tab/settings-tab.component';
 import { TransformTabComponent } from './transform-tab/transform-tab.component';
 
 import { SettingsService } from './service/settings.service';
+import { SliderComponent } from './slider/slider.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { SettingsService } from './service/settings.service';
     TopContainerComponent,
     FooterComponent,
     SettingsTabComponent,
-    TransformTabComponent
+    TransformTabComponent,
+    SliderComponent
   ],
   imports: [
     BrowserModule,
