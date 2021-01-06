@@ -1,3 +1,5 @@
 <div class="size-container">
-  <app-slider></app-slider>
+  <ul *ngFor="let item of items">
+    <app-slider [label]="item.label" [slider]="item.slider"></app-slider>
+  </ul>
 </div>

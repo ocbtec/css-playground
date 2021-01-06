@@ -1,10 +1,12 @@
-<label for="">
+<span>{{ label }}</span>
+<div>
   <mat-slider
-      class="mat-slider-horizontal"
-      (input)='getSliderType($event)'
-      min="10"
-      max="300"
-      step="1"
-      value="50"
-    ></mat-slider>
-</label>
+    class="mat-slider-horizontal"
+    (input)='getSliderType($event)'
+    min="{{ slider.minValue }}"
+    max="{{ slider.maxValue }}"
+    step="{{ slider.step }}"
+    value="{{ slider.startValue }}"
+    id="{{ slider.id }}"
+  ></mat-slider>
+</div>
