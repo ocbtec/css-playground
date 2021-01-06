@@ -1,5 +1,5 @@
-<div class="size-container">
-  <ul *ngFor="let item of items">
+<div class="transform-container">
+  <ul *ngFor="let item of items" class="slider-wrapper">
     <app-slider [label]="item.label" [slider]="item.slider"></app-slider>
   </ul>
 </div>

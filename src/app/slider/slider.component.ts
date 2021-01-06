@@ -34,6 +34,7 @@ export class SliderComponent implements OnInit {
 
   getSliderType(sliderEvent: MatSliderChange) {
     if (sliderEvent.value !== null) {
+      this.slider.currentValue = sliderEvent.value;
       if (sliderEvent.source._elementRef.nativeElement.id === 'size') {
         this.changeSize(sliderEvent.value);
       }

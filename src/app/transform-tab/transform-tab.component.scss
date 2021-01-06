@@ -1,0 +1,13 @@
+.transform-container {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  padding: 0.5rem;
+}
+
+.slider-wrapper {
+  flex-grow: 1;
+  width: 100%;
+}
