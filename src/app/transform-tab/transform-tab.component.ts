@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SettingsService } from '../service/settings.service';
+import { TransformSettingsService } from '../services/transformSettings.service';
 import { Transform } from './transform.model';
 
 @Component({
@@ -21,16 +21,16 @@ export class TransformTabComponent implements OnInit {
   }
   items: Transform[] = [];
 
-  constructor(private settingsService: SettingsService) { }
+  constructor(private transformSettingsService: TransformSettingsService) { }
 
   ngOnInit(): void {
-    this.settingsService.initializeSizeSlider();
-    this.settingsService.initializeMoveHorizontallySlider();
-    this.settingsService.initializeMoveVerticallySlider();
-    this.settingsService.initializeMoveRotateSlider();
-    this.settingsService.settingsType = 'Transform';
-    this.settingsService.messageDynamic = 'Reset Transform Settings';
-    this.items = this.settingsService.items;
+    this.transformSettingsService.initializeSizeSlider();
+    this.transformSettingsService.initializeMoveHorizontallySlider();
+    this.transformSettingsService.initializeMoveVerticallySlider();
+    this.transformSettingsService.initializeMoveRotateSlider();
+    this.transformSettingsService.settingsType = 'Transform';
+    this.transformSettingsService.messageDynamic = 'Reset Transform Settings';
+    this.items = this.transformSettingsService.items;
   }
 
 }

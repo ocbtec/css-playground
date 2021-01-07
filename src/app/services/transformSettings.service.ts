@@ -4,7 +4,7 @@ import { Transform } from '../transform-tab/transform.model';
 @Injectable({
   providedIn: 'root'
 })
-export class SettingsService {
+export class TransformSettingsService {
   settingsType: string = '';
   messageDynamic: string = '';
 
