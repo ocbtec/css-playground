@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SettingsService } from '../service/settings.service';
 import { Transform } from './transform.model';
 
 @Component({
@@ -19,79 +20,18 @@ export class TransformTabComponent implements OnInit {
       unit: ''
     }
   }
-
   items: Transform[] = [];
 
-  constructor() { }
+  constructor(private settingsService: SettingsService) { }
 
   ngOnInit(): void {
-    this.setSizeSlider();
-    this.setMoveHorizontallySlider();
-    this.setMoveVerticallySlider();
-    this.setMoveRotateSlider();
+    this.settingsService.initializeSizeSlider();
+    this.settingsService.initializeMoveHorizontallySlider();
+    this.settingsService.initializeMoveVerticallySlider();
+    this.settingsService.initializeMoveRotateSlider();
+    this.settingsService.settingsType = 'Transform';
+    this.settingsService.messageDynamic = 'Reset Transform Settings';
+    this.items = this.settingsService.items;
   }
 
-  setSizeSlider() {
-    let sizeSlider: Transform = {
-      label: 'Size',
-      slider: {
-        id: 'size',
-        minValue: 10,
-        maxValue: 300,
-        step: 1,
-        startValue: 50,
-        currentValue: 50,
-        unit: 'px'
-      }
-    }
-    this.items.push(sizeSlider);
-  }
-
-  setMoveHorizontallySlider() {
-    let horizontallySlider: Transform = {
-      label: 'Move horizontally',
-      slider: {
-        id:'hMovement',
-        minValue: -300,
-        maxValue: 300,
-        step: 1,
-        startValue: 0,
-        currentValue: 0,
-        unit: 'px'
-      }
-    }
-    this.items.push(horizontallySlider);
-  }
-
-  setMoveVerticallySlider() {
-    let verticallySlider: Transform = {
-      label: 'Move vertically',
-      slider: {
-        id: 'vMovement',
-        minValue: -300,
-        maxValue: 300,
-        step: 1,
-        startValue: 0,
-        currentValue: 0,
-        unit: 'px'
-      }
-    }
-    this.items.push(verticallySlider);
-  }
-
-  setMoveRotateSlider() {
-    let rotateSlider: Transform = {
-      label: 'Rotate',
-      slider: {
-        id:'rotate',
-        minValue: 0,
-        maxValue: 360,
-        step: 1,
-        startValue: 0,
-        currentValue: 0,
-        unit: '°'
-      }
-    }
-    this.items.push(rotateSlider);
-  }
 }
