@@ -18,6 +18,7 @@ import { SettingsTabComponent } from './settings-tab/settings-tab.component';
 import { TransformTabComponent } from './transform-tab/transform-tab.component';
 import { SliderComponent } from './slider/slider.component';
 import { ResetButtonsComponent } from './reset-buttons/reset-buttons.component';
+import { BorderTabComponent } from './border-tab/border-tab.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ResetButtonsComponent } from './reset-buttons/reset-buttons.component';
     SettingsTabComponent,
     TransformTabComponent,
     SliderComponent,
-    ResetButtonsComponent
+    ResetButtonsComponent,
+    BorderTabComponent
   ],
   imports: [
     BrowserModule,
