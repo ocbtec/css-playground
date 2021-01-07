@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatSliderModule } from '@angular/material/slider';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { SettingsService } from './service/settings.service';
 
@@ -36,7 +37,8 @@ import { ResetButtonsComponent } from './reset-buttons/reset-buttons.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatSliderModule,
-    MatTabsModule
+    MatTabsModule,
+    MatTooltipModule
   ],
   providers: [SettingsService],
   bootstrap: [AppComponent]
