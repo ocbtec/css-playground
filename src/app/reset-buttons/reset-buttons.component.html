@@ -1,11 +1,13 @@
 <div class="reset-button-flexbox">
   <div
     class="reset-button"
+    id="{{ settingsType }}"
     mat-raised-button #tooltip="matTooltip"
     [matTooltipPosition]="position"
     [matTooltipShowDelay]="showDelay"
     [matTooltipHideDelay]="hideDelay"
     [matTooltip]="messageDynamic"
+    (click)="dynamicReset($event)"
   ></div>
   <span class="reset-text">{{ settingsType }}</span>
 </div>

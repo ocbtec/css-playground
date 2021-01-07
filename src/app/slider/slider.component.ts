@@ -27,7 +27,7 @@ export class SliderComponent implements OnInit {
     unit: ''
   }
 
-  constructor(private settingsService: SettingsService) { }
+  constructor(public settingsService: SettingsService) { }
 
   ngOnInit(): void {
   }

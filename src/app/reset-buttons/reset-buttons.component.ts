@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {TooltipPosition} from '@angular/material/tooltip';
+import { SettingsService } from '../service/settings.service';
 
 @Component({
   selector: 'app-reset-buttons',
@@ -11,12 +12,21 @@ export class ResetButtonsComponent implements OnInit {
   showDelay: number = 200;
   hideDelay: number = 200;
   messageDefault: string = 'Reset ALL Settings';
-  @Input() messageDynamic: string = 'Reset Transform Settings';
-  @Input() settingsType: string = 'Transform';
+  messageDynamic: string = '';
+  settingsType: string = '';
 
-  constructor() { }
+  constructor(private settingsService: SettingsService) { }
 
   ngOnInit(): void {
+    this.settingsType = this.settingsService.settingsType;
+    this.messageDynamic = this.settingsService.messageDynamic;
+  }
+
+  dynamicReset(event: any) {
+    let resetTab = event.target.id;
+    if (resetTab === 'Transform') {
+      this.settingsService.resetTransformSettings();
+    }
   }
 
 }

@@ -1,6 +1,6 @@
 <div
   class="output-box"
-  [style.height.px] = settingsService.sizeValue
-  [style.width.px] = settingsService.sizeValue
-  [ngStyle]="{'transform': 'translate(' + settingsService.transformX + 'px, ' + settingsService.transformY + 'px) rotate(' + settingsService.rotateDegree + 'deg)'}">
+  [style.height.px] = settingsService.sizeSlider.slider.currentValue
+  [style.width.px] = settingsService.sizeSlider.slider.currentValue
+  [ngStyle]="{'transform': 'translate(' + settingsService.horizontallySlider.slider.currentValue + 'px, ' + settingsService.verticallySlider.slider.currentValue + 'px) rotate(' + settingsService.rotateSlider.slider.currentValue + 'deg)'}">
 </div>
