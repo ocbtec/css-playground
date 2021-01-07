@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatSliderChange } from '@angular/material/slider';
-import { TransformSettingsService } from '../services/transformSettings.service';
+import { TransformSettingsService } from '../services/transform-Settings.service';
 
 @Component({
   selector: 'app-slider',

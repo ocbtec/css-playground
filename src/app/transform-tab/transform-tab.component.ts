@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TransformSettingsService } from '../services/transformSettings.service';
+import { TransformSettingsService } from '../services/transform-Settings.service';
 import { Transform } from './transform.model';
 
 @Component({

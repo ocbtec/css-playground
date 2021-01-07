@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { TransformSettingsService } from './transformSettings.service';
+import { TransformSettingsService } from './transform-Settings.service';
 
 describe('SettingsService', () => {
   let service: TransformSettingsService;
