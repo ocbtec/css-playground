@@ -3,7 +3,7 @@
   flex-direction: row;
   flex-wrap: nowrap;
   width: 80%;
-  height: 500px;
+  height: 700px;
   margin: 0 auto;
   margin-top: 10rem;
 }
@@ -15,7 +15,11 @@
   border-left: 1px solid #bababa;
 }
 .output-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex: 1;
   background-color: #fafafa;
   border: 1px solid #bababa;
+  overflow: hidden;
 }
