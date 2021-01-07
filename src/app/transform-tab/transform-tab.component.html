@@ -1,15 +1,5 @@
-<div class="size-container">
-  <div>
-    <label for="">
-      <mat-slider
-          class="mat-slider-horizontal"
-          (input)='getSliderValue($event)'
-          min="10"
-          max="300"
-          step="1"
-          value="50"
-        ></mat-slider>
-    </label>
-  </div>
-  <div></div>
+<div class="transform-container">
+  <ul *ngFor="let item of items" class="slider-wrapper">
+    <app-slider [label]="item.label" [slider]="item.slider"></app-slider>
+  </ul>
 </div>

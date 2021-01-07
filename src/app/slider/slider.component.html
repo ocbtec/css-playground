@@ -1,0 +1,19 @@
+<div class="slider-container">
+  <div>
+    <span class="slider-label">{{ label }}</span>
+    <div>
+      <mat-slider
+      class="mat-slider-horizontal"
+      (input)='getSliderType($event)'
+      min="{{ slider.minValue }}"
+      max="{{ slider.maxValue }}"
+      step="{{ slider.step }}"
+      value="{{ slider.startValue }}"
+      id="{{ slider.id }}"
+      ></mat-slider>
+    </div>
+  </div>
+  <div class="slider-value">
+    {{ slider.currentValue }}{{ slider.unit }}
+  </div>
+</div>
