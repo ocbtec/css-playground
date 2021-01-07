@@ -5,6 +5,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatSliderModule } from '@angular/material/slider';
 
+import { SettingsService } from './service/settings.service';
+
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { PlaygroundInputComponent } from './playground-input/playground-input.component';
@@ -13,9 +15,8 @@ import { TopContainerComponent } from './top-container/top-container.component';
 import { FooterComponent } from './footer/footer.component';
 import { SettingsTabComponent } from './settings-tab/settings-tab.component';
 import { TransformTabComponent } from './transform-tab/transform-tab.component';
-
-import { SettingsService } from './service/settings.service';
 import { SliderComponent } from './slider/slider.component';
+import { ResetButtonsComponent } from './reset-buttons/reset-buttons.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { SliderComponent } from './slider/slider.component';
     FooterComponent,
     SettingsTabComponent,
     TransformTabComponent,
-    SliderComponent
+    SliderComponent,
+    ResetButtonsComponent
   ],
   imports: [
     BrowserModule,
