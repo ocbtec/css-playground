@@ -14,7 +14,6 @@ export class SliderComponent implements OnInit {
     minValue: number,
     maxValue: number,
     step: number,
-    startValue: number,
     currentValue: number,
     unit: string
   } = {
@@ -22,7 +21,6 @@ export class SliderComponent implements OnInit {
     minValue: 0,
     maxValue: 0,
     step: 0,
-    startValue: 0,
     currentValue: 0,
     unit: ''
   }

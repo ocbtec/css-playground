@@ -5,7 +5,6 @@ export interface Transform {
     minValue: number,
     maxValue: number,
     step: number,
-    startValue: number,
     currentValue: number,
     unit: string
   }

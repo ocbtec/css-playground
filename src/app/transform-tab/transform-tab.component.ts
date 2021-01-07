@@ -15,7 +15,6 @@ export class TransformTabComponent implements OnInit {
       minValue: 0,
       maxValue: 0,
       step: 0,
-      startValue: 0,
       currentValue: 0,
       unit: ''
     }

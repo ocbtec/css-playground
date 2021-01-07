@@ -17,8 +17,7 @@ export class SettingsService {
       minValue: 10,
       maxValue: 300,
       step: 1,
-      startValue: 50,
-      currentValue: 50,
+      currentValue: 100,
       unit: 'px'
     }
   }
@@ -29,7 +28,6 @@ export class SettingsService {
       minValue: -300,
       maxValue: 300,
       step: 1,
-      startValue: 0,
       currentValue: 0,
       unit: 'px'
     }
@@ -41,7 +39,6 @@ export class SettingsService {
       minValue: -300,
       maxValue: 300,
       step: 1,
-      startValue: 0,
       currentValue: 0,
       unit: 'px'
     }
@@ -53,7 +50,6 @@ export class SettingsService {
       minValue: 0,
       maxValue: 360,
       step: 1,
-      startValue: 0,
       currentValue: 0,
       unit: '°'
     }
@@ -91,7 +87,7 @@ export class SettingsService {
   }
 
   resetTransformSettings() {
-    this.sizeSlider.slider.currentValue = 50;
+    this.sizeSlider.slider.currentValue = 100;
     this.horizontallySlider.slider.currentValue = 0;
     this.verticallySlider.slider.currentValue = 0;
     this.rotateSlider.slider.currentValue = 0;
