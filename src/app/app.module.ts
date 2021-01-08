@@ -7,6 +7,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { TransformSettingsService } from './services/transform-Settings.service';
+import { BorderSettingsService } from './services/border-settings.service';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -42,7 +43,10 @@ import { BorderTabComponent } from './border-tab/border-tab.component';
     MatTabsModule,
     MatTooltipModule
   ],
-  providers: [TransformSettingsService],
+  providers: [
+    TransformSettingsService,
+    BorderSettingsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
