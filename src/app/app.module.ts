@@ -5,8 +5,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSelectModule } from '@angular/material/select';
 
-import { SettingsService } from './service/settings.service';
+import { TransformSettingsService } from './services/transform-Settings.service';
+import { BorderSettingsService } from './services/border-settings.service';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -18,6 +20,8 @@ import { SettingsTabComponent } from './settings-tab/settings-tab.component';
 import { TransformTabComponent } from './transform-tab/transform-tab.component';
 import { SliderComponent } from './slider/slider.component';
 import { ResetButtonsComponent } from './reset-buttons/reset-buttons.component';
+import { BorderTabComponent } from './border-tab/border-tab.component';
+import { BorderStyleSelectComponent } from './border-tab/border-style-select/border-style-select.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,9 @@ import { ResetButtonsComponent } from './reset-buttons/reset-buttons.component';
     SettingsTabComponent,
     TransformTabComponent,
     SliderComponent,
-    ResetButtonsComponent
+    ResetButtonsComponent,
+    BorderTabComponent,
+    BorderStyleSelectComponent
   ],
   imports: [
     BrowserModule,
@@ -38,9 +44,13 @@ import { ResetButtonsComponent } from './reset-buttons/reset-buttons.component';
     BrowserAnimationsModule,
     MatSliderModule,
     MatTabsModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatSelectModule
   ],
-  providers: [SettingsService],
+  providers: [
+    TransformSettingsService,
+    BorderSettingsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

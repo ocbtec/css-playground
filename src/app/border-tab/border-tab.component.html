@@ -1,7 +1,11 @@
-<div class="transform-container">
+<div class="border-container">
   <ul *ngFor="let item of items" class="slider-wrapper">
     <app-slider [label]="item.label" [slider]="item.slider"></app-slider>
   </ul>
+  <div class="select-menu-container">
+    <app-border-style-select class="select-menu"></app-border-style-select>
+    <span class="select-menu-span">select the border style</span>
+  </div>
   <app-reset-buttons
     class="reset-buttons-container"
     [settingsType]="settingsType"

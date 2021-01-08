@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatSliderChange } from '@angular/material/slider';
-import { SettingsService } from '../service/settings.service';
+import { TransformSettingsService } from '../services/transform-Settings.service';
 
 @Component({
   selector: 'app-slider',
@@ -25,7 +25,7 @@ export class SliderComponent implements OnInit {
     unit: ''
   }
 
-  constructor(public settingsService: SettingsService) { }
+  constructor(public transformSettingsService: TransformSettingsService) { }
 
   ngOnInit(): void {
   }
@@ -49,19 +49,19 @@ export class SliderComponent implements OnInit {
   }
 
   changeSize(value: number) {
-    this.settingsService.changeSize(value);
+    this.transformSettingsService.changeSize(value);
   }
 
   moveHorizontally(value: number) {
-    this.settingsService.moveHorizontally(value);
+    this.transformSettingsService.moveHorizontally(value);
   }
 
   moveVertically(value: number) {
-    this.settingsService.moveVertically(value);
+    this.transformSettingsService.moveVertically(value);
   }
 
   rotate(value: number) {
-    this.settingsService.rotate(value);
+    this.transformSettingsService.rotate(value);
   }
 
 }

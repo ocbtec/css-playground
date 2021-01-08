@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SettingsService } from '../service/settings.service';
+import { BorderSettingsService } from '../services/border-settings.service';
+import { TransformSettingsService } from '../services/transform-Settings.service';
 
 @Component({
   selector: 'app-playground-output',
@@ -8,7 +9,10 @@ import { SettingsService } from '../service/settings.service';
 })
 export class PlaygroundOutputComponent implements OnInit {
 
-  constructor(public settingsService: SettingsService) { }
+  constructor(
+    public transformSettingsService: TransformSettingsService,
+    public borderSettingsService: BorderSettingsService
+  ) { }
 
   ngOnInit(): void { }
 

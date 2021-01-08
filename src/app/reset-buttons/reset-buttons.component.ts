@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {TooltipPosition} from '@angular/material/tooltip';
-import { SettingsService } from '../service/settings.service';
+import { TransformSettingsService } from '../services/transform-Settings.service';
+import { BorderSettingsService } from '../services/border-settings.service';
 
 @Component({
   selector: 'app-reset-buttons',
@@ -8,24 +9,29 @@ import { SettingsService } from '../service/settings.service';
   styleUrls: ['./reset-buttons.component.scss']
 })
 export class ResetButtonsComponent implements OnInit {
+  @Input() messageDynamic: string = '';
+  @Input() settingsType: string = '';
   position: TooltipPosition = 'above';
   showDelay: number = 200;
   hideDelay: number = 200;
   messageDefault: string = 'Reset ALL Settings';
-  messageDynamic: string = '';
-  settingsType: string = '';
 
-  constructor(private settingsService: SettingsService) { }
+  constructor(
+    private transformSettingsService: TransformSettingsService,
+    private borderSettingsService: BorderSettingsService
+  ) { }
 
-  ngOnInit(): void {
-    this.settingsType = this.settingsService.settingsType;
-    this.messageDynamic = this.settingsService.messageDynamic;
-  }
+  ngOnInit(): void { }
 
   dynamicReset(event: any) {
     let resetTab = event.target.id;
     if (resetTab === 'Transform') {
-      this.settingsService.resetTransformSettings();
+      this.transformSettingsService.resetTransformSettings();
+    } else if (resetTab === 'Border') {
+      this.borderSettingsService.resetTransformSettings();
+    } else if (resetTab === 'all') {
+      this.transformSettingsService.resetTransformSettings();
+      this.borderSettingsService.resetTransformSettings();
     }
   }
 
