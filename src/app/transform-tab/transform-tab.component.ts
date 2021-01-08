@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SettingsService } from '../service/settings.service';
-import { Transform } from './transform.model';
+import { TransformSettingsService } from '../services/transform-Settings.service';
+import { Slider } from '../slider/slider.model';
 
 @Component({
   selector: 'app-transform-tab',
@@ -8,7 +8,7 @@ import { Transform } from './transform.model';
   styleUrls: ['./transform-tab.component.scss']
 })
 export class TransformTabComponent implements OnInit {
-  sliderType: Transform = {
+  sliderType: Slider = {
     label: '',
     slider: {
       id: '',
@@ -19,18 +19,18 @@ export class TransformTabComponent implements OnInit {
       unit: ''
     }
   }
-  items: Transform[] = [];
+  items: Slider[] = [];
 
-  constructor(private settingsService: SettingsService) { }
+  constructor(private transformSettingsService: TransformSettingsService) { }
 
   ngOnInit(): void {
-    this.settingsService.initializeSizeSlider();
-    this.settingsService.initializeMoveHorizontallySlider();
-    this.settingsService.initializeMoveVerticallySlider();
-    this.settingsService.initializeMoveRotateSlider();
-    this.settingsService.settingsType = 'Transform';
-    this.settingsService.messageDynamic = 'Reset Transform Settings';
-    this.items = this.settingsService.items;
+    this.transformSettingsService.initializeSizeSlider();
+    this.transformSettingsService.initializeMoveHorizontallySlider();
+    this.transformSettingsService.initializeMoveVerticallySlider();
+    this.transformSettingsService.initializeMoveRotateSlider();
+    this.transformSettingsService.settingsType = 'Transform';
+    this.transformSettingsService.messageDynamic = 'Reset Transform Settings';
+    this.items = this.transformSettingsService.items;
   }
 
 }
