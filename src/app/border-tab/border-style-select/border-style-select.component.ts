@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MatSelectChange } from '@angular/material/select';
 import { BorderSettingsService } from 'src/app/services/border-settings.service';
 
@@ -7,18 +7,29 @@ import { BorderSettingsService } from 'src/app/services/border-settings.service'
   templateUrl: './border-style-select.component.html',
   styleUrls: ['./border-style-select.component.scss']
 })
-export class BorderStyleSelectComponent {
+export class BorderStyleSelectComponent implements OnInit {
   @Output() valueChange = new EventEmitter<number>();
 
-  constructor(private borderSettingsService: BorderSettingsService) { }
+  constructor(public borderSettingsService: BorderSettingsService) { }
+
+  ngOnInit() {
+    this.borderSettingsService.borderStyle = this.border[9].value;
+  }
 
   border: {
     value: string,
     viewValue: string
   }[] = [
-    {value: 'solid-0', viewValue: 'solid'},
-    {value: 'dashed-1', viewValue: 'dashed'},
-    {value: 'dotted-2', viewValue: 'dotted'}
+    {value: 'dashed', viewValue: 'dashed'},
+    {value: 'dotted', viewValue: 'dotted'},
+    {value: 'double', viewValue: 'double'},
+    {value: 'groove', viewValue: 'groove'},
+    {value: 'hidden', viewValue: 'hidden'},
+    {value: 'inset', viewValue: 'inset'},
+    {value: 'none', viewValue: 'none'},
+    {value: 'outset', viewValue: 'outset'},
+    {value: 'ridge', viewValue: 'ridge'},
+    {value: 'solid', viewValue: 'solid'}
   ];
 
   selectedData: {
@@ -29,7 +40,7 @@ export class BorderStyleSelectComponent {
     viewValue: ''
   }
 
-  selectedBorder = this.border[0].value;
+  // selectedBorder = this.border[9].value;
 
   selectedValue(event: MatSelectChange) {
     this.selectedData = {
