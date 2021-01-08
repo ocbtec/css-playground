@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Transform } from '../transform-tab/transform.model';
+import { Slider } from '../slider/slider.model';
 
 @Injectable({
   providedIn: 'root'
@@ -8,9 +8,9 @@ export class TransformSettingsService {
   settingsType: string = '';
   messageDynamic: string = '';
 
-  items: Transform[] = [];
+  items: Slider[] = [];
 
-  sizeSlider: Transform = {
+  sizeSlider: Slider = {
     label: 'Size',
     slider: {
       id: 'size',
@@ -21,7 +21,7 @@ export class TransformSettingsService {
       unit: 'px'
     }
   }
-  horizontallySlider: Transform = {
+  horizontallySlider: Slider = {
     label: 'Move horizontally',
     slider: {
       id:'hMovement',
@@ -32,7 +32,7 @@ export class TransformSettingsService {
       unit: 'px'
     }
   }
-  verticallySlider: Transform = {
+  verticallySlider: Slider = {
     label: 'Move vertically',
     slider: {
       id: 'vMovement',
@@ -43,7 +43,7 @@ export class TransformSettingsService {
       unit: 'px'
     }
   }
-  rotateSlider: Transform = {
+  rotateSlider: Slider = {
     label: 'Rotate',
     slider: {
       id:'rotate',

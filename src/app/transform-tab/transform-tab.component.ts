@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TransformSettingsService } from '../services/transform-Settings.service';
-import { Transform } from './transform.model';
+import { Slider } from '../slider/slider.model';
 
 @Component({
   selector: 'app-transform-tab',
@@ -8,7 +8,7 @@ import { Transform } from './transform.model';
   styleUrls: ['./transform-tab.component.scss']
 })
 export class TransformTabComponent implements OnInit {
-  sliderType: Transform = {
+  sliderType: Slider = {
     label: '',
     slider: {
       id: '',
@@ -19,7 +19,7 @@ export class TransformTabComponent implements OnInit {
       unit: ''
     }
   }
-  items: Transform[] = [];
+  items: Slider[] = [];
 
   constructor(private transformSettingsService: TransformSettingsService) { }
 
