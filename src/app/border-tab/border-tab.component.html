@@ -6,6 +6,11 @@
     <app-border-style-select class="select-menu"></app-border-style-select>
     <span class="select-menu-span">select the border style</span>
   </div>
+  <color-sketch
+    class="color-picker"
+    color="{{ borderSettingsService.borderColor }}"
+    (onChange)="handleChange($event)"
+  ></color-sketch>
   <app-reset-buttons
     class="reset-buttons-container"
     [settingsType]="settingsType"
