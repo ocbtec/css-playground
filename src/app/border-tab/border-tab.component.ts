@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BorderSettingsService } from '../services/border-settings.service';
 import { Slider } from '../slider/slider.model';
+import { ColorEvent } from 'ngx-color';
+
 @Component({
   selector: 'app-border-tab',
   templateUrl: './border-tab.component.html',
@@ -23,12 +25,16 @@ export class BorderTabComponent implements OnInit {
   }
   items: Slider[] = [];
 
-  constructor(private borderSettingsService: BorderSettingsService) { }
+  constructor(public borderSettingsService: BorderSettingsService) { }
 
   ngOnInit(): void {
     this.borderSettingsService.initializeSizeSlider();
     this.borderSettingsService.initializeMoveHorizontallySlider();
     this.items = this.borderSettingsService.items;
+  }
+
+  handleChange($event: ColorEvent) {
+    this.borderSettingsService.borderColor = $event.color.hex;
   }
 
 }

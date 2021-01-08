@@ -6,6 +6,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSelectModule } from '@angular/material/select';
+import { ColorSketchModule } from 'ngx-color/sketch';
 
 import { TransformSettingsService } from './services/transform-Settings.service';
 import { BorderSettingsService } from './services/border-settings.service';
@@ -45,7 +46,8 @@ import { BorderStyleSelectComponent } from './border-tab/border-style-select/bor
     MatSliderModule,
     MatTabsModule,
     MatTooltipModule,
-    MatSelectModule
+    MatSelectModule,
+    ColorSketchModule
   ],
   providers: [
     TransformSettingsService,
