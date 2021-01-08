@@ -1,12 +1,7 @@
 @import '../../styles.scss';
 
-.transform-container {
+.border-container {
   @include tab-container;
-}
-
-.slider-wrapper {
-  flex-grow: 1;
-  width: 100%;
 }
 
 .reset-buttons-container {

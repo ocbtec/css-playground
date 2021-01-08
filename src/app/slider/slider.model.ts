@@ -1,4 +1,4 @@
-export interface Transform {
+export interface Slider {
   label: string;
   slider: {
     id: string,

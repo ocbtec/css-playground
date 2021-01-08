@@ -1,6 +1,8 @@
 <div
   class="output-box"
-  [style.height.px] = settingsService.sizeSlider.slider.currentValue
-  [style.width.px] = settingsService.sizeSlider.slider.currentValue
-  [ngStyle]="{'transform': 'translate(' + settingsService.horizontallySlider.slider.currentValue + 'px, ' + settingsService.verticallySlider.slider.currentValue + 'px) rotate(' + settingsService.rotateSlider.slider.currentValue + 'deg)'}">
+  [style.height.px]=transformSettingsService.sizeSlider.slider.currentValue
+  [style.width.px]=transformSettingsService.sizeSlider.slider.currentValue
+  [ngStyle]="{'transform': 'translate(' + transformSettingsService.horizontallySlider.slider.currentValue + 'px, ' + transformSettingsService.verticallySlider.slider.currentValue + 'px) rotate(' + transformSettingsService.rotateSlider.slider.currentValue + 'deg)'}"
+  [style.border-width.px]=borderSettingsService.widthSlider.slider.currentValue
+  [style.border-radius.%]=borderSettingsService.radiusSlider.slider.currentValue>
 </div>
