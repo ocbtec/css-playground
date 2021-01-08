@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { BorderSettingsService } from '../services/border-settings.service';
 import { Slider } from '../slider/slider.model';
 import { ColorEvent } from 'ngx-color';
@@ -6,7 +6,8 @@ import { ColorEvent } from 'ngx-color';
 @Component({
   selector: 'app-border-tab',
   templateUrl: './border-tab.component.html',
-  styleUrls: ['./border-tab.component.scss']
+  styleUrls: ['./border-tab.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class BorderTabComponent implements OnInit {
   settingsType: string = 'Border';
