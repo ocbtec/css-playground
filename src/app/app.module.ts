@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSelectModule } from '@angular/material/select';
 
 import { TransformSettingsService } from './services/transform-Settings.service';
 import { BorderSettingsService } from './services/border-settings.service';
@@ -20,6 +21,7 @@ import { TransformTabComponent } from './transform-tab/transform-tab.component';
 import { SliderComponent } from './slider/slider.component';
 import { ResetButtonsComponent } from './reset-buttons/reset-buttons.component';
 import { BorderTabComponent } from './border-tab/border-tab.component';
+import { BorderStyleSelectComponent } from './border-tab/border-style-select/border-style-select.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import { BorderTabComponent } from './border-tab/border-tab.component';
     TransformTabComponent,
     SliderComponent,
     ResetButtonsComponent,
-    BorderTabComponent
+    BorderTabComponent,
+    BorderStyleSelectComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,8 @@ import { BorderTabComponent } from './border-tab/border-tab.component';
     BrowserAnimationsModule,
     MatSliderModule,
     MatTabsModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatSelectModule
   ],
   providers: [
     TransformSettingsService,

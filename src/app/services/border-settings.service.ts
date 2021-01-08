@@ -30,6 +30,8 @@ export class BorderSettingsService {
     }
   }
 
+  borderStyle: string = 'solid';
+
   constructor() { }
 
   initializeSizeSlider() {

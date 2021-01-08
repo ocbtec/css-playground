@@ -2,6 +2,7 @@
   <ul *ngFor="let item of items" class="slider-wrapper">
     <app-slider [label]="item.label" [slider]="item.slider"></app-slider>
   </ul>
+  <app-border-style-select></app-border-style-select>
   <app-reset-buttons
     class="reset-buttons-container"
     [settingsType]="settingsType"
