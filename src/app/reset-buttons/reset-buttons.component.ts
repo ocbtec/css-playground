@@ -29,6 +29,9 @@ export class ResetButtonsComponent implements OnInit {
       this.transformSettingsService.resetTransformSettings();
     } else if (resetTab === 'Border') {
       this.borderSettingsService.resetTransformSettings();
+    } else if (resetTab === 'all') {
+      this.transformSettingsService.resetTransformSettings();
+      this.borderSettingsService.resetTransformSettings();
     }
   }
 
