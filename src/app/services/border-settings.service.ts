@@ -5,9 +5,6 @@ import { Slider } from '../slider/slider.model';
   providedIn: 'root'
 })
 export class BorderSettingsService {
-  settingsType: string = '';
-  messageDynamic: string = '';
-
   items: Slider[] = [];
 
   widthSlider: Slider = {

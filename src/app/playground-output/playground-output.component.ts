@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BorderSettingsService } from '../services/border-settings.service';
 import { TransformSettingsService } from '../services/transform-Settings.service';
 
 @Component({
@@ -8,7 +9,10 @@ import { TransformSettingsService } from '../services/transform-Settings.service
 })
 export class PlaygroundOutputComponent implements OnInit {
 
-  constructor(public transformSettingsService: TransformSettingsService) { }
+  constructor(
+    public transformSettingsService: TransformSettingsService,
+    public borderSettingsService: BorderSettingsService
+  ) { }
 
   ngOnInit(): void { }
 

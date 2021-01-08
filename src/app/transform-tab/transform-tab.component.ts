@@ -8,6 +8,9 @@ import { Slider } from '../slider/slider.model';
   styleUrls: ['./transform-tab.component.scss']
 })
 export class TransformTabComponent implements OnInit {
+  settingsType: string = 'Transform';
+  messageDynamic: string = 'Reset Transform Settings';
+
   sliderType: Slider = {
     label: '',
     slider: {
