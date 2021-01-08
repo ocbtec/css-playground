@@ -1,11 +1,12 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewEncapsulation } from '@angular/core';
 import { MatSelectChange } from '@angular/material/select';
 import { BorderSettingsService } from 'src/app/services/border-settings.service';
 
 @Component({
   selector: 'app-border-style-select',
   templateUrl: './border-style-select.component.html',
-  styleUrls: ['./border-style-select.component.scss']
+  styleUrls: ['./border-style-select.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class BorderStyleSelectComponent implements OnInit {
   @Output() valueChange = new EventEmitter<number>();

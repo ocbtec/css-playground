@@ -7,3 +7,19 @@
 .reset-buttons-container {
   @include reset-buttons-container;
 }
+
+.select-menu-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.select-menu {
+  padding: 0 1.5rem;
+}
+
+.select-menu-span {
+  color: gray;
+  background-color: #f2f2f2;
+  padding: 0.5rem;
+}
