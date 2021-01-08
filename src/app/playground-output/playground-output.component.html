@@ -4,5 +4,6 @@
   [style.width.px]=transformSettingsService.sizeSlider.slider.currentValue
   [ngStyle]="{'transform': 'translate(' + transformSettingsService.horizontallySlider.slider.currentValue + 'px, ' + transformSettingsService.verticallySlider.slider.currentValue + 'px) rotate(' + transformSettingsService.rotateSlider.slider.currentValue + 'deg)'}"
   [style.border-width.px]=borderSettingsService.widthSlider.slider.currentValue
-  [style.border-radius.%]=borderSettingsService.radiusSlider.slider.currentValue>
+  [style.border-radius.%]=borderSettingsService.radiusSlider.slider.currentValue
+  [style.border-style]=borderSettingsService.borderStyle>
 </div>

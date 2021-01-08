@@ -1,0 +1,5 @@
+<mat-form-field appearance="fill">
+  <mat-select [value]="borderSettingsService.borderStyle" (selectionChange)="selectedValue($event)">
+    <mat-option [value]="option.value" *ngFor="let option of border">{{ option.viewValue }}</mat-option>
+  </mat-select>
+</mat-form-field>

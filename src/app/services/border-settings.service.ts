@@ -30,6 +30,8 @@ export class BorderSettingsService {
     }
   }
 
+  borderStyle: string = 'solid';
+
   constructor() { }
 
   initializeSizeSlider() {
@@ -49,5 +51,6 @@ export class BorderSettingsService {
   resetTransformSettings() {
     this.widthSlider.slider.currentValue = 2;
     this.radiusSlider.slider.currentValue = 0;
+    this.borderStyle = 'solid';
   }
 }
