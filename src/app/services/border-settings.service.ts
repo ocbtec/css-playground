@@ -35,21 +35,15 @@ export class BorderSettingsService {
 
   constructor() { }
 
-  initializeSizeSlider() {
+  initializeWidthSlider() {
     this.items.push(this.widthSlider);
   }
-  initializeMoveHorizontallySlider() {
+  initializeRadiusSlider() {
     this.items.push(this.radiusSlider);
   }
 
-  changeSize(value: number) {
-    this.widthSlider.slider.currentValue = value;
-  }
-  moveHorizontally(value: number) {
-    this.radiusSlider.slider.currentValue = value;
-  }
 
-  resetTransformSettings() {
+  resetBorderSettings() {
     this.widthSlider.slider.currentValue = 2;
     this.radiusSlider.slider.currentValue = 0;
     this.borderStyle = 'solid';
