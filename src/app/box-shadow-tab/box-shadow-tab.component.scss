@@ -1,0 +1,25 @@
+@import '../../styles.scss';
+
+.box-shadow-container {
+  @include tab-container;
+}
+
+.slider-wrapper {
+  @include slider-wrapper
+}
+
+.toggle-container {
+  width: 100%;
+  padding-left: 1rem;
+}
+
+.toggle-lable {
+  color: gray;
+  background-color: #f2f2f2;
+  padding: 0.5rem;
+  margin-left: 1rem;
+}
+
+.reset-buttons-container {
+  @include reset-buttons-container;
+}

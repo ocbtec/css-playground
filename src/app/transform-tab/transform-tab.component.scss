@@ -5,8 +5,7 @@
 }
 
 .slider-wrapper {
-  flex-grow: 1;
-  width: 100%;
+  @include slider-wrapper
 }
 
 .reset-buttons-container {

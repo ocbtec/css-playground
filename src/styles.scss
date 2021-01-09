@@ -74,6 +74,11 @@ $secondary-color: #083272;
   padding: 0.5rem;
 }
 
+@mixin slider-wrapper {
+  flex-grow: 1;
+  width: 100%;
+}
+
 @mixin reset-buttons-container {
   display: flex;
   padding: 0 1.5rem;
