@@ -43,7 +43,7 @@ export class BoxShadowSettingsService {
       unit: 'px'
     }
   }
-  spreadRadius: Slider = {
+  spreadRadiusSlider: Slider = {
     label: 'Spread Radius',
     slider: {
       id:'spread-radius',
@@ -70,26 +70,13 @@ export class BoxShadowSettingsService {
   }
 
   initializeSpreadRadiusSlider() {
-    this.items.push(this.spreadRadius);
-  }
-
-  changeOffsetX(value: number) {
-    this.offsetXSlider.slider.currentValue = value;
-  }
-  changeOffsetY(value: number) {
-    this.offsetYSlider.slider.currentValue = value;
-  }
-  changeBlurRadius(value: number) {
-    this.blurRadiusSlider.slider.currentValue = value;
-  }
-  changeSpreadRadius(value: number) {
-    this.spreadRadius.slider.currentValue = value;
+    this.items.push(this.spreadRadiusSlider);
   }
 
   resetBoxShadowSettings() {
-    this.offsetXSlider.slider.currentValue = 100;
+    this.offsetXSlider.slider.currentValue = 0;
     this.offsetYSlider.slider.currentValue = 0;
     this.blurRadiusSlider.slider.currentValue = 0;
-    this.spreadRadius.slider.currentValue = 0;
+    this.spreadRadiusSlider.slider.currentValue = 0;
   }
 }

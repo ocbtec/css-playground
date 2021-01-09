@@ -31,8 +31,6 @@ export class BoxShadowTabComponent implements OnInit {
     this.boxShadowSettingsService.initializeOffsetYSlider();
     this.boxShadowSettingsService.initializeBlurRadiusSlider();
     this.boxShadowSettingsService.initializeSpreadRadiusSlider();
-    this.boxShadowSettingsService.settingsType = 'Box-Shadow';
-    this.boxShadowSettingsService.messageDynamic = 'Reset Box-Shadow Settings';
     this.items = this.boxShadowSettingsService.items;
   }
 
