@@ -2,6 +2,10 @@
   <ul *ngFor="let item of items" class="slider-wrapper">
     <app-slider [label]="item.label" [slider]="item.slider"></app-slider>
   </ul>
+  <mat-slide-toggle
+    [(ngModel)]="shadowInset"
+    (change)="onChange()"
+  ></mat-slide-toggle>
   <app-reset-buttons
     class="reset-buttons-container"
     [settingsType]="settingsType"

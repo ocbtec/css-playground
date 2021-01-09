@@ -7,6 +7,8 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSelectModule } from '@angular/material/select';
 import { ColorSliderModule } from 'ngx-color/slider';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { FormsModule } from '@angular/forms';
 
 import { TransformSettingsService } from './services/transform-Settings.service';
 import { BorderSettingsService } from './services/border-settings.service';
@@ -49,7 +51,9 @@ import { BoxShadowTabComponent } from './box-shadow-tab/box-shadow-tab.component
     MatTabsModule,
     MatTooltipModule,
     MatSelectModule,
-    ColorSliderModule
+    ColorSliderModule,
+    MatSlideToggleModule,
+    FormsModule
   ],
   providers: [
     TransformSettingsService,

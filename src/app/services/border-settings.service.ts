@@ -31,7 +31,7 @@ export class BorderSettingsService {
   }
 
   borderStyle: string = 'solid';
-  borderColor: string = '#b6ddfd'
+  borderColor: string = '#b6ddfd';
 
   constructor() { }
 
