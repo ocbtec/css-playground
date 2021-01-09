@@ -9,6 +9,8 @@ export class BoxShadowSettingsService {
   messageDynamic: string = '';
 
   shadowInset: string = '';
+  shadowInsetSwitch: boolean = false;
+  color: string = '#232323';
 
   items: Slider[] = [];
 
@@ -80,5 +82,8 @@ export class BoxShadowSettingsService {
     this.offsetYSlider.slider.currentValue = 0;
     this.blurRadiusSlider.slider.currentValue = 0;
     this.spreadRadiusSlider.slider.currentValue = 0;
+    this.shadowInsetSwitch = false;
+    this.shadowInset = '';
+    this.color = '#232323';
   }
 }

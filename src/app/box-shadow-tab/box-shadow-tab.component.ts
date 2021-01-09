@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ColorEvent } from 'ngx-color';
 import { BoxShadowSettingsService } from '../services/box-shadow-settings.service';
 import { Slider } from '../slider/slider.model';
 
@@ -10,7 +11,6 @@ import { Slider } from '../slider/slider.model';
 export class BoxShadowTabComponent implements OnInit {
   settingsType: string = 'Box-Shadow';
   messageDynamic: string = 'Reset Box-Shadow Settings';
-  shadowInset: boolean = false;
 
   sliderType: Slider = {
     label: '',
@@ -25,7 +25,7 @@ export class BoxShadowTabComponent implements OnInit {
   }
   items: Slider[] = [];
 
-  constructor(private boxShadowSettingsService: BoxShadowSettingsService) { }
+  constructor(public boxShadowSettingsService: BoxShadowSettingsService) { }
 
   ngOnInit(): void {
     this.boxShadowSettingsService.initializeOffsetXSlider();
@@ -36,6 +36,10 @@ export class BoxShadowTabComponent implements OnInit {
   }
 
   onChange() {
-    this.shadowInset ? this.boxShadowSettingsService.shadowInset = 'inset' : this.boxShadowSettingsService.shadowInset = '';
+    this.boxShadowSettingsService.shadowInsetSwitch ? this.boxShadowSettingsService.shadowInset = 'inset' : this.boxShadowSettingsService.shadowInset = '';
+  }
+
+  handleChange($event: ColorEvent) {
+    this.boxShadowSettingsService.color = $event.color.hex;
   }
 }

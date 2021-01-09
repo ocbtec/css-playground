@@ -4,10 +4,18 @@
   </ul>
   <div class="toggle-container">
     <mat-slide-toggle
-    [(ngModel)]="shadowInset"
+    [(ngModel)]="boxShadowSettingsService.shadowInsetSwitch"
     (change)="onChange()"
     ></mat-slide-toggle>
-    <span class="toggle-lable">Inset</span>
+    <span class="toggle-label">Inset</span>
+  </div>
+  <div class="color-picker-container">
+    <span class="color-picker-text">Pick box-shadow color</span>
+    <color-slider
+      class="color-picker"
+      color="{{ boxShadowSettingsService.color }}"
+      (onChange)="handleChange($event)"
+    ></color-slider>
   </div>
   <app-reset-buttons
     class="reset-buttons-container"
