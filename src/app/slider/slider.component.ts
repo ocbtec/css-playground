@@ -25,7 +25,7 @@ export class SliderComponent implements OnInit {
     unit: ''
   }
 
-  constructor(public transformSettingsService: TransformSettingsService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
@@ -33,35 +33,6 @@ export class SliderComponent implements OnInit {
   getSliderType(sliderEvent: MatSliderChange) {
     if (sliderEvent.value !== null) {
       this.slider.currentValue = sliderEvent.value;
-      if (sliderEvent.source._elementRef.nativeElement.id === 'size') {
-        this.changeSize(sliderEvent.value);
-      }
-      if (sliderEvent.source._elementRef.nativeElement.id === 'hMovement') {
-        this.moveHorizontally(sliderEvent.value);
-      }
-      if (sliderEvent.source._elementRef.nativeElement.id === 'vMovement') {
-        this.moveVertically(sliderEvent.value);
-      }
-      if (sliderEvent.source._elementRef.nativeElement.id === 'rotate') {
-        this.rotate(sliderEvent.value);
-      }
     }
   }
-
-  changeSize(value: number) {
-    this.transformSettingsService.changeSize(value);
-  }
-
-  moveHorizontally(value: number) {
-    this.transformSettingsService.moveHorizontally(value);
-  }
-
-  moveVertically(value: number) {
-    this.transformSettingsService.moveVertically(value);
-  }
-
-  rotate(value: number) {
-    this.transformSettingsService.rotate(value);
-  }
-
 }

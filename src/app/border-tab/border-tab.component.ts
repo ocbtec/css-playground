@@ -29,8 +29,8 @@ export class BorderTabComponent implements OnInit {
   constructor(public borderSettingsService: BorderSettingsService) { }
 
   ngOnInit(): void {
-    this.borderSettingsService.initializeSizeSlider();
-    this.borderSettingsService.initializeMoveHorizontallySlider();
+    this.borderSettingsService.initializeWidthSlider();
+    this.borderSettingsService.initializeRadiusSlider();
     this.items = this.borderSettingsService.items;
   }
 

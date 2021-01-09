@@ -31,8 +31,6 @@ export class TransformTabComponent implements OnInit {
     this.transformSettingsService.initializeMoveHorizontallySlider();
     this.transformSettingsService.initializeMoveVerticallySlider();
     this.transformSettingsService.initializeMoveRotateSlider();
-    this.transformSettingsService.settingsType = 'Transform';
-    this.transformSettingsService.messageDynamic = 'Reset Transform Settings';
     this.items = this.transformSettingsService.items;
   }
 

@@ -73,19 +73,6 @@ export class TransformSettingsService {
     this.items.push(this.rotateSlider);
   }
 
-  changeSize(value: number) {
-    this.sizeSlider.slider.currentValue = value;
-  }
-  moveHorizontally(value: number) {
-    this.horizontallySlider.slider.currentValue = value;
-  }
-  moveVertically(value: number) {
-    this.verticallySlider.slider.currentValue = value;
-  }
-  rotate(value: number) {
-    this.rotateSlider.slider.currentValue = value;
-  }
-
   resetTransformSettings() {
     this.sizeSlider.slider.currentValue = 100;
     this.horizontallySlider.slider.currentValue = 0;
