@@ -1,0 +1,10 @@
+<div class="box-shadow-container">
+  <ul *ngFor="let item of items" class="slider-wrapper">
+    <app-slider [label]="item.label" [slider]="item.slider"></app-slider>
+  </ul>
+  <app-reset-buttons
+    class="reset-buttons-container"
+    [settingsType]="settingsType"
+    [messageDynamic]="messageDynamic"
+  ></app-reset-buttons>
+</div>

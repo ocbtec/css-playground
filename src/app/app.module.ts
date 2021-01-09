@@ -23,6 +23,7 @@ import { SliderComponent } from './slider/slider.component';
 import { ResetButtonsComponent } from './reset-buttons/reset-buttons.component';
 import { BorderTabComponent } from './border-tab/border-tab.component';
 import { BorderStyleSelectComponent } from './border-tab/border-style-select/border-style-select.component';
+import { BoxShadowTabComponent } from './box-shadow-tab/box-shadow-tab.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { BorderStyleSelectComponent } from './border-tab/border-style-select/bor
     SliderComponent,
     ResetButtonsComponent,
     BorderTabComponent,
-    BorderStyleSelectComponent
+    BorderStyleSelectComponent,
+    BoxShadowTabComponent
   ],
   imports: [
     BrowserModule,
