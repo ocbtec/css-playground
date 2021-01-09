@@ -10,6 +10,7 @@ import { Slider } from '../slider/slider.model';
 export class BoxShadowTabComponent implements OnInit {
   settingsType: string = 'Box-Shadow';
   messageDynamic: string = 'Reset Box-Shadow Settings';
+  shadowInset: boolean = false;
 
   sliderType: Slider = {
     label: '',
@@ -34,4 +35,7 @@ export class BoxShadowTabComponent implements OnInit {
     this.items = this.boxShadowSettingsService.items;
   }
 
+  onChange() {
+    this.shadowInset ? this.boxShadowSettingsService.shadowInset = 'inset' : this.boxShadowSettingsService.shadowInset = '';
+  }
 }

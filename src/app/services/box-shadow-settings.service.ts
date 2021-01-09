@@ -8,6 +8,8 @@ export class BoxShadowSettingsService {
   settingsType: string = '';
   messageDynamic: string = '';
 
+  shadowInset: string = '';
+
   items: Slider[] = [];
 
   offsetXSlider: Slider = {
