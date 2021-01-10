@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Slider } from '../slider/slider.model';
+import { ColorSettingsService } from './color-settings.service';
 
 @Injectable({
   providedIn: 'root'
@@ -31,9 +32,8 @@ export class BorderSettingsService {
   }
 
   borderStyle: string = 'solid';
-  borderColor: string = '#b6ddfd';
 
-  constructor() { }
+  constructor(public colorSettingsService: ColorSettingsService) { }
 
   initializeWidthSlider() {
     this.items.push(this.widthSlider);
@@ -47,6 +47,6 @@ export class BorderSettingsService {
     this.widthSlider.slider.currentValue = 2;
     this.radiusSlider.slider.currentValue = 0;
     this.borderStyle = 'solid';
-    this.borderColor = '#b6ddfd';
+    this.colorSettingsService.borderColor = '#b6ddfd';
   }
 }

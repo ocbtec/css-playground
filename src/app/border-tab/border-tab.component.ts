@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { BorderSettingsService } from '../services/border-settings.service';
 import { Slider } from '../slider/slider.model';
 import { ColorEvent } from 'ngx-color';
+import { ColorSettingsService } from '../services/color-settings.service';
 
 @Component({
   selector: 'app-border-tab',
@@ -26,7 +27,10 @@ export class BorderTabComponent implements OnInit {
   }
   items: Slider[] = [];
 
-  constructor(public borderSettingsService: BorderSettingsService) { }
+  constructor(
+    public borderSettingsService: BorderSettingsService,
+    public colorSettingsService: ColorSettingsService
+  ) { }
 
   ngOnInit(): void {
     this.borderSettingsService.initializeWidthSlider();
@@ -35,7 +39,7 @@ export class BorderTabComponent implements OnInit {
   }
 
   handleChange($event: ColorEvent) {
-    this.borderSettingsService.borderColor = $event.color.hex;
+    this.colorSettingsService.borderColor = $event.color.hex;
   }
 
 }

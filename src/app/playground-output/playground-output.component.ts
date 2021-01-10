@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BorderSettingsService } from '../services/border-settings.service';
 import { TransformSettingsService } from '../services/transform-Settings.service';
 import { BoxShadowSettingsService } from '../services/box-shadow-settings.service';
+import { ColorSettingsService } from '../services/color-settings.service';
 
 @Component({
   selector: 'app-playground-output',
@@ -13,7 +14,8 @@ export class PlaygroundOutputComponent implements OnInit {
   constructor(
     public transformSettingsService: TransformSettingsService,
     public borderSettingsService: BorderSettingsService,
-    public boxShadowSettingsService: BoxShadowSettingsService
+    public boxShadowSettingsService: BoxShadowSettingsService,
+    public colorSettingsService: ColorSettingsService
   ) { }
 
   ngOnInit(): void { }
