@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ColorEvent } from 'ngx-color';
 import { BoxShadowSettingsService } from '../services/box-shadow-settings.service';
+import { ColorSettingsService } from '../services/color-settings.service';
 import { Slider } from '../slider/slider.model';
 
 @Component({
@@ -25,7 +26,10 @@ export class BoxShadowTabComponent implements OnInit {
   }
   items: Slider[] = [];
 
-  constructor(public boxShadowSettingsService: BoxShadowSettingsService) { }
+  constructor(
+    public boxShadowSettingsService: BoxShadowSettingsService,
+    public colorSettingsService: ColorSettingsService
+  ) { }
 
   ngOnInit(): void {
     this.boxShadowSettingsService.initializeOffsetXSlider();
@@ -40,6 +44,6 @@ export class BoxShadowTabComponent implements OnInit {
   }
 
   handleChange($event: ColorEvent) {
-    this.boxShadowSettingsService.color = $event.color.hex;
+    this.colorSettingsService.boxShadowColor = $event.color.hex;
   }
 }

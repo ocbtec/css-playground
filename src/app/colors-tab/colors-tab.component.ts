@@ -28,7 +28,7 @@ export class ColorsTabComponent implements OnInit {
     this.colorSettingsService.borderColor = $event.color.hex;
   }
   changeBoxShadowColor($event: ColorEvent) {
-    this.boxShadowSettingsService.color = $event.color.hex;
+    this.colorSettingsService.boxShadowColor = $event.color.hex;
   }
 
 }

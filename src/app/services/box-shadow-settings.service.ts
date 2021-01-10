@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Slider } from '../slider/slider.model';
+import { ColorSettingsService } from './color-settings.service';
 
 @Injectable({
   providedIn: 'root'
@@ -54,9 +55,9 @@ export class BoxShadowSettingsService {
 
   shadowInset: string = '';
   shadowInsetSwitch: boolean = false;
-  color: string = '#343a60';
+  boxShadowColor: string = '#343a60';
 
-  constructor() { }
+  constructor(public colorSettingsService: ColorSettingsService) { }
 
   initializeOffsetXSlider() {
     this.items.push(this.offsetXSlider);
@@ -81,6 +82,6 @@ export class BoxShadowSettingsService {
     this.spreadRadiusSlider.slider.currentValue = 0;
     this.shadowInsetSwitch = false;
     this.shadowInset = '';
-    this.color = '#343a60';
+    this.colorSettingsService.boxShadowColor = '#343a60';
   }
 }
