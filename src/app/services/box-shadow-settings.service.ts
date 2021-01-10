@@ -10,7 +10,7 @@ export class BoxShadowSettingsService {
 
   shadowInset: string = '';
   shadowInsetSwitch: boolean = false;
-  color: string = '#232323';
+  color: string = '#343a60';
 
   items: Slider[] = [];
 
@@ -21,7 +21,7 @@ export class BoxShadowSettingsService {
       minValue: -300,
       maxValue: 300,
       step: 1,
-      currentValue: 0,
+      currentValue: 5,
       unit: 'px'
     }
   }
@@ -32,7 +32,7 @@ export class BoxShadowSettingsService {
       minValue: -300,
       maxValue: 300,
       step: 1,
-      currentValue: 0,
+      currentValue: 5,
       unit: 'px'
     }
   }
@@ -43,7 +43,7 @@ export class BoxShadowSettingsService {
       minValue: 0,
       maxValue: 150,
       step: 1,
-      currentValue: 0,
+      currentValue: 5,
       unit: 'px'
     }
   }
@@ -78,12 +78,12 @@ export class BoxShadowSettingsService {
   }
 
   resetBoxShadowSettings() {
-    this.offsetXSlider.slider.currentValue = 0;
-    this.offsetYSlider.slider.currentValue = 0;
-    this.blurRadiusSlider.slider.currentValue = 0;
+    this.offsetXSlider.slider.currentValue = 5;
+    this.offsetYSlider.slider.currentValue = 5;
+    this.blurRadiusSlider.slider.currentValue = 5;
     this.spreadRadiusSlider.slider.currentValue = 0;
     this.shadowInsetSwitch = false;
     this.shadowInset = '';
-    this.color = '#232323';
+    this.color = '#343a60';
   }
 }
