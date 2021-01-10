@@ -1,7 +1,7 @@
 <div class="transform-container">
-  <ul *ngFor="let item of items" class="slider-wrapper">
+  <div *ngFor="let item of items" class="slider-wrapper">
     <app-slider [label]="item.label" [slider]="item.slider"></app-slider>
-  </ul>
+  </div>
   <app-reset-buttons
     class="reset-buttons-container"
     [settingsType]="settingsType"
