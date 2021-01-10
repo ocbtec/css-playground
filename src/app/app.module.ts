@@ -26,6 +26,7 @@ import { ResetButtonsComponent } from './reset-buttons/reset-buttons.component';
 import { BorderTabComponent } from './border-tab/border-tab.component';
 import { BorderStyleSelectComponent } from './border-tab/border-style-select/border-style-select.component';
 import { BoxShadowTabComponent } from './box-shadow-tab/box-shadow-tab.component';
+import { ColorsTabComponent } from './colors-tab/colors-tab.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { BoxShadowTabComponent } from './box-shadow-tab/box-shadow-tab.component
     ResetButtonsComponent,
     BorderTabComponent,
     BorderStyleSelectComponent,
-    BoxShadowTabComponent
+    BoxShadowTabComponent,
+    ColorsTabComponent
   ],
   imports: [
     BrowserModule,
