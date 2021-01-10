@@ -5,13 +5,6 @@ import { Slider } from '../slider/slider.model';
   providedIn: 'root'
 })
 export class BoxShadowSettingsService {
-  settingsType: string = '';
-  messageDynamic: string = '';
-
-  shadowInset: string = '';
-  shadowInsetSwitch: boolean = false;
-  color: string = '#343a60';
-
   items: Slider[] = [];
 
   offsetXSlider: Slider = {
@@ -58,6 +51,10 @@ export class BoxShadowSettingsService {
       unit: 'px'
     }
   }
+
+  shadowInset: string = '';
+  shadowInsetSwitch: boolean = false;
+  color: string = '#343a60';
 
   constructor() { }
 

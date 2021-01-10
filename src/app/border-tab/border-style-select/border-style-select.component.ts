@@ -41,8 +41,6 @@ export class BorderStyleSelectComponent implements OnInit {
     viewValue: ''
   }
 
-  // selectedBorder = this.border[9].value;
-
   selectedValue(event: MatSelectChange) {
     this.selectedData = {
       value: event.value,
