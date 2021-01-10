@@ -3,6 +3,7 @@ import {TooltipPosition} from '@angular/material/tooltip';
 import { TransformSettingsService } from '../services/transform-Settings.service';
 import { BorderSettingsService } from '../services/border-settings.service';
 import { BoxShadowSettingsService } from '../services/box-shadow-settings.service';
+import { ColorSettingsService } from '../services/color-settings.service';
 
 @Component({
   selector: 'app-reset-buttons',
@@ -20,7 +21,8 @@ export class ResetButtonsComponent implements OnInit {
   constructor(
     private transformSettingsService: TransformSettingsService,
     private borderSettingsService: BorderSettingsService,
-    private boxShadowSettingsService: BoxShadowSettingsService
+    private boxShadowSettingsService: BoxShadowSettingsService,
+    private colorsSettingsService: ColorSettingsService
   ) { }
 
   ngOnInit(): void { }
@@ -33,10 +35,14 @@ export class ResetButtonsComponent implements OnInit {
       this.borderSettingsService.resetBorderSettings();
     } else if (resetTab === 'Box-Shadow') {
       this.boxShadowSettingsService.resetBoxShadowSettings();
-    }  else if (resetTab === 'all') {
+    } else if (resetTab === 'Colors') {
+      this.colorsSettingsService.resetColorSettings();
+    }
+      else if (resetTab === 'all') {
       this.transformSettingsService.resetTransformSettings();
       this.borderSettingsService.resetBorderSettings();
       this.boxShadowSettingsService.resetBoxShadowSettings();
+      this.colorsSettingsService.resetColorSettings();
     }
   }
 

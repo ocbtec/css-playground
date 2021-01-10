@@ -9,9 +9,9 @@
   <div class="color-picker-container">
     <span class="color-picker-text">Pick border color</span>
     <color-slider
-    class="color-picker"
-    color="{{ colorSettingsService.borderColor }}"
-    (onChange)="handleChange($event)"
+      class="color-picker"
+      color="{{ colorSettingsService.borderColor }}"
+      (onChange)="handleChange($event)"
     ></color-slider>
   </div>
   <app-reset-buttons
