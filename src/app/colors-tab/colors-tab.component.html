@@ -1,1 +1,19 @@
-<p>colors-tab works!</p>
+<div class="colors-container">
+  <div class="cube-color">
+    <span class="color-picker-text">Pick cube color</span>
+    <color-chrome
+      class="color-picker"
+      color="{{ colorSettingsService.cubeColor }}"
+      (onChange)="changeCubeColor($event)"
+    ></color-chrome>
+  </div>
+
+  <div>
+    <span class="color-picker-text">Pick background color</span>
+    <color-chrome
+      class="color-picker"
+      color="{{ colorSettingsService.backgroundColor }}"
+      (onChange)="changeBackgroundColor($event)"
+    ></color-chrome>
+  </div>
+</div>

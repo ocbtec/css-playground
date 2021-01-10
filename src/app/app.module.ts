@@ -6,7 +6,10 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSelectModule } from '@angular/material/select';
+
 import { ColorSliderModule } from 'ngx-color/slider';
+import { ColorChromeModule } from 'ngx-color/chrome';
+
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { FormsModule } from '@angular/forms';
 
@@ -54,6 +57,7 @@ import { ColorsTabComponent } from './colors-tab/colors-tab.component';
     MatTooltipModule,
     MatSelectModule,
     ColorSliderModule,
+    ColorChromeModule,
     MatSlideToggleModule,
     FormsModule
   ],
