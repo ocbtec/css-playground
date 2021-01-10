@@ -1,0 +1,41 @@
+<div class="colors-container">
+  <div class="colors-flexbox">
+    <div class="cube-color">
+      <span class="color-picker-text">Pick cube color</span>
+      <color-chrome
+        class="color-picker"
+        color="{{ colorSettingsService.cubeColor }}"
+        (onChange)="changeCubeColor($event)"
+      ></color-chrome>
+    </div>
+    <div>
+      <span class="color-picker-text">Pick background color</span>
+      <color-chrome
+        class="color-picker"
+        color="{{ colorSettingsService.backgroundColor }}"
+        (onChange)="changeBackgroundColor($event)"
+      ></color-chrome>
+    </div>
+  </div>
+  <div class="color-picker-container">
+    <span class="color-picker-text">Pick border color</span>
+    <color-slider
+      class="color-picker"
+      color="{{ colorSettingsService.borderColor }}"
+      (onChange)="changeBorderColor($event)"
+    ></color-slider>
+  </div>
+  <div class="color-picker-container">
+    <span class="color-picker-text">Pick box-shadow color</span>
+    <color-slider
+      class="color-picker"
+      color="{{ boxShadowSettingsService.color }}"
+      (onChange)="changeBoxShadowColor($event)"
+    ></color-slider>
+  </div>
+  <app-reset-buttons
+    class="reset-buttons-container"
+    [settingsType]="settingsType"
+    [messageDynamic]="messageDynamic"
+  ></app-reset-buttons>
+</div>

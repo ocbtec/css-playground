@@ -6,7 +6,10 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSelectModule } from '@angular/material/select';
+
 import { ColorSliderModule } from 'ngx-color/slider';
+import { ColorChromeModule } from 'ngx-color/chrome';
+
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { FormsModule } from '@angular/forms';
 
@@ -26,6 +29,7 @@ import { ResetButtonsComponent } from './reset-buttons/reset-buttons.component';
 import { BorderTabComponent } from './border-tab/border-tab.component';
 import { BorderStyleSelectComponent } from './border-tab/border-style-select/border-style-select.component';
 import { BoxShadowTabComponent } from './box-shadow-tab/box-shadow-tab.component';
+import { ColorsTabComponent } from './colors-tab/colors-tab.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +45,8 @@ import { BoxShadowTabComponent } from './box-shadow-tab/box-shadow-tab.component
     ResetButtonsComponent,
     BorderTabComponent,
     BorderStyleSelectComponent,
-    BoxShadowTabComponent
+    BoxShadowTabComponent,
+    ColorsTabComponent
   ],
   imports: [
     BrowserModule,
@@ -52,6 +57,7 @@ import { BoxShadowTabComponent } from './box-shadow-tab/box-shadow-tab.component
     MatTooltipModule,
     MatSelectModule,
     ColorSliderModule,
+    ColorChromeModule,
     MatSlideToggleModule,
     FormsModule
   ],
