@@ -13,9 +13,6 @@ import { ColorChromeModule } from 'ngx-color/chrome';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { FormsModule } from '@angular/forms';
 
-import { TransformSettingsService } from './services/transform-Settings.service';
-import { BorderSettingsService } from './services/border-settings.service';
-
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { PlaygroundInputComponent } from './playground-input/playground-input.component';
@@ -61,10 +58,7 @@ import { ColorsTabComponent } from './colors-tab/colors-tab.component';
     MatSlideToggleModule,
     FormsModule
   ],
-  providers: [
-    TransformSettingsService,
-    BorderSettingsService
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
