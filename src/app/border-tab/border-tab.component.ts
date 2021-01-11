@@ -14,17 +14,6 @@ export class BorderTabComponent implements OnInit {
   settingsType: string = 'Border';
   messageDynamic: string = 'Reset Border Settings';
 
-  sliderType: Slider = {
-    label: '',
-    slider: {
-      id: '',
-      minValue: 0,
-      maxValue: 0,
-      step: 0,
-      currentValue: 0,
-      unit: ''
-    }
-  }
   items: Slider[] = [];
 
   constructor(

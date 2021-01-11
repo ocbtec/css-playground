@@ -13,17 +13,6 @@ export class BoxShadowTabComponent implements OnInit {
   settingsType: string = 'Box-Shadow';
   messageDynamic: string = 'Reset Box-Shadow Settings';
 
-  sliderType: Slider = {
-    label: '',
-    slider: {
-      id: '',
-      minValue: 0,
-      maxValue: 0,
-      step: 0,
-      currentValue: 0,
-      unit: ''
-    }
-  }
   items: Slider[] = [];
 
   constructor(

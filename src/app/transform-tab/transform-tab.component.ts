@@ -11,17 +11,6 @@ export class TransformTabComponent implements OnInit {
   settingsType: string = 'Transform';
   messageDynamic: string = 'Reset Transform Settings';
 
-  sliderType: Slider = {
-    label: '',
-    slider: {
-      id: '',
-      minValue: 0,
-      maxValue: 0,
-      step: 0,
-      currentValue: 0,
-      unit: ''
-    }
-  }
   items: Slider[] = [];
 
   constructor(private transformSettingsService: TransformSettingsService) { }
