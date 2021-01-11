@@ -54,19 +54,11 @@ export class TransformSettingsService {
 
   constructor() { }
 
-  initializeSizeSlider() {
+  initializeSliders() {
+    this.items = [];
     this.items.push(this.sizeSlider);
-  }
-
-  initializeMoveHorizontallySlider() {
     this.items.push(this.horizontallySlider);
-  }
-
-  initializeMoveVerticallySlider() {
     this.items.push(this.verticallySlider);
-  }
-
-  initializeMoveRotateSlider() {
     this.items.push(this.rotateSlider);
   }
 

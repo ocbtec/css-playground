@@ -35,13 +35,11 @@ export class BorderSettingsService {
 
   constructor(public colorSettingsService: ColorSettingsService) { }
 
-  initializeWidthSlider() {
+  initializeSliders() {
+    this.items = [];
     this.items.push(this.widthSlider);
-  }
-  initializeRadiusSlider() {
     this.items.push(this.radiusSlider);
   }
-
 
   resetBorderSettings() {
     this.widthSlider.slider.currentValue = 2;

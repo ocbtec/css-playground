@@ -21,10 +21,7 @@ export class BoxShadowTabComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.boxShadowSettingsService.initializeOffsetXSlider();
-    this.boxShadowSettingsService.initializeOffsetYSlider();
-    this.boxShadowSettingsService.initializeBlurRadiusSlider();
-    this.boxShadowSettingsService.initializeSpreadRadiusSlider();
+    this.boxShadowSettingsService.initializeSliders();
     this.items = this.boxShadowSettingsService.items;
   }
 

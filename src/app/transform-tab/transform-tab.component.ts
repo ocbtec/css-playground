@@ -16,10 +16,7 @@ export class TransformTabComponent implements OnInit {
   constructor(private transformSettingsService: TransformSettingsService) { }
 
   ngOnInit(): void {
-    this.transformSettingsService.initializeSizeSlider();
-    this.transformSettingsService.initializeMoveHorizontallySlider();
-    this.transformSettingsService.initializeMoveVerticallySlider();
-    this.transformSettingsService.initializeMoveRotateSlider();
+    this.transformSettingsService.initializeSliders();
     this.items = this.transformSettingsService.items;
   }
 

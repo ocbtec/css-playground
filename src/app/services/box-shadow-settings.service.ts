@@ -59,19 +59,11 @@ export class BoxShadowSettingsService {
 
   constructor(public colorSettingsService: ColorSettingsService) { }
 
-  initializeOffsetXSlider() {
+  initializeSliders() {
+    this.items = [];
     this.items.push(this.offsetXSlider);
-  }
-
-  initializeOffsetYSlider() {
     this.items.push(this.offsetYSlider);
-  }
-
-  initializeBlurRadiusSlider() {
     this.items.push(this.blurRadiusSlider);
-  }
-
-  initializeSpreadRadiusSlider() {
     this.items.push(this.spreadRadiusSlider);
   }
 
