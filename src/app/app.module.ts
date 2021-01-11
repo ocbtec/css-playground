@@ -27,6 +27,7 @@ import { BorderTabComponent } from './border-tab/border-tab.component';
 import { BorderStyleSelectComponent } from './border-tab/border-style-select/border-style-select.component';
 import { BoxShadowTabComponent } from './box-shadow-tab/box-shadow-tab.component';
 import { ColorsTabComponent } from './colors-tab/colors-tab.component';
+import { PlaygroundPageComponent } from './playground-page/playground-page.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { ColorsTabComponent } from './colors-tab/colors-tab.component';
     BorderTabComponent,
     BorderStyleSelectComponent,
     BoxShadowTabComponent,
-    ColorsTabComponent
+    ColorsTabComponent,
+    PlaygroundPageComponent
   ],
   imports: [
     BrowserModule,
