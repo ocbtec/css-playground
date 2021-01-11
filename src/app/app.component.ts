@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ColorSettingsService } from './services/color-settings.service';
 
 @Component({
   selector: 'app-root',
@@ -8,5 +7,5 @@ import { ColorSettingsService } from './services/color-settings.service';
 })
 export class AppComponent {
 
-  constructor(public colorSettingsService: ColorSettingsService) { }
+  constructor() { }
 }
