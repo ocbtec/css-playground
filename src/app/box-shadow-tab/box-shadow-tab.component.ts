@@ -10,8 +10,8 @@ import { Slider } from '../slider/slider.model';
   styleUrls: ['./box-shadow-tab.component.scss']
 })
 export class BoxShadowTabComponent implements OnInit {
-  settingsType: string = 'Box-Shadow';
-  messageDynamic: string = 'Reset Box-Shadow Settings';
+  settingsType = 'Box-Shadow';
+  messageDynamic = 'Reset Box-Shadow Settings';
 
   items: Slider[] = [];
 
@@ -20,15 +20,13 @@ export class BoxShadowTabComponent implements OnInit {
     public colorSettingsService: ColorSettingsService
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.boxShadowSettingsService.initializeSliders();
     this.items = this.boxShadowSettingsService.items;
   }
 
   onChange() {
-    this.boxShadowSettingsService.shadowInsetSwitch ?
-      this.boxShadowSettingsService.shadowInset = 'inset' :
-      this.boxShadowSettingsService.shadowInset = '';
+    this.boxShadowSettingsService.shadowInset = this.boxShadowSettingsService.shadowInsetSwitch ? 'inset' : '';
   }
 
   handleChange($event: ColorEvent) {

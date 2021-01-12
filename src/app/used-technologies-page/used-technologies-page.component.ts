@@ -1,15 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-used-technologies-page',
   templateUrl: './used-technologies-page.component.html',
   styleUrls: ['./used-technologies-page.component.scss']
 })
-export class UsedTechnologiesPageComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
+export class UsedTechnologiesPageComponent { }

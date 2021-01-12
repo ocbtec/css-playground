@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ColorSettingsService } from '../services/color-settings.service';
 
 @Component({
@@ -6,11 +6,6 @@ import { ColorSettingsService } from '../services/color-settings.service';
   templateUrl: './playground-page.component.html',
   styleUrls: ['./playground-page.component.scss']
 })
-export class PlaygroundPageComponent implements OnInit {
-
+export class PlaygroundPageComponent {
   constructor(public colorSettingsService: ColorSettingsService) { }
-
-  ngOnInit(): void {
-  }
-
 }

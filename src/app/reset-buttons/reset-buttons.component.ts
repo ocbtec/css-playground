@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import {TooltipPosition} from '@angular/material/tooltip';
 import { TransformSettingsService } from '../services/transform-Settings.service';
 import { BorderSettingsService } from '../services/border-settings.service';
@@ -10,13 +10,13 @@ import { ColorSettingsService } from '../services/color-settings.service';
   templateUrl: './reset-buttons.component.html',
   styleUrls: ['./reset-buttons.component.scss']
 })
-export class ResetButtonsComponent implements OnInit {
-  @Input() messageDynamic: string = '';
-  @Input() settingsType: string = '';
+export class ResetButtonsComponent {
+  @Input() messageDynamic = '';
+  @Input() settingsType = '';
   position: TooltipPosition = 'above';
-  showDelay: number = 200;
-  hideDelay: number = 200;
-  messageDefault: string = 'Reset ALL Settings';
+  showDelay = 200;
+  hideDelay = 200;
+  messageDefault = 'Reset ALL Settings';
 
   constructor(
     private transformSettingsService: TransformSettingsService,
@@ -24,8 +24,6 @@ export class ResetButtonsComponent implements OnInit {
     private boxShadowSettingsService: BoxShadowSettingsService,
     private colorsSettingsService: ColorSettingsService
   ) { }
-
-  ngOnInit(): void { }
 
   dynamicReset(event: any) {
     const resetTab = event.target.id;
@@ -45,5 +43,4 @@ export class ResetButtonsComponent implements OnInit {
       this.colorsSettingsService.resetColorSettings();
     }
   }
-
 }

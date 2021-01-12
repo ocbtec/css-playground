@@ -11,8 +11,8 @@ import { ColorSettingsService } from '../services/color-settings.service';
   encapsulation: ViewEncapsulation.None
 })
 export class BorderTabComponent implements OnInit {
-  settingsType: string = 'Border';
-  messageDynamic: string = 'Reset Border Settings';
+  settingsType = 'Border';
+  messageDynamic = 'Reset Border Settings';
 
   items: Slider[] = [];
 

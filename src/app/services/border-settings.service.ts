@@ -31,7 +31,7 @@ export class BorderSettingsService {
     }
   };
 
-  borderStyle: string = 'solid';
+  borderStyle = 'solid';
 
   constructor(public colorSettingsService: ColorSettingsService) { }
 

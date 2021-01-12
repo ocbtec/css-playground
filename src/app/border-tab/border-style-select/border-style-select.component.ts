@@ -12,8 +12,8 @@ export class BorderStyleSelectComponent implements OnInit {
   @Output() valueChange = new EventEmitter<number>();
 
   border: {
-    value: string,
-    viewValue: string
+    value: string;
+    viewValue: string;
   }[] = [
     {value: 'dashed', viewValue: 'dashed'},
     {value: 'dotted', viewValue: 'dotted'},
@@ -28,8 +28,8 @@ export class BorderStyleSelectComponent implements OnInit {
   ];
 
   selectedData: {
-    value: string,
-    viewValue: string
+    value: string;
+    viewValue: string;
   } = {
     value: '',
     viewValue: ''
@@ -37,11 +37,11 @@ export class BorderStyleSelectComponent implements OnInit {
 
   constructor(public borderSettingsService: BorderSettingsService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.borderSettingsService.borderStyle = this.border[9].value;
   }
 
-  selectedValue(event: MatSelectChange): void {
+  selectedValue(event: MatSelectChange) {
     this.selectedData = {
       value: event.value,
       viewValue: event.source.triggerValue

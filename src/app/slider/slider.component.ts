@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatSliderChange } from '@angular/material/slider';
 
 @Component({
@@ -6,15 +6,15 @@ import { MatSliderChange } from '@angular/material/slider';
   templateUrl: './slider.component.html',
   styleUrls: ['./slider.component.scss']
 })
-export class SliderComponent implements OnInit {
-  @Input() label: string = '';
+export class SliderComponent {
+  @Input() label = '';
   @Input() slider: {
-    id: string,
-    minValue: number,
-    maxValue: number,
-    step: number,
-    currentValue: number,
-    unit: string
+    id: string;
+    minValue: number;
+    maxValue: number;
+    step: number;
+    currentValue: number;
+    unit: string;
   } = {
     id: '',
     minValue: 0,
@@ -23,11 +23,6 @@ export class SliderComponent implements OnInit {
     currentValue: 0,
     unit: ''
   };
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
   getSliderType(sliderEvent: MatSliderChange) {
     if (sliderEvent.value !== null) {

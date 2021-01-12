@@ -53,9 +53,9 @@ export class BoxShadowSettingsService {
     }
   };
 
-  shadowInset: string = '';
-  shadowInsetSwitch: boolean = false;
-  boxShadowColor: string = '#343a60';
+  shadowInset = '';
+  shadowInsetSwitch = false;
+  boxShadowColor = '#343a60';
 
   constructor(public colorSettingsService: ColorSettingsService) { }
 

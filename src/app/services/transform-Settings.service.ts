@@ -52,8 +52,6 @@ export class TransformSettingsService {
     }
   };
 
-  constructor() { }
-
   initializeSliders() {
     this.items = [];
     this.items.push(this.sizeSlider);

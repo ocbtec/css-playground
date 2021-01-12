@@ -4,12 +4,10 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ColorSettingsService {
-  cubeColor: string = '#ff4081';
-  backgroundColor: string = '#ffffff';
-  borderColor: string = '#b6ddfd';
-  boxShadowColor: string = '#343a60';
-
-  constructor() { }
+  cubeColor = '#ff4081';
+  backgroundColor = '#ffffff';
+  borderColor = '#b6ddfd';
+  boxShadowColor = '#343a60';
 
   resetColorSettings() {
     this.cubeColor = '#ff4081';
