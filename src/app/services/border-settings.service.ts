@@ -18,18 +18,18 @@ export class BorderSettingsService {
       currentValue: 2,
       unit: 'px'
     }
-  }
+  };
   radiusSlider: Slider = {
     label: 'Radius',
     slider: {
-      id:'radius',
+      id: 'radius',
       minValue: 0,
       maxValue: 50,
       step: 1,
       currentValue: 0,
       unit: '%'
     }
-  }
+  };
 
   borderStyle: string = 'solid';
 

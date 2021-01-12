@@ -17,18 +17,18 @@ export class TransformSettingsService {
       currentValue: 100,
       unit: 'px'
     }
-  }
+  };
   horizontallySlider: Slider = {
     label: 'Move horizontally',
     slider: {
-      id:'hMovement',
+      id: 'hMovement',
       minValue: -300,
       maxValue: 300,
       step: 1,
       currentValue: 0,
       unit: 'px'
     }
-  }
+  };
   verticallySlider: Slider = {
     label: 'Move vertically',
     slider: {
@@ -39,18 +39,18 @@ export class TransformSettingsService {
       currentValue: 0,
       unit: 'px'
     }
-  }
+  };
   rotateSlider: Slider = {
     label: 'Rotate',
     slider: {
-      id:'rotate',
+      id: 'rotate',
       minValue: 0,
       maxValue: 360,
       step: 1,
       currentValue: 0,
       unit: '°'
     }
-  }
+  };
 
   constructor() { }
 

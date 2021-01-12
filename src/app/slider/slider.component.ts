@@ -22,7 +22,7 @@ export class SliderComponent implements OnInit {
     step: 0,
     currentValue: 0,
     unit: ''
-  }
+  };
 
   constructor() { }
 

@@ -21,7 +21,7 @@ export class BorderTabComponent implements OnInit {
     public colorSettingsService: ColorSettingsService
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.borderSettingsService.initializeSliders();
     this.items = this.borderSettingsService.items;
   }

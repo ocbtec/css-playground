@@ -26,7 +26,9 @@ export class BoxShadowTabComponent implements OnInit {
   }
 
   onChange() {
-    this.boxShadowSettingsService.shadowInsetSwitch ? this.boxShadowSettingsService.shadowInset = 'inset' : this.boxShadowSettingsService.shadowInset = '';
+    this.boxShadowSettingsService.shadowInsetSwitch ?
+      this.boxShadowSettingsService.shadowInset = 'inset' :
+      this.boxShadowSettingsService.shadowInset = '';
   }
 
   handleChange($event: ColorEvent) {

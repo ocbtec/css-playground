@@ -28,7 +28,7 @@ export class ResetButtonsComponent implements OnInit {
   ngOnInit(): void { }
 
   dynamicReset(event: any) {
-    let resetTab = event.target.id;
+    const resetTab = event.target.id;
     if (resetTab === 'Transform') {
       this.transformSettingsService.resetTransformSettings();
     } else if (resetTab === 'Border') {

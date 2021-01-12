@@ -18,18 +18,18 @@ export class BoxShadowSettingsService {
       currentValue: 5,
       unit: 'px'
     }
-  }
+  };
   offsetYSlider: Slider = {
     label: 'Offset y',
     slider: {
-      id:'offset-y',
+      id: 'offset-y',
       minValue: -300,
       maxValue: 300,
       step: 1,
       currentValue: 5,
       unit: 'px'
     }
-  }
+  };
   blurRadiusSlider: Slider = {
     label: 'Blur Radius',
     slider: {
@@ -40,18 +40,18 @@ export class BoxShadowSettingsService {
       currentValue: 5,
       unit: 'px'
     }
-  }
+  };
   spreadRadiusSlider: Slider = {
     label: 'Spread Radius',
     slider: {
-      id:'spread-radius',
+      id: 'spread-radius',
       minValue: -100,
       maxValue: 150,
       step: 1,
       currentValue: 0,
       unit: 'px'
     }
-  }
+  };
 
   shadowInset: string = '';
   shadowInsetSwitch: boolean = false;

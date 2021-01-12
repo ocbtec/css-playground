@@ -7,5 +7,5 @@ export interface Slider {
     step: number,
     currentValue: number,
     unit: string
-  }
+  };
 }

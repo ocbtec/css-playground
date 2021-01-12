@@ -11,12 +11,6 @@ import { BorderSettingsService } from 'src/app/services/border-settings.service'
 export class BorderStyleSelectComponent implements OnInit {
   @Output() valueChange = new EventEmitter<number>();
 
-  constructor(public borderSettingsService: BorderSettingsService) { }
-
-  ngOnInit() {
-    this.borderSettingsService.borderStyle = this.border[9].value;
-  }
-
   border: {
     value: string,
     viewValue: string
@@ -39,13 +33,19 @@ export class BorderStyleSelectComponent implements OnInit {
   } = {
     value: '',
     viewValue: ''
+  };
+
+  constructor(public borderSettingsService: BorderSettingsService) { }
+
+  ngOnInit(): void {
+    this.borderSettingsService.borderStyle = this.border[9].value;
   }
 
-  selectedValue(event: MatSelectChange) {
+  selectedValue(event: MatSelectChange): void {
     this.selectedData = {
       value: event.value,
       viewValue: event.source.triggerValue
     };
-    this.borderSettingsService.borderStyle = this.selectedData.viewValue
+    this.borderSettingsService.borderStyle = this.selectedData.viewValue;
   }
 }
