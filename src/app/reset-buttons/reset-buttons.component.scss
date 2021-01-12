@@ -8,14 +8,14 @@
   width: 30px;
   height: 30px;
   margin-right: 1rem;
-  background-image: url('../../assets/reset-button-dark.svg');
+  background-image: url('../../assets/images/reset-button-dark.svg');
   background-size: contain;
 }
 
 .reset-button:hover {
   background-color: #ff4081;
   border-radius: 50%;
-  background-image: url('../../assets/reset-button-bright.svg');
+  background-image: url('../../assets/images/reset-button-bright.svg');
   background-size: contain;
   cursor: pointer;
 }
