@@ -1,7 +1,9 @@
 @import '../../styles.scss';
 
 .footer-wrapper {
-  margin-top: 10rem;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   background-image: url('../../assets/images/footer-pattern.svg');
 }
 
