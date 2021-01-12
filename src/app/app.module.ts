@@ -6,6 +6,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSelectModule } from '@angular/material/select';
+import { MatButtonModule } from '@angular/material/button';
 
 import { ColorSliderModule } from 'ngx-color/slider';
 import { ColorChromeModule } from 'ngx-color/chrome';
@@ -29,6 +30,7 @@ import { BoxShadowTabComponent } from './box-shadow-tab/box-shadow-tab.component
 import { ColorsTabComponent } from './colors-tab/colors-tab.component';
 import { PlaygroundPageComponent } from './playground-page/playground-page.component';
 import { UsedTechnologiesPageComponent } from './used-technologies-page/used-technologies-page.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,8 @@ import { UsedTechnologiesPageComponent } from './used-technologies-page/used-tec
     BoxShadowTabComponent,
     ColorsTabComponent,
     PlaygroundPageComponent,
-    UsedTechnologiesPageComponent
+    UsedTechnologiesPageComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +63,8 @@ import { UsedTechnologiesPageComponent } from './used-technologies-page/used-tec
     ColorSliderModule,
     ColorChromeModule,
     MatSlideToggleModule,
-    FormsModule
+    FormsModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
