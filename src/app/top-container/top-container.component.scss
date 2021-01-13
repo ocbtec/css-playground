@@ -121,3 +121,40 @@
     margin-left: 0;
   }
 }
+
+@media screen and (max-width: 568px) {
+  .logo-container {
+    min-width: 0px;
+    width: 210px;
+    height: 210px;
+  }
+  .css-logo {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .logo-container {
+    width: 180px;
+    height: 180px;
+  }
+  .css-logo {
+    width: 120px;
+    height: 120px;
+  }
+  .left-rod {
+    width: 50px;
+    left: -50px;
+  }
+  .right-rod {
+    width: 50px;
+    right: -50px;
+  }
+  .left-bubble {
+    left: -68px;
+  }
+  .right-bubble {
+    right: -68px;
+  }
+}
