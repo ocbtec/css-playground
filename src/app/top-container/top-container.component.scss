@@ -3,7 +3,7 @@
   justify-content: space-between;
   margin: 0 auto;
   padding-top: 6rem;
-  width: 70%;
+  width: 80%;
 }
 
 .logo-container {
@@ -16,7 +16,9 @@
   box-shadow: 10px 10px 30px 0px #898989;
   border-radius: 50%;
   width: 300px;
+  min-width: 300px;
   height: 300px;
+  margin-left: 90px;
   animation: logo-hover 5s cubic-bezier(0.25, 0.1, 0.24, 0.99) infinite;
 }
 
@@ -68,6 +70,7 @@
   display: flex;
   align-items: center;
   width: 480px;
+  margin-left: 120px;
 }
 
 .explanation-text {
@@ -101,5 +104,20 @@
   }
   100% {
     background-color: #e6f3fe;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .top-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .logo-container {
+    margin: 0;
+  }
+  .site-explanation {
+    width: 100%;
+    margin-top: 4rem;
+    margin-left: 0;
   }
 }

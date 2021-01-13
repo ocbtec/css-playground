@@ -1,11 +1,7 @@
-.mat-tab-label {
-  color: #082858;
-  font-size: 16px;
-}
-
 .mat-tab-label.mat-tab-label-active {
   color: #1155bb;
   font-weight: 500;
+  font-size: 18px;
 }
 
 .mat-tab-group,
@@ -15,4 +11,10 @@
 
 .mat-ripple:hover {
   background-color: #d8ecfd;
+}
+
+@media screen and (max-width: 1024px) {
+  .mat-tab-label {
+    flex: 1;
+  }
 }

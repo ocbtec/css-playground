@@ -1,15 +1,15 @@
 <div class="colors-container">
   <div class="colors-flexbox">
-    <div>
-      <span class="color-picker-text">Pick cube color</span>
+    <div class="color-picker-top">
+      <span class="color-picker-text mobile-margin">Pick cube color</span>
       <color-chrome
         class="color-picker"
         color="{{ colorSettingsService.cubeColor }}"
         (onChange)="changeCubeColor($event)"
       ></color-chrome>
     </div>
-    <div>
-      <span class="color-picker-text">Pick background color</span>
+    <div class="color-picker-top">
+      <span class="color-picker-text mobile-margin">Pick background color</span>
       <color-chrome
         class="color-picker"
         color="{{ colorSettingsService.backgroundColor }}"

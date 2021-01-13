@@ -26,3 +26,17 @@
   background-color: #f2f2f2;
   color: #4d4d4d;
 }
+
+@media screen and (max-width: 1024px) {
+  .slider-container {
+    div > div {
+      width: 100%;
+    }
+  }
+  .slider-container > div:first-child {
+    width: 100%;
+  }
+  .mat-slider {
+    width: 95%;
+  }
+}
