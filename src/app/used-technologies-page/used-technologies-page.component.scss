@@ -8,6 +8,7 @@
 .technologies {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   width: 720px;
   margin: 6rem auto;
 }
@@ -26,4 +27,30 @@
 
 .technologies-logo {
   width: 100px;
+}
+
+@media screen and (max-width: 768px) {
+  .technologies {
+    width: 540px;
+  }
+}
+
+@media screen and (max-width: 568px) {
+  .technologies {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .technologies-headline {
+    font-size: 32px;
+  }
+  .tech-item {
+    margin: 5px;
+    justify-content: flex-end;
+  }
+  .technologies-logo {
+    width: 60px;
+    margin-bottom: 20px;
+  }
 }
