@@ -13,13 +13,15 @@
   color: $primary-color;
   font-size: 1rem;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: flex-end;
+  padding: 0 4rem;
   padding-bottom: 1rem;
 }
 
 .footer-headline {
   font-size: 1.3rem;
+  margin-left: 8px;
 }
 
 .link-flex {
@@ -39,6 +41,10 @@
   margin-right: 0.8rem;
 }
 
+.footer-right {
+  margin-bottom: 10px;
+}
+
 .footer-right-text {
   padding-left: 0.5rem;
 }
@@ -53,4 +59,31 @@ a {
 
 a:hover {
   background-color: #082858;
+}
+
+@media screen and (max-width: 1024px) {
+  .footer-container {
+    padding: 0 2rem;
+    padding-bottom: 1rem;
+  }
+}
+
+@media screen and (max-width: 568px) {
+  .footer-container {
+    font-size: 0.8rem;
+  }
+  .footer-headline {
+    font-size: 1,1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .footer-container {
+    font-size: 0.6rem;
+    padding: 0 1rem;
+    padding-bottom: 1rem;
+  }
+  .footer-headline {
+    font-size: 0.8rem;
+  }
 }
