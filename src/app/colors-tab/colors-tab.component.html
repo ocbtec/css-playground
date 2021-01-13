@@ -1,24 +1,24 @@
 <div class="colors-container">
   <div class="colors-flexbox">
     <div class="color-picker-top">
-      <span class="color-picker-text mobile-margin">Pick cube color</span>
+      <span class="color-picker-text mobile-margin">Cube color</span>
       <color-chrome
-        class="color-picker"
+        class="color-picker-chrome"
         color="{{ colorSettingsService.cubeColor }}"
         (onChange)="changeCubeColor($event)"
       ></color-chrome>
     </div>
     <div class="color-picker-top">
-      <span class="color-picker-text mobile-margin">Pick background color</span>
+      <span class="color-picker-text mobile-margin">Background color</span>
       <color-chrome
-        class="color-picker"
+        class="color-picker-chrome"
         color="{{ colorSettingsService.backgroundColor }}"
         (onChange)="changeBackgroundColor($event)"
       ></color-chrome>
     </div>
   </div>
   <div class="color-picker-container">
-    <span class="color-picker-text">Pick border color</span>
+    <span class="color-picker-text">Border color</span>
     <color-slider
       class="color-picker"
       color="{{ colorSettingsService.borderColor }}"
@@ -26,7 +26,7 @@
     ></color-slider>
   </div>
   <div class="color-picker-container">
-    <span class="color-picker-text">Pick box-shadow color</span>
+    <span class="color-picker-text">Box-shadow color</span>
     <color-slider
       class="color-picker"
       color="{{ colorSettingsService.boxShadowColor }}"

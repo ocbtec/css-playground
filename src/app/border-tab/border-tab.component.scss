@@ -49,3 +49,12 @@
   padding: 0.5rem;
   margin-bottom: 0.5rem;
 }
+
+@media screen and (max-width: 1024px) {
+  .select-menu {
+    padding: 0 1rem;
+  }
+  .color-picker-container {
+    padding: 1rem;
+  }
+}

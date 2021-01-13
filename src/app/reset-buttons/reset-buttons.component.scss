@@ -23,3 +23,12 @@
 .reset-text {
   color: gray;
 }
+
+@media screen and(max-width: 360px) {
+  .reset-button {
+    margin-right: 0.5rem;
+  }
+  .reset-text {
+    font-size: 11px;
+  }
+}

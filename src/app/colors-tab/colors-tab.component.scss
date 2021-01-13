@@ -27,11 +27,24 @@
   .color-picker-top {
     width: 100% !important;
   }
+  .color-picker-chrome {
+    display: flex;
+    justify-content: center;
+  }
   .chrome-picker {
     width: 90% !important;
-    margin: 1.5rem;
+    margin-bottom: 1.5rem;
   }
   .mobile-margin {
-    margin-left: 1.5rem;
+    margin-left: 1rem;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .color-picker-text {
+    font-size: 11px;
+  }
+  .mobile-margin {
+    margin-left: 10px;
   }
 }
