@@ -40,3 +40,18 @@
     width: 95%;
   }
 }
+
+@media screen and (max-width: 420px) {
+  .slider-container {
+    padding: 0;
+    padding-bottom: 5px;
+  }
+  .slider-container > div > div {
+    height: 30px;
+    margin-top: -20px;
+    margin-bottom: 10px;
+  }
+  .mat-slider {
+    margin-top: 4px;
+  }
+}

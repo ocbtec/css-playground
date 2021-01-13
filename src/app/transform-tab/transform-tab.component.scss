@@ -11,3 +11,9 @@
 .reset-buttons-container {
   @include reset-buttons-container;
 }
+
+@media screen and (max-width: 420px) {
+  .transform-container {
+    padding: 0 0.5rem;
+  }
+}
