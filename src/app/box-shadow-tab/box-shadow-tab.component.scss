@@ -39,3 +39,9 @@
 .reset-buttons-container {
   @include reset-buttons-container;
 }
+
+@media screen and (max-width: 420px) {
+  .toggle-container {
+    padding-bottom: 0;
+  }
+}

@@ -58,3 +58,9 @@
     padding: 1rem;
   }
 }
+
+@media screen and (max-width: 420px) {
+  .select-menu-container {
+    margin: 0;
+  }
+}
