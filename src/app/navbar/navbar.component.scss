@@ -17,27 +17,51 @@
 .navbar-headline {
   font-size: $font-size-headline;
 }
+
 .navbar-links {
   font-size: $font-size-links;
 }
+
 .nav-github-text {
   font-size: 1rem;
-  margin-left: 0.5rem;
 }
+
 .technologies-link {
   margin-left: 1rem;
   margin-right: 5rem;
 }
+
 .logo-github {
   width: 30px;
+  margin-right: 0.5rem;
 }
+
 .github-link {
   @include center-text;
 }
-a:hover {
+
+.menu-links:hover {
   background-color: #082858;
 }
-a {
+
+.menu-links {
   border-radius: 2px;
   padding: 0.5rem;
+}
+
+.ng-star-inserted {
+  display: flex;
+  align-items: center;
+  margin-right: 1rem;
+}
+
+.mobile-nav-icon {
+  color: white;
+}
+
+.burger-menu-item {
+  color: #505050;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

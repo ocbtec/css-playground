@@ -7,6 +7,8 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
 
 import { ColorSliderModule } from 'ngx-color/slider';
 import { ColorChromeModule } from 'ngx-color/chrome';
@@ -64,7 +66,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
     ColorChromeModule,
     MatSlideToggleModule,
     FormsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatMenuModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

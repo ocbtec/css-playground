@@ -1,15 +1,42 @@
 <nav class="navbar">
   <div class="navbar-headline">CSS Playground</div>
-  <div class="navbar-links">
-    <a [routerLink]="['/']">
-      <span>Playground</span>
-    </a>
-    <a class="technologies-link" [routerLink]="['used-technologies']">
-      <span>Used Technologies</span>
-    </a>
-    <a class="github-link" href="https://github.com/ocbtec/css-playground" target="_blank">
-      <img class="logo-github" src="assets/images/logo-github-white.svg" alt="">
-      <span class="nav-github-text">Github</span>
-    </a>
+  <div *ngIf="(screenWidth < 1025); else elseBlock">
+
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+      <mat-icon class="mobile-nav-icon">more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <a [routerLink]="['/']">
+        <button class="burger-menu-item" mat-menu-item>
+          <span>Playground</span>
+        </button>
+      </a>
+      <a class="technologies-link" [routerLink]="['used-technologies']">
+        <button class="burger-menu-item" mat-menu-item>
+          <span>Used Technologies</span>
+        </button>
+      </a>
+      <a class="github-link" href="https://github.com/ocbtec/css-playground" target="_blank">
+        <button class="burger-menu-item" mat-menu-item>
+          <img class="logo-github" src="assets/images/logo-github-black.svg" alt="">
+          <span>Github</span>
+        </button>
+      </a>
+    </mat-menu>
+
   </div>
+  <ng-template #elseBlock>
+    <div class="navbar-links">
+      <a [routerLink]="['/']" class="menu-links">
+        <span>Playground</span>
+      </a>
+      <a class="technologies-link menu-links" [routerLink]="['used-technologies']">
+        <span>Used Technologies</span>
+      </a>
+      <a class="github-link menu-links" href="https://github.com/ocbtec/css-playground" target="_blank">
+        <img class="logo-github" src="assets/images/logo-github-white.svg" alt="">
+        <span class="nav-github-text">Github</span>
+      </a>
+    </div>
+  </ng-template>
 </nav>
