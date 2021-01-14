@@ -1,15 +1,15 @@
 <app-top-container></app-top-container>
 <div
   class="playground-section"
-  [style.height.px]=playgroundSectionHeight
+  [style.height.px]=mobileViewService.playgroundSectionHeight
 >
   <app-playground-input
     class="input-section"
-    [style.height.px]=playgroundInputHeight
+    [style.height.px]=mobileViewService.playgroundInputHeight
   ></app-playground-input>
   <app-playground-output
     class="output-section"
     [style.backgroundColor]=colorSettingsService.backgroundColor
-    [style.height.px]=playgroundOutputHeight
+    [style.height.px]=mobileViewService.playgroundOutputHeight
   ></app-playground-output>
 </div>

@@ -2,6 +2,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
 import { ColorEvent } from 'ngx-color';
 import { BoxShadowSettingsService } from '../services/box-shadow-settings.service';
 import { ColorSettingsService } from '../services/color-settings.service';
+import { MobileViewService } from '../services/mobile-view.service';
 
 @Component({
   selector: 'app-colors-tab',
@@ -13,7 +14,11 @@ export class ColorsTabComponent {
   settingsType = 'Colors';
   messageDynamic = 'Reset Colors Settings';
 
-  constructor(public colorSettingsService: ColorSettingsService, public boxShadowSettingsService: BoxShadowSettingsService) { }
+  constructor(
+    public colorSettingsService: ColorSettingsService,
+    public boxShadowSettingsService: BoxShadowSettingsService,
+    public mobileViewService: MobileViewService
+  ) { }
 
   changeCubeColor($event: ColorEvent) {
     this.colorSettingsService.cubeColor = $event.color.hex;

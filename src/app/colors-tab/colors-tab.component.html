@@ -1,4 +1,4 @@
-<div class="colors-container">
+<div class="colors-container" #containerHeight>
   <div class="colors-flexbox">
     <div class="color-picker-top">
       <span class="color-picker-text mobile-margin">Cube color</span>
@@ -38,4 +38,8 @@
     [settingsType]="settingsType"
     [messageDynamic]="messageDynamic"
   ></app-reset-buttons>
+  <app-scroll-indicator
+    *ngIf="containerHeight.scrollHeight + 48 > mobileViewService.playgroundInputHeight"
+    class="scroll-indicator-container"
+  ></app-scroll-indicator>
 </div>

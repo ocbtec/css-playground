@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MobileViewService } from '../services/mobile-view.service';
 import { TransformSettingsService } from '../services/transform-Settings.service';
 import { Slider } from '../slider/slider.model';
 
@@ -10,10 +11,12 @@ import { Slider } from '../slider/slider.model';
 export class TransformTabComponent implements OnInit {
   settingsType = 'Transform';
   messageDynamic = 'Reset Transform Settings';
-
   items: Slider[] = [];
 
-  constructor(private transformSettingsService: TransformSettingsService) { }
+  constructor(
+    private transformSettingsService: TransformSettingsService,
+    public mobileViewService: MobileViewService
+  ) { }
 
   ngOnInit() {
     this.transformSettingsService.initializeSliders();
