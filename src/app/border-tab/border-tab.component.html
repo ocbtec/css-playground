@@ -1,4 +1,4 @@
-<div class="border-container">
+<div class="border-container" #containerHeight>
   <div *ngFor="let item of items" class="slider-wrapper">
     <app-slider [label]="item.label" [slider]="item.slider"></app-slider>
   </div>
@@ -19,4 +19,8 @@
     [settingsType]="settingsType"
     [messageDynamic]="messageDynamic"
   ></app-reset-buttons>
+  <app-scroll-indicator
+    *ngIf="containerHeight.scrollHeight + 48 > mobileViewService.playgroundInputHeight"
+    class="scroll-indicator-container"
+  ></app-scroll-indicator>
 </div>

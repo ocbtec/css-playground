@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ColorEvent } from 'ngx-color';
 import { BoxShadowSettingsService } from '../services/box-shadow-settings.service';
 import { ColorSettingsService } from '../services/color-settings.service';
+import { MobileViewService } from '../services/mobile-view.service';
 import { Slider } from '../slider/slider.model';
 
 @Component({
@@ -17,7 +18,8 @@ export class BoxShadowTabComponent implements OnInit {
 
   constructor(
     public boxShadowSettingsService: BoxShadowSettingsService,
-    public colorSettingsService: ColorSettingsService
+    public colorSettingsService: ColorSettingsService,
+    public mobileViewService: MobileViewService
   ) { }
 
   ngOnInit() {

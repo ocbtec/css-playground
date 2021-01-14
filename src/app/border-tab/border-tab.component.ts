@@ -3,6 +3,7 @@ import { BorderSettingsService } from '../services/border-settings.service';
 import { Slider } from '../slider/slider.model';
 import { ColorEvent } from 'ngx-color';
 import { ColorSettingsService } from '../services/color-settings.service';
+import { MobileViewService } from '../services/mobile-view.service';
 
 @Component({
   selector: 'app-border-tab',
@@ -18,7 +19,8 @@ export class BorderTabComponent implements OnInit {
 
   constructor(
     public borderSettingsService: BorderSettingsService,
-    public colorSettingsService: ColorSettingsService
+    public colorSettingsService: ColorSettingsService,
+    public mobileViewService: MobileViewService
   ) { }
 
   ngOnInit() {

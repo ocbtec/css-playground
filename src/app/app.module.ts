@@ -33,6 +33,7 @@ import { ColorsTabComponent } from './colors-tab/colors-tab.component';
 import { PlaygroundPageComponent } from './playground-page/playground-page.component';
 import { UsedTechnologiesPageComponent } from './used-technologies-page/used-technologies-page.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { ScrollIndicatorComponent } from './scroll-indicator/scroll-indicator.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     ColorsTabComponent,
     PlaygroundPageComponent,
     UsedTechnologiesPageComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ScrollIndicatorComponent
   ],
   imports: [
     BrowserModule,
