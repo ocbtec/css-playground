@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { ColorSettingsService } from '../services/color-settings.service';
 import { MobileViewService } from '../services/mobile-view.service';
 
@@ -7,19 +7,19 @@ import { MobileViewService } from '../services/mobile-view.service';
   templateUrl: './playground-page.component.html',
   styleUrls: ['./playground-page.component.scss']
 })
-export class PlaygroundPageComponent {
+export class PlaygroundPageComponent implements OnInit {
 
   constructor(
     public colorSettingsService: ColorSettingsService,
     public mobileViewService: MobileViewService
   ) { }
 
-  ngOnInit() {
+  @HostListener('window:resize', ['$event'])
+  onResize() {
     this.mobileViewService.setPlaygroundHeight();
   }
 
-  @HostListener('window:resize', ['$event'])
-  onResize() {
+  ngOnInit() {
     this.mobileViewService.setPlaygroundHeight();
   }
 }

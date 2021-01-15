@@ -7,9 +7,9 @@ export class MobileViewService {
   screenHeight!: number;
   screenWidth!: number;
 
-  playgroundSectionHeight! : number;
-  playgroundInputHeight! : number;
-  playgroundOutputHeight! : number;
+  playgroundSectionHeight!: number;
+  playgroundInputHeight!: number;
+  playgroundOutputHeight!: number;
 
   setPlaygroundHeight() {
     this.screenHeight = window.innerHeight;
