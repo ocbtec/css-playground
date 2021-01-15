@@ -116,6 +116,10 @@ $secondary-color: #083272;
   padding: 1.5rem;
 }
 
+.chrome-alpha {
+  display: none;  // disableAlpha from documentation causes build error
+}
+
 
 @media screen and (max-width: 1024px) {
   .color-picker-container {
