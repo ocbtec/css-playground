@@ -4,6 +4,7 @@
       <span class="color-picker-text mobile-margin">Cube color</span>
       <color-chrome
         class="color-picker-chrome"
+        disableAlpha=false
         color="{{ colorSettingsService.cubeColor }}"
         (onChange)="changeCubeColor($event)"
       ></color-chrome>
@@ -12,6 +13,7 @@
       <span class="color-picker-text mobile-margin">Background color</span>
       <color-chrome
         class="color-picker-chrome"
+        disableAlpha=false
         color="{{ colorSettingsService.backgroundColor }}"
         (onChange)="changeBackgroundColor($event)"
       ></color-chrome>

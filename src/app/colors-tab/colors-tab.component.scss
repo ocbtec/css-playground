@@ -19,9 +19,13 @@
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+.chrome-hue {
+  margin-top: 8px;
+}
+
 @media screen and (max-width: 1024px) {
   .color-picker-top {
-    width: 100% !important;
+    width: 100%;
   }
   .color-picker-chrome {
     display: flex;
@@ -29,7 +33,7 @@
   }
   .chrome-picker {
     width: 90% !important;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.5rem !important;
   }
   .mobile-margin {
     margin-left: 1rem;
