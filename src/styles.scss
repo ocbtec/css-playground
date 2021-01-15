@@ -110,3 +110,17 @@ $secondary-color: #083272;
   height: 30px;
   background-color: #b48e9a4d;
 }
+
+.color-picker-container {
+  width: 100%;
+  padding: 1.5rem;
+}
+
+
+@media screen and (max-width: 1024px) {
+  .color-picker-container {
+    padding-top: 1rem;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
