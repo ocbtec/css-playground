@@ -173,3 +173,20 @@
     margin-right: 10px;
   }
 }
+
+@media screen and (max-width: 340px) {
+  .left-rod {
+    width: 40px;
+    left: -40px;
+  }
+  .right-rod {
+    width: 40px;
+    right: -40px;
+  }
+  .left-bubble {
+    left: -58px;
+  }
+  .right-bubble {
+    right: -58px;
+  }
+}
