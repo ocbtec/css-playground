@@ -57,3 +57,17 @@
     margin-top: 4px;
   }
 }
+
+@media screen and (min-width: 1921px) {
+  .slider-container {
+    div > div {
+      width: 100%;
+    }
+  }
+  .slider-container > div:first-child {
+    width: 100%;
+  }
+  .mat-slider {
+    width: 95%;
+  }
+}
