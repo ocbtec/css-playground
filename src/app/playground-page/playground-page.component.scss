@@ -3,7 +3,7 @@
   flex-direction: row;
   flex-wrap: nowrap;
   width: 90%;
-  margin: 10rem auto;
+  margin: 10rem auto;;
   background-color: #f7f7f7;
   box-shadow: 0px 1px 2px 0px #898989;
 }
@@ -22,6 +22,14 @@
   overflow: hidden;
 }
 
+.center-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4rem;
+}
+
 @media screen and (max-width: 1024px) {
   .playground-section {
     flex-direction: column;
@@ -34,6 +42,12 @@
   }
   .output-section {
     min-height: 482px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .playground-section {
+    margin-top: 2rem;
   }
 }
 

@@ -1,7 +1,17 @@
 <app-top-container></app-top-container>
 <div
+  *ngIf="showScrollButton"
+  class="center-button">
+  <button
+  mat-raised-button
+  color="primary"
+  (click)="scrollToPlayground(target)"
+  >Center Playground</button>
+</div>
+<div
   class="playground-section"
   [style.height.px]=mobileViewService.playgroundSectionHeight
+  #target
 >
   <app-playground-input
     class="input-section"
