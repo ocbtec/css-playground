@@ -18,3 +18,9 @@
     flex: 1;
   }
 }
+
+@media screen and (min-width: 1921px) {
+  .mat-tab-label {
+    min-width: 25% !important;
+  }
+}

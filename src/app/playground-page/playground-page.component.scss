@@ -3,7 +3,6 @@
   flex-direction: row;
   flex-wrap: nowrap;
   width: 90%;
-  // height: 700px;
   margin: 10rem auto;
   background-color: #f7f7f7;
   box-shadow: 0px 1px 2px 0px #898989;
@@ -45,5 +44,11 @@
   }
   .output-section {
     min-height: 300px;
+  }
+}
+
+@media screen and (min-width: 1921px) {
+  .input-section {
+    width: 750px;
   }
 }
