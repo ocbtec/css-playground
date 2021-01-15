@@ -8,6 +8,7 @@
   display: flex;
   justify-content: space-around;
   width: 100%;
+  padding-top: 1rem;
 }
 
 .chrome-picker {
@@ -44,6 +45,9 @@
   .colors-container {
     padding-top: 0.5rem;
     padding-bottom: 0;
+  }
+  .colors-flexbox {
+    padding-top: 0;
   }
   .chrome-picker {
     margin: 0;
