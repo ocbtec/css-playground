@@ -84,10 +84,22 @@
   margin: 0;
 }
 
+.info-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  margin-right: 2rem;
+  background-color: #b6ddfd;
+  border: 5px solid #b6ddfd;
+  border-radius: 50%;
+}
+
 .info-icon {
   font-size: 45px;
   width: 45px;
-  margin-right: 2rem;
+  height: 45px;
 }
 
 @keyframes logo-hover {
@@ -167,10 +179,18 @@
   .explanation-text {
     padding: 1rem;
   }
+  .info-icon-container {
+    width: 40px;
+    height: 40px;
+    margin-right: 1rem;
+  }
+  .info-text-top {
+    margin: 0;
+  }
   .info-icon {
     font-size: 40px;
     width: 40px;
-    margin-right: 10px;
+    height: 40px;
   }
 }
 

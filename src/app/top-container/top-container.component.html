@@ -8,9 +8,11 @@
   </div>
   <div class="site-explanation">
     <div class="explanation-text">
-      <mat-icon class="info-icon">info</mat-icon>
+      <div class="info-icon-container">
+        <mat-icon class="info-icon">info</mat-icon>
+      </div>
       <div>
-        <p>Use the sliders and color pickers to change the appearance of the square.</p>
+        <p class="info-text-top">Use the sliders and color pickers to change the appearance of the square.</p>
         <p *ngIf="showArrowKeysMessage">For finer adjustment, you can also click on a slider and use the left/right arrow keys.</p>
       </div>
     </div>
