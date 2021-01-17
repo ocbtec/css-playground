@@ -10,8 +10,8 @@
     <span class="color-picker-text">Border color</span>
     <color-slider
       class="color-picker"
-      color="{{ colorSettingsService.borderColor }}"
-      (onChange)="handleChange($event)"
+      color="{{ borderColor }}"
+      (onChange)="changeColor($event)"
     ></color-slider>
   </div>
   <app-reset-buttons

@@ -46,5 +46,6 @@ export class BorderSettingsService {
     this.radiusSlider.slider.currentValue = 0;
     this.borderStyle = 'solid';
     this.colorSettingsService.borderColor = '#b6ddfd';
+    this.colorSettingsService.resetBorderColorSettings();
   }
 }

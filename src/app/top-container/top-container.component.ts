@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { MobileViewService } from '../services/mobile-view.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { MobileViewService } from '../services/mobile-view.service';
   templateUrl: './top-container.component.html',
   styleUrls: ['./top-container.component.scss']
 })
-export class TopContainerComponent {
+export class TopContainerComponent implements OnInit {
   showArrowKeysMessage = true;
 
   constructor(public mobileViewService: MobileViewService) { }

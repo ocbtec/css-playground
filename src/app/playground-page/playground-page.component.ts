@@ -28,7 +28,7 @@ export class PlaygroundPageComponent implements OnInit {
   }
 
   scrollToPlayground($element: any) {
-    $element.scrollIntoView({ behavior: "smooth" });
+    $element.scrollIntoView({ behavior: 'smooth' });
   }
 
   checkForScroll() {

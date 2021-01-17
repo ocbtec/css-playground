@@ -74,6 +74,6 @@ export class BoxShadowSettingsService {
     this.spreadRadiusSlider.slider.currentValue = 0;
     this.shadowInsetSwitch = false;
     this.shadowInset = '';
-    this.colorSettingsService.boxShadowColor = '#343a60';
+    this.colorSettingsService.resetBoxShadowColorSettings();
   }
 }

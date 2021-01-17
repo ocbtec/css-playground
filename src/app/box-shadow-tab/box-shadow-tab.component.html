@@ -13,8 +13,8 @@
     <span class="color-picker-text">Box-shadow color</span>
     <color-slider
       class="color-picker"
-      color="{{ colorSettingsService.boxShadowColor }}"
-      (onChange)="handleChange($event)"
+      color="{{ boxShadowColor }}"
+      (onChange)="changeBoxShadowColor($event)"
     ></color-slider>
   </div>
   <app-reset-buttons
