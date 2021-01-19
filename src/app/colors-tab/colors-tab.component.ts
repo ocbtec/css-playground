@@ -34,9 +34,6 @@ export class ColorsTabComponent {
       this.backgroundColor = this.colorArray[1];
       this.borderColor = this.colorArray[2];
       this.boxShadowColor = this.colorArray[3];
-
-      console.log(this.backgroundColor);
-
     });
   }
 

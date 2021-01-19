@@ -7,8 +7,8 @@ import { MatSliderChange } from '@angular/material/slider';
   styleUrls: ['./slider.component.scss']
 })
 export class SliderComponent {
-  @Input() label = '';
   @Input() slider: {
+    label: string;
     id: string;
     minValue: number;
     maxValue: number;
@@ -16,6 +16,7 @@ export class SliderComponent {
     currentValue: number;
     unit: string;
   } = {
+    label: '',
     id: '',
     minValue: 0,
     maxValue: 0,

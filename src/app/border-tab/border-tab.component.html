@@ -1,6 +1,6 @@
 <div class="border-container" #containerHeight>
   <div *ngFor="let item of items" class="slider-wrapper">
-    <app-slider [label]="item.label" [slider]="item.slider"></app-slider>
+    <app-slider [slider]="item"></app-slider>
   </div>
   <div class="select-menu-container">
     <app-border-style-select class="select-menu"></app-border-style-select>

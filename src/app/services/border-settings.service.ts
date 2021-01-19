@@ -10,25 +10,21 @@ export class BorderSettingsService {
 
   widthSlider: Slider = {
     label: 'Width',
-    slider: {
-      id: 'width',
-      minValue: 0,
-      maxValue: 50,
-      step: 1,
-      currentValue: 2,
-      unit: 'px'
-    }
+    id: 'width',
+    minValue: 0,
+    maxValue: 50,
+    step: 1,
+    currentValue: 2,
+    unit: 'px'
   };
   radiusSlider: Slider = {
     label: 'Radius',
-    slider: {
-      id: 'radius',
-      minValue: 0,
-      maxValue: 50,
-      step: 1,
-      currentValue: 0,
-      unit: '%'
-    }
+    id: 'radius',
+    minValue: 0,
+    maxValue: 50,
+    step: 1,
+    currentValue: 0,
+    unit: '%'
   };
 
   borderStyle = 'solid';
@@ -42,8 +38,8 @@ export class BorderSettingsService {
   }
 
   resetBorderSettings() {
-    this.widthSlider.slider.currentValue = 2;
-    this.radiusSlider.slider.currentValue = 0;
+    this.widthSlider.currentValue = 2;
+    this.radiusSlider.currentValue = 0;
     this.borderStyle = 'solid';
     this.colorSettingsService.resetBorderColorSettings();
   }

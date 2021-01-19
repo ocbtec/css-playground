@@ -9,47 +9,39 @@ export class TransformSettingsService {
 
   sizeSlider: Slider = {
     label: 'Size',
-    slider: {
-      id: 'size',
-      minValue: 10,
-      maxValue: 300,
-      step: 1,
-      currentValue: 100,
-      unit: 'px'
-    }
+    id: 'size',
+    minValue: 10,
+    maxValue: 300,
+    step: 1,
+    currentValue: 100,
+    unit: 'px'
   };
   horizontallySlider: Slider = {
     label: 'Move horizontally',
-    slider: {
-      id: 'hMovement',
-      minValue: -300,
-      maxValue: 300,
-      step: 1,
-      currentValue: 0,
-      unit: 'px'
-    }
+    id: 'hMovement',
+    minValue: -300,
+    maxValue: 300,
+    step: 1,
+    currentValue: 0,
+    unit: 'px'
   };
   verticallySlider: Slider = {
     label: 'Move vertically',
-    slider: {
-      id: 'vMovement',
-      minValue: -300,
-      maxValue: 300,
-      step: 1,
-      currentValue: 0,
-      unit: 'px'
-    }
+    id: 'vMovement',
+    minValue: -300,
+    maxValue: 300,
+    step: 1,
+    currentValue: 0,
+    unit: 'px'
   };
   rotateSlider: Slider = {
     label: 'Rotate',
-    slider: {
-      id: 'rotate',
-      minValue: 0,
-      maxValue: 360,
-      step: 1,
-      currentValue: 0,
-      unit: '°'
-    }
+    id: 'rotate',
+    minValue: 0,
+    maxValue: 360,
+    step: 1,
+    currentValue: 0,
+    unit: '°'
   };
 
   initializeSliders() {
@@ -61,9 +53,9 @@ export class TransformSettingsService {
   }
 
   resetTransformSettings() {
-    this.sizeSlider.slider.currentValue = 100;
-    this.horizontallySlider.slider.currentValue = 0;
-    this.verticallySlider.slider.currentValue = 0;
-    this.rotateSlider.slider.currentValue = 0;
+    this.sizeSlider.currentValue = 100;
+    this.horizontallySlider.currentValue = 0;
+    this.verticallySlider.currentValue = 0;
+    this.rotateSlider.currentValue = 0;
   }
 }

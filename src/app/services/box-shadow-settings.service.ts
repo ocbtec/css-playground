@@ -10,47 +10,39 @@ export class BoxShadowSettingsService {
 
   offsetXSlider: Slider = {
     label: 'Offset x',
-    slider: {
-      id: 'offset-x',
-      minValue: -300,
-      maxValue: 300,
-      step: 1,
-      currentValue: 5,
-      unit: 'px'
-    }
+    id: 'offset-x',
+    minValue: -300,
+    maxValue: 300,
+    step: 1,
+    currentValue: 5,
+    unit: 'px'
   };
   offsetYSlider: Slider = {
     label: 'Offset y',
-    slider: {
-      id: 'offset-y',
-      minValue: -300,
-      maxValue: 300,
-      step: 1,
-      currentValue: 5,
-      unit: 'px'
-    }
+    id: 'offset-y',
+    minValue: -300,
+    maxValue: 300,
+    step: 1,
+    currentValue: 5,
+    unit: 'px'
   };
   blurRadiusSlider: Slider = {
     label: 'Blur Radius',
-    slider: {
-      id: 'blur-radius',
-      minValue: 0,
-      maxValue: 150,
-      step: 1,
-      currentValue: 5,
-      unit: 'px'
-    }
+    id: 'blur-radius',
+    minValue: 0,
+    maxValue: 150,
+    step: 1,
+    currentValue: 5,
+    unit: 'px'
   };
   spreadRadiusSlider: Slider = {
     label: 'Spread Radius',
-    slider: {
-      id: 'spread-radius',
-      minValue: -100,
-      maxValue: 150,
-      step: 1,
-      currentValue: 0,
-      unit: 'px'
-    }
+    id: 'spread-radius',
+    minValue: -100,
+    maxValue: 150,
+    step: 1,
+    currentValue: 0,
+    unit: 'px'
   };
 
   shadowInset = '';
@@ -68,10 +60,10 @@ export class BoxShadowSettingsService {
   }
 
   resetBoxShadowSettings() {
-    this.offsetXSlider.slider.currentValue = 5;
-    this.offsetYSlider.slider.currentValue = 5;
-    this.blurRadiusSlider.slider.currentValue = 5;
-    this.spreadRadiusSlider.slider.currentValue = 0;
+    this.offsetXSlider.currentValue = 5;
+    this.offsetYSlider.currentValue = 5;
+    this.blurRadiusSlider.currentValue = 5;
+    this.spreadRadiusSlider.currentValue = 0;
     this.shadowInsetSwitch = false;
     this.shadowInset = '';
     this.colorSettingsService.resetBoxShadowColorSettings();
