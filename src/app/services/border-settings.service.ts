@@ -10,6 +10,7 @@ export class BorderSettingsService {
 
   widthSlider: Slider = {
     label: 'Width',
+    tabType: 'border',
     id: 'width',
     minValue: 0,
     maxValue: 50,
@@ -19,6 +20,7 @@ export class BorderSettingsService {
   };
   radiusSlider: Slider = {
     label: 'Radius',
+    tabType: 'border',
     id: 'radius',
     minValue: 0,
     maxValue: 50,

@@ -9,6 +9,7 @@ export class TransformSettingsService {
 
   sizeSlider: Slider = {
     label: 'Size',
+    tabType: 'transform',
     id: 'size',
     minValue: 10,
     maxValue: 300,
@@ -18,6 +19,7 @@ export class TransformSettingsService {
   };
   horizontallySlider: Slider = {
     label: 'Move horizontally',
+    tabType: 'transform',
     id: 'hMovement',
     minValue: -300,
     maxValue: 300,
@@ -27,6 +29,7 @@ export class TransformSettingsService {
   };
   verticallySlider: Slider = {
     label: 'Move vertically',
+    tabType: 'transform',
     id: 'vMovement',
     minValue: -300,
     maxValue: 300,
@@ -36,6 +39,7 @@ export class TransformSettingsService {
   };
   rotateSlider: Slider = {
     label: 'Rotate',
+    tabType: 'transform',
     id: 'rotate',
     minValue: 0,
     maxValue: 360,

@@ -10,6 +10,7 @@ export class BoxShadowSettingsService {
 
   offsetXSlider: Slider = {
     label: 'Offset x',
+    tabType: 'box-shadow',
     id: 'offset-x',
     minValue: -300,
     maxValue: 300,
@@ -19,6 +20,7 @@ export class BoxShadowSettingsService {
   };
   offsetYSlider: Slider = {
     label: 'Offset y',
+    tabType: 'box-shadow',
     id: 'offset-y',
     minValue: -300,
     maxValue: 300,
@@ -28,6 +30,7 @@ export class BoxShadowSettingsService {
   };
   blurRadiusSlider: Slider = {
     label: 'Blur Radius',
+    tabType: 'box-shadow',
     id: 'blur-radius',
     minValue: 0,
     maxValue: 150,
@@ -37,6 +40,7 @@ export class BoxShadowSettingsService {
   };
   spreadRadiusSlider: Slider = {
     label: 'Spread Radius',
+    tabType: 'box-shadow',
     id: 'spread-radius',
     minValue: -100,
     maxValue: 150,

@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { MatSliderChange } from '@angular/material/slider';
+import { TransformSettingsService } from '../services/transform-Settings.service';
+import { Slider } from './slider.model';
 
 @Component({
   selector: 'app-slider',
@@ -7,16 +9,9 @@ import { MatSliderChange } from '@angular/material/slider';
   styleUrls: ['./slider.component.scss']
 })
 export class SliderComponent {
-  @Input() slider: {
-    label: string;
-    id: string;
-    minValue: number;
-    maxValue: number;
-    step: number;
-    currentValue: number;
-    unit: string;
-  } = {
+  @Input() slider: Slider = {
     label: '',
+    tabType: '',
     id: '',
     minValue: 0,
     maxValue: 0,
