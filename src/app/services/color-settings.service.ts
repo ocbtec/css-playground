@@ -6,7 +6,10 @@ import { Subject, combineLatest } from 'rxjs';
 })
 export class ColorSettingsService {
   cubeColor = '#ff4081';
+  cubeColorSubject: Subject<string> = new Subject();
+
   backgroundColor = '#ffffff';
+  backgroundColorSubject: Subject<string> = new Subject();
 
   borderColor = '#b6ddfd';
   borderColorSubject: Subject<string> = new Subject();
@@ -15,20 +18,24 @@ export class ColorSettingsService {
   boxShadowColorSubject: Subject<string> = new Subject();
 
   allColors = combineLatest([
+    this.cubeColorSubject,
+    this.backgroundColorSubject,
     this.borderColorSubject,
     this.boxShadowColorSubject
   ]);
 
   initializeColors() {
+    this.cubeColorSubject.next(this.cubeColor);
+    this.backgroundColorSubject.next(this.backgroundColor);
     this.borderColorSubject.next(this.borderColor);
     this.boxShadowColorSubject.next(this.boxShadowColor);
   }
 
   setCubeColor(color: string) {
-    this.cubeColor = color;
+    this.cubeColorSubject.next(color);
   }
   setBackgroundColor(color: string) {
-    this.backgroundColor = color;
+    this.backgroundColorSubject.next(color);
   }
   setBorderColor(color: string) {
     this.borderColorSubject.next(color);
@@ -37,6 +44,12 @@ export class ColorSettingsService {
     this.boxShadowColorSubject.next(color);
   }
 
+  resetCubeColorSettings() {
+    this.cubeColorSubject.next(this.cubeColor);
+  }
+  resetBackgroundColorSettings() {
+    this.backgroundColorSubject.next(this.backgroundColor);
+  }
   resetBorderColorSettings() {
     this.borderColorSubject.next(this.borderColor);
   }
@@ -46,8 +59,6 @@ export class ColorSettingsService {
   }
 
   resetAllColorSettings() {
-    this.cubeColor = '#ff4081';
-    this.backgroundColor = '#ffffff';
     this.initializeColors();
   }
 }

@@ -11,10 +11,17 @@ export class PlaygroundPageComponent implements OnInit {
   @ViewChild('playground') playground!: ElementRef;
   showScrollButton = false;
 
+  backgroundColor = '';
+
   constructor(
     public colorSettingsService: ColorSettingsService,
     public mobileViewService: MobileViewService
-  ) { }
+  ) {
+    const colors = this.colorSettingsService.backgroundColorSubject;
+    colors.subscribe(color => {
+      this.backgroundColor = color;
+    });
+  }
 
   @HostListener('window:resize', ['$event'])
   onResize() {

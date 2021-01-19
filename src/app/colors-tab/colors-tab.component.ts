@@ -14,6 +14,8 @@ export class ColorsTabComponent {
   settingsType = 'Colors';
   messageDynamic = 'Reset Colors Settings';
 
+  cubeColor = '';
+  backgroundColor = '';
   borderColor = '';
   boxShadowColor = '';
 
@@ -27,19 +29,22 @@ export class ColorsTabComponent {
     const colors = this.colorSettingsService.allColors;
     colors.subscribe(colorArray => {
       this.colorArray = [];
-      colorArray.map(color => {
-        this.colorArray.push(color);
-      });
-      this.borderColor = this.colorArray[0];
-      this.boxShadowColor = this.colorArray[1];
+      colorArray.map(color => this.colorArray.push(color));
+      this.cubeColor = this.colorArray[0];
+      this.backgroundColor = this.colorArray[1];
+      this.borderColor = this.colorArray[2];
+      this.boxShadowColor = this.colorArray[3];
+
+      console.log(this.backgroundColor);
+
     });
   }
 
   changeCubeColor($event: ColorEvent) {
-    this.colorSettingsService.cubeColor = $event.color.hex;
+    this.colorSettingsService.setCubeColor($event.color.hex);
   }
   changeBackgroundColor($event: ColorEvent) {
-    this.colorSettingsService.backgroundColor = $event.color.hex;
+    this.colorSettingsService.setBackgroundColor($event.color.hex);
   }
   changeBorderColor($event: ColorEvent) {
     this.colorSettingsService.setBorderColor($event.color.hex);

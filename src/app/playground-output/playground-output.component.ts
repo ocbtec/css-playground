@@ -10,6 +10,7 @@ import { ColorSettingsService } from '../services/color-settings.service';
   styleUrls: ['./playground-output.component.scss']
 })
 export class PlaygroundOutputComponent {
+  cubeColor = '';
   borderColor = '';
   boxShadowColor = '';
 
@@ -25,8 +26,9 @@ export class PlaygroundOutputComponent {
     colors.subscribe(colorArray => {
       this.colorArray = [];
       colorArray.map(color => this.colorArray.push(color));
-      this.borderColor = this.colorArray[0];
-      this.boxShadowColor = this.colorArray[1];
+      this.cubeColor = this.colorArray[0];
+      this.borderColor = this.colorArray[2];
+      this.boxShadowColor = this.colorArray[3];
     });
   }
 }
