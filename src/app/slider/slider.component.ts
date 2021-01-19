@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { MatSliderChange } from '@angular/material/slider';
 import { BorderSettingsService } from '../services/border-settings.service';
+import { BoxShadowSettingsService } from '../services/box-shadow-settings.service';
 import { TransformSettingsService } from '../services/transform-Settings.service';
 import { Slider } from './slider.model';
 
@@ -23,8 +24,9 @@ export class SliderComponent {
 
   constructor(
     private transformSettingsService: TransformSettingsService,
-    private borderSettingsService: BorderSettingsService
-    ) { }
+    private borderSettingsService: BorderSettingsService,
+    private boxShadowSettingsService: BoxShadowSettingsService
+  ) { }
 
   getSliderType(sliderEvent: MatSliderChange) {
     if (sliderEvent.value !== null) {
@@ -45,6 +47,16 @@ export class SliderComponent {
           this.borderSettingsService.setWidth(sliderEvent.value);
         } else if (sliderEvent.source._elementRef.nativeElement.id === 'radius') {
           this.borderSettingsService.setRadius(sliderEvent.value);
+        }
+      } else if (sliderEvent.source._elementRef.nativeElement.getAttribute('data-tabType') === 'box-shadow') {
+        if (sliderEvent.source._elementRef.nativeElement.id === 'offset-x') {
+          this.boxShadowSettingsService.setOffsetX(sliderEvent.value);
+        } else if (sliderEvent.source._elementRef.nativeElement.id === 'offset-y') {
+          this.boxShadowSettingsService.setOffsetY(sliderEvent.value);
+        } else if (sliderEvent.source._elementRef.nativeElement.id === 'blur-Radius') {
+          this.boxShadowSettingsService.setBlurRadius(sliderEvent.value);
+        } else if (sliderEvent.source._elementRef.nativeElement.id === 'spread-radius') {
+          this.boxShadowSettingsService.setSpreadRadius(sliderEvent.value);
         }
       }
     }

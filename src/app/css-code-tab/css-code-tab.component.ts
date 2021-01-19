@@ -27,6 +27,13 @@ export class CssCodeTabComponent {
   borderStyle = '';
   borderArray: Array<number> = [];
 
+  shadowX = 0;
+  shadowY = 0;
+  shadowBlur = 0;
+  shadowSpread = 0;
+  boxShadowArray: Array<number> = [];
+  shadowInset = '';
+
   constructor(
     public transformSettingsService: TransformSettingsService,
     public borderSettingsService: BorderSettingsService,
@@ -62,5 +69,16 @@ export class CssCodeTabComponent {
       this.borderRadius = this.borderArray[1];
     });
     this.borderSettingsService.borderStyleSubject.subscribe(value => this.borderStyle = value);
+
+    const boxShadowSettings = this.boxShadowSettingsService.allSliders;
+    boxShadowSettings.subscribe(settings => {
+      this.boxShadowArray = [];
+      settings.map(slider => this.boxShadowArray.push(slider.currentValue));
+      this.shadowX = this.boxShadowArray[0];
+      this.shadowY = this.boxShadowArray[1];
+      this.shadowBlur = this.boxShadowArray[2];
+      this.shadowSpread = this.boxShadowArray[3];
+    });
+    this.boxShadowSettingsService.shadowInsetSubject.subscribe(value => this.shadowInset = value);
   }
 }

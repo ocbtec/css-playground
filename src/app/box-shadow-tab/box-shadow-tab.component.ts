@@ -30,12 +30,13 @@ export class BoxShadowTabComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.boxShadowSettingsService.initializeSliders();
+    this.boxShadowSettingsService.initializeBoxShadowSettings();
     this.items = this.boxShadowSettingsService.items;
   }
 
   onChange() {
-    this.boxShadowSettingsService.shadowInset = this.boxShadowSettingsService.shadowInsetSwitch ? 'inset' : '';
+    const shadowInset = this.boxShadowSettingsService.shadowInsetSwitch ? 'inset' : '';
+    this.boxShadowSettingsService.shadowInsetSubject.next(shadowInset);
   }
 
   changeBoxShadowColor($event: ColorEvent) {
