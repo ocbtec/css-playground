@@ -1,6 +1,6 @@
 <div class="border-container" #containerHeight>
   <div *ngFor="let item of items" class="slider-wrapper">
-    <app-slider [label]="item.label" [slider]="item.slider"></app-slider>
+    <app-slider [slider]="item"></app-slider>
   </div>
   <div class="select-menu-container">
     <app-border-style-select class="select-menu"></app-border-style-select>
@@ -10,8 +10,8 @@
     <span class="color-picker-text">Border color</span>
     <color-slider
       class="color-picker"
-      color="{{ colorSettingsService.borderColor }}"
-      (onChange)="handleChange($event)"
+      color="{{ borderColor }}"
+      (onChange)="changeColor($event)"
     ></color-slider>
   </div>
   <app-reset-buttons

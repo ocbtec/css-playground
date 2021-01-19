@@ -16,22 +16,30 @@ export class BoxShadowTabComponent implements OnInit {
 
   items: Slider[] = [];
 
+  boxShadowColor = '';
+
   constructor(
     public boxShadowSettingsService: BoxShadowSettingsService,
     public colorSettingsService: ColorSettingsService,
     public mobileViewService: MobileViewService
-  ) { }
+  ) {
+    const boxShadowColor = this.colorSettingsService.boxShadowColorSubject;
+    boxShadowColor.subscribe(value => {
+      this.boxShadowColor = value;
+    });
+  }
 
   ngOnInit() {
-    this.boxShadowSettingsService.initializeSliders();
+    this.boxShadowSettingsService.initializeBoxShadowSettings();
     this.items = this.boxShadowSettingsService.items;
   }
 
   onChange() {
-    this.boxShadowSettingsService.shadowInset = this.boxShadowSettingsService.shadowInsetSwitch ? 'inset' : '';
+    const shadowInset = this.boxShadowSettingsService.shadowInsetSwitch ? 'inset' : '';
+    this.boxShadowSettingsService.shadowInsetSubject.next(shadowInset);
   }
 
-  handleChange($event: ColorEvent) {
-    this.colorSettingsService.boxShadowColor = $event.color.hex;
+  changeBoxShadowColor($event: ColorEvent) {
+    this.colorSettingsService.setBoxShadowColor($event.color.hex);
   }
 }

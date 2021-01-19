@@ -4,7 +4,7 @@
       <span class="color-picker-text mobile-margin">Cube color</span>
       <color-chrome
         class="color-picker-chrome"
-        color="{{ colorSettingsService.cubeColor }}"
+        color="{{ cubeColor }}"
         (onChange)="changeCubeColor($event)"
       ></color-chrome>
     </div>
@@ -12,7 +12,7 @@
       <span class="color-picker-text mobile-margin">Background color</span>
       <color-chrome
         class="color-picker-chrome"
-        color="{{ colorSettingsService.backgroundColor }}"
+        color="{{ backgroundColor }}"
         (onChange)="changeBackgroundColor($event)"
       ></color-chrome>
     </div>
@@ -21,7 +21,7 @@
     <span class="color-picker-text">Border color</span>
     <color-slider
       class="color-picker"
-      color="{{ colorSettingsService.borderColor }}"
+      color="{{ borderColor }}"
       (onChange)="changeBorderColor($event)"
     ></color-slider>
   </div>
@@ -29,7 +29,7 @@
     <span class="color-picker-text">Box-shadow color</span>
     <color-slider
       class="color-picker"
-      color="{{ colorSettingsService.boxShadowColor }}"
+      color="{{ boxShadowColor }}"
       (onChange)="changeBoxShadowColor($event)"
     ></color-slider>
   </div>

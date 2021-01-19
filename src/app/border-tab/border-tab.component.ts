@@ -17,19 +17,25 @@ export class BorderTabComponent implements OnInit {
 
   items: Slider[] = [];
 
+  borderColor = '';
+
   constructor(
     public borderSettingsService: BorderSettingsService,
     public colorSettingsService: ColorSettingsService,
     public mobileViewService: MobileViewService
-  ) { }
+  ) {
+    const borderColor = this.colorSettingsService.borderColorSubject;
+    borderColor.subscribe(value => {
+      this.borderColor = value;
+    });
+  }
 
   ngOnInit() {
-    this.borderSettingsService.initializeSliders();
+    this.borderSettingsService.initializeBorderSettings();
     this.items = this.borderSettingsService.items;
   }
 
-  handleChange($event: ColorEvent) {
-    this.colorSettingsService.borderColor = $event.color.hex;
+  changeColor($event: ColorEvent) {
+    this.colorSettingsService.setBorderColor($event.color.hex);
   }
-
 }

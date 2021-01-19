@@ -34,13 +34,12 @@ export class ResetButtonsComponent {
     } else if (resetTab === 'Box-Shadow') {
       this.boxShadowSettingsService.resetBoxShadowSettings();
     } else if (resetTab === 'Colors') {
-      this.colorsSettingsService.resetColorSettings();
-    }
-      else if (resetTab === 'all') {
+      this.colorsSettingsService.resetAllColorSettings();
+    } else if (resetTab === 'all') {
       this.transformSettingsService.resetTransformSettings();
       this.borderSettingsService.resetBorderSettings();
       this.boxShadowSettingsService.resetBoxShadowSettings();
-      this.colorsSettingsService.resetColorSettings();
+      this.colorsSettingsService.resetAllColorSettings();
     }
   }
 }

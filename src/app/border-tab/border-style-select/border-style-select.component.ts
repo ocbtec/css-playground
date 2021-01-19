@@ -46,6 +46,6 @@ export class BorderStyleSelectComponent implements OnInit {
       value: event.value,
       viewValue: event.source.triggerValue
     };
-    this.borderSettingsService.borderStyle = this.selectedData.viewValue;
+    this.borderSettingsService.setStyle(this.selectedData.viewValue);
   }
 }
