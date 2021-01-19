@@ -53,7 +53,7 @@ export class SliderComponent {
           this.boxShadowSettingsService.setOffsetX(sliderEvent.value);
         } else if (sliderEvent.source._elementRef.nativeElement.id === 'offset-y') {
           this.boxShadowSettingsService.setOffsetY(sliderEvent.value);
-        } else if (sliderEvent.source._elementRef.nativeElement.id === 'blur-Radius') {
+        } else if (sliderEvent.source._elementRef.nativeElement.id === 'blur-radius') {
           this.boxShadowSettingsService.setBlurRadius(sliderEvent.value);
         } else if (sliderEvent.source._elementRef.nativeElement.id === 'spread-radius') {
           this.boxShadowSettingsService.setSpreadRadius(sliderEvent.value);

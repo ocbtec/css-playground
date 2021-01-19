@@ -1,17 +1,20 @@
-<p>{{ cubeColor }}</p>
-<p>{{ backgroundColor }}</p>
-<p>{{ boxShadowColor }}</p>
-<p>{{ size }}</p>
-<p>{{ xPos}}</p>
-<p>{{ yPos }}</p>
-<p>{{ rotate }}</p>
-<p>{{ borderWidth }}</p>
-<p>{{ borderRadius }}</p>
-<p>{{ borderStyle }}</p>
-<p>{{ borderColor }}</p>
-<p>----</p>
-<p>{{ shadowX }}</p>
-<p>{{ shadowY }}</p>
-<p>{{ shadowBlur }}</p>
-<p>{{ shadowSpread }}</p>
-<p>{{ shadowInset }}</p>
+<div class="code-container">
+  <div class="code-block">
+    <p class="code-paragraph">.background &#123;</p>
+    <p class="code-paragraph">&nbsp;&nbsp;&nbsp;&nbsp;background-color: {{ backgroundColor }}&#59;</p>
+    <p class="code-paragraph">&#125;</p>
+  </div>
+  <div class="code-block">
+    <p>.cube &#123;</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;background-color: {{ cubeColor }}&#59;</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;width: {{ size }}px&#59;</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;height: {{ size }}px&#59;</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;border-width: {{ borderWidth }}px&#59;</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;border-color: {{ borderColor }}&#59;</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;border-radius: {{ borderRadius }}&#37;&#59;</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;border-style: {{ borderStyle }}&#59;</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;transform: translate&#40;{{ xPos}}px, {{ yPos }}px&#41; rotate&#40;{{ rotate }}deg&#41;&#59;</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;box-shadow: {{ boxShadowColor }} {{ shadowX }}px {{ shadowY }}px {{ shadowBlur }}px {{ shadowSpread }}px {{ shadowInset }}&#59;</p>
+    <p class="code-paragraph">&#125;</p>
+  </div>
+</div>
