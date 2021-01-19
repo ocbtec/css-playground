@@ -12,8 +12,13 @@ import { TransformSettingsService } from '../services/transform-Settings.service
 export class CssCodeTabComponent {
   borderColor = '';
   boxShadowColor = '';
-
   colorArray: Array<string> = [];
+
+  size = 0;
+  xPos = 0;
+  yPos = 0;
+  rotate = 0;
+  transformArray: Array<number> = [];
 
   constructor(
     public transformSettingsService: TransformSettingsService,
@@ -29,5 +34,15 @@ export class CssCodeTabComponent {
       this.boxShadowColor = this.colorArray[1];
     });
     this.colorSettingsService.initializeColors();
+
+    const transformSettings = this.transformSettingsService.allSliders;
+    transformSettings.subscribe(settings => {
+      this.transformArray = [];
+      settings.map(slider => this.transformArray.push(slider.currentValue));
+      this.size = this.transformArray[0];
+      this.xPos = this.transformArray[1];
+      this.yPos = this.transformArray[2];
+      this.rotate = this.transformArray[3];
+    });
   }
 }

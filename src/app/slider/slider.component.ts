@@ -20,9 +20,30 @@ export class SliderComponent {
     unit: ''
   };
 
+  constructor(private transformSettingsService: TransformSettingsService) { }
+
   getSliderType(sliderEvent: MatSliderChange) {
     if (sliderEvent.value !== null) {
       this.slider.currentValue = sliderEvent.value;
+
+      // console.log(sliderEvent.source._elementRef.nativeElement.getAttribute('data-tabType'));
+
+      if (sliderEvent.source._elementRef.nativeElement.getAttribute('data-tabType') === 'transform') {
+        if (sliderEvent.source._elementRef.nativeElement.id === 'size') {
+          this.transformSettingsService.setSize(sliderEvent.value);
+        }
+        if (sliderEvent.source._elementRef.nativeElement.id === 'hMovement') {
+          this.transformSettingsService.setXPosition(sliderEvent.value);
+        }
+        if (sliderEvent.source._elementRef.nativeElement.id === 'vMovement') {
+          this.transformSettingsService.setYPosition(sliderEvent.value);
+        }
+        if (sliderEvent.source._elementRef.nativeElement.id === 'rotate') {
+          this.transformSettingsService.setRotation(sliderEvent.value);
+        }
+      }
+
+
     }
   }
 }
