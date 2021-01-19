@@ -10,10 +10,25 @@ import { ColorSettingsService } from '../services/color-settings.service';
   styleUrls: ['./playground-output.component.scss']
 })
 export class PlaygroundOutputComponent {
+  cubeColor = '';
+  borderColor = '';
+  boxShadowColor = '';
+
+  colorArray: Array<string> = [];
+
   constructor(
     public transformSettingsService: TransformSettingsService,
     public borderSettingsService: BorderSettingsService,
     public boxShadowSettingsService: BoxShadowSettingsService,
     public colorSettingsService: ColorSettingsService
-  ) { }
+  ) {
+    const colors = this.colorSettingsService.allColors;
+    colors.subscribe(colorArray => {
+      this.colorArray = [];
+      colorArray.map(color => this.colorArray.push(color));
+      this.cubeColor = this.colorArray[0];
+      this.borderColor = this.colorArray[2];
+      this.boxShadowColor = this.colorArray[3];
+    });
+  }
 }

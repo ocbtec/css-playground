@@ -34,6 +34,7 @@ import { PlaygroundPageComponent } from './playground-page/playground-page.compo
 import { UsedTechnologiesPageComponent } from './used-technologies-page/used-technologies-page.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ScrollIndicatorComponent } from './scroll-indicator/scroll-indicator.component';
+import { CssCodeTabComponent } from './css-code-tab/css-code-tab.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { ScrollIndicatorComponent } from './scroll-indicator/scroll-indicator.co
     PlaygroundPageComponent,
     UsedTechnologiesPageComponent,
     NotFoundComponent,
-    ScrollIndicatorComponent
+    ScrollIndicatorComponent,
+    CssCodeTabComponent
   ],
   imports: [
     BrowserModule,

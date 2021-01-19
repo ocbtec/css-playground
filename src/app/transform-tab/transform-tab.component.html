@@ -1,6 +1,6 @@
 <div class="transform-container" #containerHeight>
   <div *ngFor="let item of items" class="slider-wrapper">
-    <app-slider [label]="item.label" [slider]="item.slider"></app-slider>
+    <app-slider [slider]="item"></app-slider>
   </div>
   <app-reset-buttons
     class="reset-buttons-container"

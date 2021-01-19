@@ -1,6 +1,6 @@
 <div class="box-shadow-container" #containerHeight>
   <div *ngFor="let item of items" class="slider-wrapper">
-    <app-slider [label]="item.label" [slider]="item.slider"></app-slider>
+    <app-slider [slider]="item"></app-slider>
   </div>
   <div class="toggle-container">
     <mat-slide-toggle
@@ -13,8 +13,8 @@
     <span class="color-picker-text">Box-shadow color</span>
     <color-slider
       class="color-picker"
-      color="{{ colorSettingsService.boxShadowColor }}"
-      (onChange)="handleChange($event)"
+      color="{{ boxShadowColor }}"
+      (onChange)="changeBoxShadowColor($event)"
     ></color-slider>
   </div>
   <app-reset-buttons
