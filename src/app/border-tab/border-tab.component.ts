@@ -4,7 +4,6 @@ import { Slider } from '../slider/slider.model';
 import { ColorEvent } from 'ngx-color';
 import { ColorSettingsService } from '../services/color-settings.service';
 import { MobileViewService } from '../services/mobile-view.service';
-import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-border-tab',
@@ -18,7 +17,6 @@ export class BorderTabComponent implements OnInit {
 
   items: Slider[] = [];
 
-  borderColorSubject: Subject<string>;
   borderColor = '';
 
   constructor(
@@ -26,11 +24,10 @@ export class BorderTabComponent implements OnInit {
     public colorSettingsService: ColorSettingsService,
     public mobileViewService: MobileViewService
   ) {
-    this.borderColorSubject = this.colorSettingsService.borderColorSubject;
-    this.borderColorSubject.subscribe(value => {
+    const borderColor = this.colorSettingsService.borderColorSubject;
+    borderColor.subscribe(value => {
       this.borderColor = value;
     });
-    this.colorSettingsService.initializeColors();
   }
 
   ngOnInit() {
@@ -41,5 +38,4 @@ export class BorderTabComponent implements OnInit {
   changeColor($event: ColorEvent) {
     this.colorSettingsService.setBorderColor($event.color.hex);
   }
-
 }

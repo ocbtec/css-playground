@@ -1,6 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { ColorEvent } from 'ngx-color';
-import { Subject } from 'rxjs';
 import { BoxShadowSettingsService } from '../services/box-shadow-settings.service';
 import { ColorSettingsService } from '../services/color-settings.service';
 import { MobileViewService } from '../services/mobile-view.service';
@@ -15,26 +14,25 @@ export class ColorsTabComponent {
   settingsType = 'Colors';
   messageDynamic = 'Reset Colors Settings';
 
-  borderColorSubject: Subject<string>;
   borderColor = '';
-
-  boxShadowColorSubject: Subject<string>;
   boxShadowColor = '';
+
+  colorArray: Array<string> = [];
 
   constructor(
     public colorSettingsService: ColorSettingsService,
     public boxShadowSettingsService: BoxShadowSettingsService,
     public mobileViewService: MobileViewService
   ) {
-    this.borderColorSubject = this.colorSettingsService.borderColorSubject;
-    this.borderColorSubject.subscribe(value => {
-      this.borderColor = value;
+    const colors = this.colorSettingsService.allColors;
+    colors.subscribe(colorArray => {
+      this.colorArray = [];
+      colorArray.map(color => {
+        this.colorArray.push(color);
+      });
+      this.borderColor = this.colorArray[0];
+      this.boxShadowColor = this.colorArray[1];
     });
-    this.boxShadowColorSubject = this.colorSettingsService.boxShadowColorSubject;
-    this.boxShadowColorSubject.subscribe(value => {
-      this.boxShadowColor = value;
-    });
-    this.colorSettingsService.initializeColors();
   }
 
   changeCubeColor($event: ColorEvent) {

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Subject, combineLatest } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +13,11 @@ export class ColorSettingsService {
 
   boxShadowColor = '#343a60';
   boxShadowColorSubject: Subject<string> = new Subject();
+
+  allColors = combineLatest([
+    this.borderColorSubject,
+    this.boxShadowColorSubject
+  ]);
 
   initializeColors() {
     this.borderColorSubject.next(this.borderColor);
@@ -43,7 +48,6 @@ export class ColorSettingsService {
   resetAllColorSettings() {
     this.cubeColor = '#ff4081';
     this.backgroundColor = '#ffffff';
-    this.borderColorSubject.next(this.borderColor);
-    this.boxShadowColorSubject.next(this.boxShadowColor);
+    this.initializeColors();
   }
 }

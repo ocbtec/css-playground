@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Subject } from 'rxjs';
 import { BorderSettingsService } from '../services/border-settings.service';
 import { BoxShadowSettingsService } from '../services/box-shadow-settings.service';
 import { ColorSettingsService } from '../services/color-settings.service';
@@ -11,11 +10,10 @@ import { TransformSettingsService } from '../services/transform-Settings.service
   styleUrls: ['./css-code-tab.component.scss']
 })
 export class CssCodeTabComponent {
-  borderColorSubject: Subject<string>;
   borderColor = '';
-
-  boxShadowColorSubject: Subject<string>;
   boxShadowColor = '';
+
+  colorArray: Array<string> = [];
 
   constructor(
     public transformSettingsService: TransformSettingsService,
@@ -23,13 +21,12 @@ export class CssCodeTabComponent {
     public boxShadowSettingsService: BoxShadowSettingsService,
     public colorSettingsService: ColorSettingsService
   ) {
-    this.borderColorSubject = this.colorSettingsService.borderColorSubject;
-    this.borderColorSubject.subscribe(value => {
-      this.borderColor = value;
-    });
-    this.boxShadowColorSubject = this.colorSettingsService.boxShadowColorSubject;
-    this.boxShadowColorSubject.subscribe(value => {
-      this.boxShadowColor = value;
+    const colors = this.colorSettingsService.allColors;
+    colors.subscribe(colorArray => {
+      this.colorArray = [];
+      colorArray.map(color => this.colorArray.push(color));
+      this.borderColor = this.colorArray[0];
+      this.boxShadowColor = this.colorArray[1];
     });
     this.colorSettingsService.initializeColors();
   }

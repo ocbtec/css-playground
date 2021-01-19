@@ -3,7 +3,6 @@ import { BorderSettingsService } from '../services/border-settings.service';
 import { TransformSettingsService } from '../services/transform-Settings.service';
 import { BoxShadowSettingsService } from '../services/box-shadow-settings.service';
 import { ColorSettingsService } from '../services/color-settings.service';
-import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-playground-output',
@@ -11,11 +10,10 @@ import { Subject } from 'rxjs';
   styleUrls: ['./playground-output.component.scss']
 })
 export class PlaygroundOutputComponent {
-  borderColorSubject: Subject<string>;
   borderColor = '';
-
-  boxShadowColorSubject: Subject<string>;
   boxShadowColor = '';
+
+  colorArray: Array<string> = [];
 
   constructor(
     public transformSettingsService: TransformSettingsService,
@@ -23,14 +21,12 @@ export class PlaygroundOutputComponent {
     public boxShadowSettingsService: BoxShadowSettingsService,
     public colorSettingsService: ColorSettingsService
   ) {
-    this.borderColorSubject = this.colorSettingsService.borderColorSubject;
-    this.borderColorSubject.subscribe(value => {
-      this.borderColor = value;
+    const colors = this.colorSettingsService.allColors;
+    colors.subscribe(colorArray => {
+      this.colorArray = [];
+      colorArray.map(color => this.colorArray.push(color));
+      this.borderColor = this.colorArray[0];
+      this.boxShadowColor = this.colorArray[1];
     });
-    this.boxShadowColorSubject = this.colorSettingsService.boxShadowColorSubject;
-    this.boxShadowColorSubject.subscribe(value => {
-      this.boxShadowColor = value;
-    });
-    this.colorSettingsService.initializeColors();
   }
 }

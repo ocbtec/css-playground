@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ColorEvent } from 'ngx-color';
-import { Subject } from 'rxjs';
 import { BoxShadowSettingsService } from '../services/box-shadow-settings.service';
 import { ColorSettingsService } from '../services/color-settings.service';
 import { MobileViewService } from '../services/mobile-view.service';
@@ -17,7 +16,6 @@ export class BoxShadowTabComponent implements OnInit {
 
   items: Slider[] = [];
 
-  boxShadowColorSubject: Subject<string>;
   boxShadowColor = '';
 
   constructor(
@@ -25,12 +23,10 @@ export class BoxShadowTabComponent implements OnInit {
     public colorSettingsService: ColorSettingsService,
     public mobileViewService: MobileViewService
   ) {
-    this.boxShadowColorSubject = this.colorSettingsService.boxShadowColorSubject;
-    this.boxShadowColorSubject.subscribe(value => {
+    const boxShadowColor = this.colorSettingsService.boxShadowColorSubject;
+    boxShadowColor.subscribe(value => {
       this.boxShadowColor = value;
     });
-
-    this.colorSettingsService.initializeColors();
   }
 
   ngOnInit() {
