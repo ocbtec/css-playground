@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { combineLatest, Subject } from 'rxjs';
 import { Slider } from '../slider/slider.model';
 import { ColorSettingsService } from './color-settings.service';
 
@@ -18,6 +19,8 @@ export class BorderSettingsService {
     currentValue: 2,
     unit: 'px'
   };
+  widthSliderSubject: Subject<Slider> = new Subject<Slider>();
+
   radiusSlider: Slider = {
     label: 'Radius',
     tabType: 'border',
@@ -28,21 +31,48 @@ export class BorderSettingsService {
     currentValue: 0,
     unit: '%'
   };
+  radiusSliderSubject: Subject<Slider> = new Subject<Slider>();
 
-  borderStyle = 'solid';
+  borderStyle = '';
+  borderStyleSubject: Subject<string> = new Subject<string>();
 
-  constructor(public colorSettingsService: ColorSettingsService) { }
+  allSliders = combineLatest([
+    this.widthSliderSubject,
+    this.radiusSliderSubject,
+  ]);
+
+  constructor(private colorSettingsService: ColorSettingsService) { }
 
   initializeSliders() {
-    this.items = [];
-    this.items.push(this.widthSlider);
-    this.items.push(this.radiusSlider);
-  }
+    this.allSliders.subscribe(sliderArray => {
+      this.items = [];
+      sliderArray.map(slider => this.items.push(slider));
+    });
 
-  resetBorderSettings() {
     this.widthSlider.currentValue = 2;
     this.radiusSlider.currentValue = 0;
     this.borderStyle = 'solid';
+
+    this.widthSliderSubject.next(this.widthSlider);
+    this.radiusSliderSubject.next(this.radiusSlider);
+    this.borderStyleSubject.next(this.borderStyle);
+  }
+
+  setWidth(value: number) {
+    this.widthSlider.currentValue = value;
+    this.widthSliderSubject.next(this.widthSlider);
+  }
+  setRadius(value: number) {
+    this.radiusSlider.currentValue = value;
+    this.radiusSliderSubject.next(this.radiusSlider);
+  }
+  setStyle(value: string) {
+    this.borderStyle = value;
+    this.borderStyleSubject.next(this.borderStyle);
+  }
+
+  resetBorderSettings() {
+    this.initializeSliders();
     this.colorSettingsService.resetBorderColorSettings();
   }
 }

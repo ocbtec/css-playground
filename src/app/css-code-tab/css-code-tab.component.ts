@@ -10,6 +10,8 @@ import { TransformSettingsService } from '../services/transform-Settings.service
   styleUrls: ['./css-code-tab.component.scss']
 })
 export class CssCodeTabComponent {
+  cubeColor = '';
+  backgroundColor = '';
   borderColor = '';
   boxShadowColor = '';
   colorArray: Array<string> = [];
@@ -19,6 +21,11 @@ export class CssCodeTabComponent {
   yPos = 0;
   rotate = 0;
   transformArray: Array<number> = [];
+
+  borderWidth = 0;
+  borderRadius = 0;
+  borderStyle = '';
+  borderArray: Array<number> = [];
 
   constructor(
     public transformSettingsService: TransformSettingsService,
@@ -30,8 +37,10 @@ export class CssCodeTabComponent {
     colors.subscribe(colorArray => {
       this.colorArray = [];
       colorArray.map(color => this.colorArray.push(color));
-      this.borderColor = this.colorArray[0];
-      this.boxShadowColor = this.colorArray[1];
+      this.cubeColor = this.colorArray[0];
+      this.backgroundColor = this.colorArray[1];
+      this.borderColor = this.colorArray[2];
+      this.boxShadowColor = this.colorArray[3];
     });
     this.colorSettingsService.initializeColors();
 
@@ -44,5 +53,14 @@ export class CssCodeTabComponent {
       this.yPos = this.transformArray[2];
       this.rotate = this.transformArray[3];
     });
+
+    const borderSettings = this.borderSettingsService.allSliders;
+    borderSettings.subscribe(settings => {
+      this.borderArray = [];
+      settings.map(slider => this.borderArray.push(slider.currentValue));
+      this.borderWidth = this.borderArray[0];
+      this.borderRadius = this.borderArray[1];
+    });
+    this.borderSettingsService.borderStyleSubject.subscribe(value => this.borderStyle = value);
   }
 }
