@@ -43,7 +43,7 @@ export class BorderSettingsService {
 
   constructor(private colorSettingsService: ColorSettingsService) { }
 
-  initializeSliders() {
+  initializeBorderSettings() {
     this.allSliders.subscribe(sliderArray => {
       this.items = [];
       sliderArray.map(slider => this.items.push(slider));
@@ -72,7 +72,7 @@ export class BorderSettingsService {
   }
 
   resetBorderSettings() {
-    this.initializeSliders();
+    this.initializeBorderSettings();
     this.colorSettingsService.resetBorderColorSettings();
   }
 }
