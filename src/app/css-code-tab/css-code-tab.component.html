@@ -1,20 +1,60 @@
 <div class="code-container">
   <div class="code-block">
-    <p class="code-paragraph">.background &#123;</p>
-    <p class="code-paragraph">&nbsp;&nbsp;&nbsp;&nbsp;background-color: {{ backgroundColor }}&#59;</p>
-    <p class="code-paragraph">&#125;</p>
+    <p class="code-paragraph">
+      <span class="class-name">.background</span><span class="special-character"> &#123;</span><br>
+      &nbsp;&nbsp;<span class="property">background-color</span><span class="special-character">:</span><span class="color-value"> {{ backgroundColor }}</span><span class="special-character">;</span><br>
+      <span class="special-character"> &#125;</span>
+    </p>
   </div>
   <div class="code-block">
-    <p>.cube &#123;</p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;background-color: {{ cubeColor }}&#59;</p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;width: {{ size }}px&#59;</p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;height: {{ size }}px&#59;</p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;border-width: {{ borderWidth }}px&#59;</p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;border-color: {{ borderColor }}&#59;</p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;border-radius: {{ borderRadius }}&#37;&#59;</p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;border-style: {{ borderStyle }}&#59;</p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;transform: translate&#40;{{ xPos}}px, {{ yPos }}px&#41; rotate&#40;{{ rotate }}deg&#41;&#59;</p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;box-shadow: {{ boxShadowColor }} {{ shadowX }}px {{ shadowY }}px {{ shadowBlur }}px {{ shadowSpread }}px {{ shadowInset }}&#59;</p>
-    <p class="code-paragraph">&#125;</p>
+    <p class="code-paragraph">
+      <span class="class-name">.cube</span><span class="special-character"> &#123;</span><br>
+      &nbsp;&nbsp;<span class="property">background-color</span>
+        <span class="special-character">:</span>
+        <span class="color-value"> {{ cubeColor }}</span>
+        <span class="special-character">;</span><br>
+      &nbsp;&nbsp;<span class="property">width</span>
+        <span class="special-character">:</span>
+        <span class="pixel-value"> {{ size }}px</span>
+        <span class="special-character">;</span><br>
+      &nbsp;&nbsp;<span class="property">height</span>
+        <span class="special-character">:</span>
+        <span class="pixel-value"> {{ size }}px</span>
+        <span class="special-character">;</span><br>
+      &nbsp;&nbsp;<span class="property">border-width</span>
+        <span class="special-character">:</span>
+        <span class="pixel-value">{{ borderWidth }}px</span>
+        <span class="special-character">;</span><br>
+      &nbsp;&nbsp;<span class="property">border-color</span>
+        <span class="special-character">:</span>
+        <span class="color-value"> {{ borderColor }}</span>
+        <span class="special-character">;</span><br>
+      &nbsp;&nbsp;<span class="property">border-radius</span>
+        <span class="special-character">:</span>
+        <span class="pixel-value"> {{ borderRadius }}&#37;</span>
+        <span class="special-character">;</span><br>
+      &nbsp;&nbsp;<span class="property">border-style</span>
+        <span class="special-character">:</span>
+        <span class="color-value"> {{ borderStyle }}</span>
+        <span class="special-character">;</span><br>
+      &nbsp;&nbsp;<span class="property">transform</span>
+        <span class="special-character">:</span>
+        <span class="yellow"> translates</span>
+        <span class="special-character">&#40;</span>
+        <span class="pixel-value">{{ xPos}}px</span>
+        <span class="special-character">,</span>
+        <span class="pixel-value"> {{ yPos }}px</span>
+        <span class="special-character">&#41;</span>
+        <span class="yellow"> rotate</span>
+        <span class="special-character">&#40;</span>
+        <span class="pixel-value">{{ rotate }}deg</span>
+        <span class="special-character">&#41;;</span><br>
+      &nbsp;&nbsp;<span class="property">box-shadow</span>
+        <span class="special-character">:</span>
+        <span class="color-value"> {{ boxShadowColor }}</span>
+        <span class="pixel-value"> {{ shadowX }}px {{ shadowY }}px {{ shadowBlur }}px {{ shadowSpread }}px{{ shadowInset }}</span>
+        <span class="special-character">;</span><br>
+      <span class="special-character"> &#125;</span>
+    </p>
   </div>
 </div>

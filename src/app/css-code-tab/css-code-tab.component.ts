@@ -79,6 +79,8 @@ export class CssCodeTabComponent {
       this.shadowBlur = this.boxShadowArray[2];
       this.shadowSpread = this.boxShadowArray[3];
     });
-    this.boxShadowSettingsService.shadowInsetSubject.subscribe(value => this.shadowInset = value);
+    this.boxShadowSettingsService.shadowInsetSubject.subscribe(value => {
+      this.shadowInset = value === '' ? '' : ' ' + value;
+    });
   }
 }

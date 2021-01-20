@@ -66,6 +66,11 @@ a {
 }
 
 // Fonts
+@font-face {
+  font-family: droid;
+  src: url(assets/fonts/DroidSansMono.ttf) format("truetype");
+}
+
 $font-size-headline: 1.6rem;
 $font-size-links: 1.2rem;
 

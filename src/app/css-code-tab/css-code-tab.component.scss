@@ -1,6 +1,8 @@
 .code-container {
-  padding: 2rem;
-  font-size: 18px;
+  margin: 0.5rem;
+  padding: 1rem;
+  background-color: #1e1e1e;
+  height: calc(100% - 1rem);
 }
 
 .code-block {
@@ -8,5 +10,49 @@
 }
 
 .code-paragraph {
-  line-height: 14px;
+  font-family: droid;
+  font-size: 16px;
+  line-height: 30px;
+}
+
+.class-name {
+  color: #d79c4a;
+}
+
+.special-character {
+  color: #d4d4d4;
+}
+
+.property {
+  color: #6ccafe;
+}
+
+.color-value {
+  color: #ce7f48;
+}
+
+.pixel-value {
+  color: #b5ce96;
+}
+
+.yellow {
+  color: #dcdc8f;
+}
+
+
+
+.background {
+  background-color: #ffffff;
+}
+
+.cube {
+   background-color: #ff4081;
+   width: 100px;
+   height: 100px;
+   border-width:2px;
+   border-color: #b6ddfd;
+   border-radius: 0%;
+   border-style: solid;
+   transform: translates(0px, 0px) rotate(0deg);
+   box-shadow: #343a60 8px 8px 5px 0px;
 }
