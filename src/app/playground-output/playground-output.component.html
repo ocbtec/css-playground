@@ -1,17 +1,17 @@
 <div
   [style.backgroundColor]=cubeColor
-  [style.height.px]=transformSettingsService.sizeSlider.currentValue
-  [style.width.px]=transformSettingsService.sizeSlider.currentValue
+  [style.height.px]=size
+  [style.width.px]=size
   [ngStyle]="{
     'transform':
       'translate(
-        ' + transformSettingsService.horizontallySlider.currentValue + 'px,
-        ' + transformSettingsService.verticallySlider.currentValue + 'px)
-      rotate(' + transformSettingsService.rotateSlider.currentValue + 'deg)'
+        ' + xPos + 'px,
+        ' + yPos + 'px)
+      rotate(' + rotate + 'deg)'
     }"
-  [style.border-width.px]=borderSettingsService.widthSlider.currentValue
-  [style.border-radius.%]=borderSettingsService.radiusSlider.currentValue
-  [style.border-style]=borderSettingsService.borderStyle
+  [style.border-width.px]=borderWidth
+  [style.border-radius.%]=borderRadius
+  [style.border-style]=borderStyle
   [style.border-color]=borderColor
-  [style.box-shadow]="boxShadowSettingsService.shadowInset + ' ' + boxShadowSettingsService.offsetXSlider.currentValue + 'px ' + boxShadowSettingsService.offsetYSlider.currentValue + 'px ' + boxShadowSettingsService.blurRadiusSlider.currentValue + 'px ' + boxShadowSettingsService.spreadRadiusSlider.currentValue + 'px ' + boxShadowColor">
+  [style.box-shadow]="shadowInset + ' ' + shadowX + 'px ' + shadowY + 'px ' + shadowBlur + 'px ' + shadowSpread + 'px ' + boxShadowColor">
 </div>
