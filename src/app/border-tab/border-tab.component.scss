@@ -4,10 +4,6 @@
   @include tab-container;
 }
 
-.reset-buttons-container {
-  @include reset-buttons-container;
-}
-
 .slider-wrapper {
   @include slider-wrapper;
   flex-grow: 0;
