@@ -76,6 +76,10 @@
    box-shadow: #343a60 8px 8px 5px 0px;
 }
 
+#scroll-indicator-css-tab {
+  width: 100%;
+}
+
 @media screen and (max-width: 1440px) and (min-width: 1024px) {
   .code-paragraph {
     font-size: 14px;
