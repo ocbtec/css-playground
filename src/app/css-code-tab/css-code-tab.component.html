@@ -2,9 +2,10 @@
   <div class="code-block code-block-flex">
     <p class="code-paragraph">
       <span class="class-name">.background</span><span class="special-character"> &#123;</span><br>
-      &nbsp;&nbsp;<span class="property">background-color</span><span class="special-character">:</span><span
-        class="color-value"> {{ backgroundColor }}</span><span class="special-character">;</span><br>
-      <span class="special-character"> &#125;</span>
+      &nbsp;&nbsp;<span class="property">background-color</span><span class="special-character">:</span>
+        <span class="color-indicator" [style.backgroundColor]=backgroundColor></span>
+        <span class="color-value">{{ backgroundColor }}</span><span class="special-character">;</span><br>
+        <span class="special-character"> &#125;</span>
     </p>
     <div [cdkCopyToClipboard]="cssCode">
       <span>
@@ -22,7 +23,8 @@
       <span class="class-name">.cube</span><span class="special-character"> &#123;</span><br>
       &nbsp;&nbsp;<span class="property">background-color</span>
       <span class="special-character">:</span>
-      <span class="color-value"> {{ cubeColor }}</span>
+      <span class="color-indicator" [style.backgroundColor]=cubeColor></span>
+      <span class="color-value">{{ cubeColor }}</span>
       <span class="special-character">;</span><br>
       &nbsp;&nbsp;<span class="property">width</span>
       <span class="special-character">:</span>
@@ -38,7 +40,8 @@
       <span class="special-character">;</span><br>
       &nbsp;&nbsp;<span class="property">border-color</span>
       <span class="special-character">:</span>
-      <span class="color-value"> {{ borderColor }}</span>
+      <span class="color-indicator" [style.backgroundColor]=borderColor></span>
+      <span class="color-value">{{ borderColor }}</span>
       <span class="special-character">;</span><br>
       &nbsp;&nbsp;<span class="property">border-radius</span>
       <span class="special-character">:</span>
@@ -62,7 +65,8 @@
       <span class="special-character">&#41;;</span><br>
       &nbsp;&nbsp;<span class="property">box-shadow</span>
       <span class="special-character">:</span>
-      <span class="color-value"> {{ boxShadowColor }}</span>
+      <span class="color-indicator" [style.backgroundColor]=boxShadowColor></span>
+      <span class="color-value">{{ boxShadowColor }}</span>
       <span class="pixel-value"> {{ shadowX }}px {{ shadowY }}px {{ shadowBlur }}px {{ shadowSpread }}px{{ shadowInset
         }}</span>
       <span class="special-character">;</span><br>
