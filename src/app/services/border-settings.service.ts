@@ -16,7 +16,7 @@ export class BorderSettingsService {
     minValue: 0,
     maxValue: 50,
     step: 1,
-    currentValue: 2,
+    currentValue: 4,
     unit: 'px'
   };
   widthSliderSubject: Subject<Slider> = new Subject<Slider>();
@@ -49,7 +49,7 @@ export class BorderSettingsService {
       sliderArray.map(slider => this.items.push(slider));
     });
 
-    this.widthSlider.currentValue = 2;
+    this.widthSlider.currentValue = 4;
     this.radiusSlider.currentValue = 0;
     this.borderStyle = 'solid';
 
