@@ -4,6 +4,7 @@ import { CopyMessageComponent } from '../copy-message/copy-message.component';
 import { BorderSettingsService } from '../services/border-settings.service';
 import { BoxShadowSettingsService } from '../services/box-shadow-settings.service';
 import { ColorSettingsService } from '../services/color-settings.service';
+import { MobileViewService } from '../services/mobile-view.service';
 import { TransformSettingsService } from '../services/transform-Settings.service';
 
 @Component({
@@ -43,7 +44,8 @@ export class CssCodeTabComponent {
     public borderSettingsService: BorderSettingsService,
     public boxShadowSettingsService: BoxShadowSettingsService,
     public colorSettingsService: ColorSettingsService,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    public mobileViewService: MobileViewService
   ) {
     const colors = this.colorSettingsService.allColors;
     colors.subscribe(colorArray => {

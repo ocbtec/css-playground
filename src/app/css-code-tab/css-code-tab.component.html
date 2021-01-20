@@ -1,4 +1,4 @@
-<div class="code-container">
+<div class="code-container" #containerHeight>
   <div class="code-block code-block-flex">
     <p class="code-paragraph">
       <span class="class-name">.background</span><span class="special-character"> &#123;</span><br>
@@ -17,7 +17,7 @@
       </span>
     </div>
   </div>
-  <div class="code-block">
+  <div class="code-block code-block-bottom">
     <p class="code-paragraph">
       <span class="class-name">.cube</span><span class="special-character"> &#123;</span><br>
       &nbsp;&nbsp;<span class="property">background-color</span>
@@ -69,4 +69,8 @@
       <span class="special-character"> &#125;</span>
     </p>
   </div>
+  <app-scroll-indicator
+    *ngIf="containerHeight.scrollHeight + 48 > mobileViewService.playgroundInputHeight"
+    class="scroll-indicator-container"
+  ></app-scroll-indicator>
 </div>
