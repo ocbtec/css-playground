@@ -1,59 +1,66 @@
 <div class="code-container">
-  <div class="code-block">
+  <div class="code-block code-block-flex">
     <p class="code-paragraph">
       <span class="class-name">.background</span><span class="special-character"> &#123;</span><br>
-      &nbsp;&nbsp;<span class="property">background-color</span><span class="special-character">:</span><span class="color-value"> {{ backgroundColor }}</span><span class="special-character">;</span><br>
+      &nbsp;&nbsp;<span class="property">background-color</span><span class="special-character">:</span><span
+        class="color-value"> {{ backgroundColor }}</span><span class="special-character">;</span><br>
       <span class="special-character"> &#125;</span>
     </p>
+    <div matTooltip="Copy Code Snippet" matTooltipPosition="left" [cdkCopyToClipboard]="cssCode">
+      <span>
+        <i class="material-icons copy-icon">content_copy</i>
+      </span>
+    </div>
   </div>
   <div class="code-block">
     <p class="code-paragraph">
       <span class="class-name">.cube</span><span class="special-character"> &#123;</span><br>
       &nbsp;&nbsp;<span class="property">background-color</span>
-        <span class="special-character">:</span>
-        <span class="color-value"> {{ cubeColor }}</span>
-        <span class="special-character">;</span><br>
+      <span class="special-character">:</span>
+      <span class="color-value"> {{ cubeColor }}</span>
+      <span class="special-character">;</span><br>
       &nbsp;&nbsp;<span class="property">width</span>
-        <span class="special-character">:</span>
-        <span class="pixel-value"> {{ size }}px</span>
-        <span class="special-character">;</span><br>
+      <span class="special-character">:</span>
+      <span class="pixel-value"> {{ size }}px</span>
+      <span class="special-character">;</span><br>
       &nbsp;&nbsp;<span class="property">height</span>
-        <span class="special-character">:</span>
-        <span class="pixel-value"> {{ size }}px</span>
-        <span class="special-character">;</span><br>
+      <span class="special-character">:</span>
+      <span class="pixel-value"> {{ size }}px</span>
+      <span class="special-character">;</span><br>
       &nbsp;&nbsp;<span class="property">border-width</span>
-        <span class="special-character">:</span>
-        <span class="pixel-value">{{ borderWidth }}px</span>
-        <span class="special-character">;</span><br>
+      <span class="special-character">:</span>
+      <span class="pixel-value">{{ borderWidth }}px</span>
+      <span class="special-character">;</span><br>
       &nbsp;&nbsp;<span class="property">border-color</span>
-        <span class="special-character">:</span>
-        <span class="color-value"> {{ borderColor }}</span>
-        <span class="special-character">;</span><br>
+      <span class="special-character">:</span>
+      <span class="color-value"> {{ borderColor }}</span>
+      <span class="special-character">;</span><br>
       &nbsp;&nbsp;<span class="property">border-radius</span>
-        <span class="special-character">:</span>
-        <span class="pixel-value"> {{ borderRadius }}&#37;</span>
-        <span class="special-character">;</span><br>
+      <span class="special-character">:</span>
+      <span class="pixel-value"> {{ borderRadius }}&#37;</span>
+      <span class="special-character">;</span><br>
       &nbsp;&nbsp;<span class="property">border-style</span>
-        <span class="special-character">:</span>
-        <span class="color-value"> {{ borderStyle }}</span>
-        <span class="special-character">;</span><br>
+      <span class="special-character">:</span>
+      <span class="color-value"> {{ borderStyle }}</span>
+      <span class="special-character">;</span><br>
       &nbsp;&nbsp;<span class="property">transform</span>
-        <span class="special-character">:</span>
-        <span class="yellow"> translates</span>
-        <span class="special-character">&#40;</span>
-        <span class="pixel-value">{{ xPos}}px</span>
-        <span class="special-character">,</span>
-        <span class="pixel-value"> {{ yPos }}px</span>
-        <span class="special-character">&#41;</span>
-        <span class="yellow"> rotate</span>
-        <span class="special-character">&#40;</span>
-        <span class="pixel-value">{{ rotate }}deg</span>
-        <span class="special-character">&#41;;</span><br>
+      <span class="special-character">:</span>
+      <span class="yellow"> translate</span>
+      <span class="special-character">&#40;</span>
+      <span class="pixel-value">{{ xPos}}px</span>
+      <span class="special-character">,</span>
+      <span class="pixel-value"> {{ yPos }}px</span>
+      <span class="special-character">&#41;</span>
+      <span class="yellow"> rotate</span>
+      <span class="special-character">&#40;</span>
+      <span class="pixel-value">{{ rotate }}deg</span>
+      <span class="special-character">&#41;;</span><br>
       &nbsp;&nbsp;<span class="property">box-shadow</span>
-        <span class="special-character">:</span>
-        <span class="color-value"> {{ boxShadowColor }}</span>
-        <span class="pixel-value"> {{ shadowX }}px {{ shadowY }}px {{ shadowBlur }}px {{ shadowSpread }}px{{ shadowInset }}</span>
-        <span class="special-character">;</span><br>
+      <span class="special-character">:</span>
+      <span class="color-value"> {{ boxShadowColor }}</span>
+      <span class="pixel-value"> {{ shadowX }}px {{ shadowY }}px {{ shadowBlur }}px {{ shadowSpread }}px{{ shadowInset
+        }}</span>
+      <span class="special-character">;</span><br>
       <span class="special-character"> &#125;</span>
     </p>
   </div>

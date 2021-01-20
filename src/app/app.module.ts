@@ -9,6 +9,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
+import { ClipboardModule } from '@angular/cdk/clipboard';
 
 import { ColorSliderModule } from 'ngx-color/slider';
 import { ColorChromeModule } from 'ngx-color/chrome';
@@ -72,7 +73,8 @@ import { CssCodeTabComponent } from './css-code-tab/css-code-tab.component';
     FormsModule,
     MatButtonModule,
     MatMenuModule,
-    MatIconModule
+    MatIconModule,
+    ClipboardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

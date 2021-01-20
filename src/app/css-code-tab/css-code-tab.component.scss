@@ -1,12 +1,25 @@
 .code-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 3rem;
   margin: 0.5rem;
-  padding: 1rem;
   background-color: #1e1e1e;
   height: calc(100% - 1rem);
 }
 
 .code-block {
   margin: 1rem;
+}
+
+.code-block-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.copy-icon {
+  color: white;
+  cursor: pointer;
 }
 
 .code-paragraph {
