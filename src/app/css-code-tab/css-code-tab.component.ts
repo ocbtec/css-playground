@@ -112,8 +112,9 @@ export class CssCodeTabComponent {
       `  border-radius: ${this.borderRadius}%;` + `\n` +
       `  border-style: ${this.borderStyle};` + `\n` +
       `  transform: translate(${this.xPos}px, ${this.yPos}px) rotate(${this.rotate}deg);` + `\n` +
-      `  box-shadow: ${this.boxShadowColor} ${this.shadowX}px ${this.shadowY}px ${this.shadowBlur}px ${this.shadowSpread}px${this.shadowInset};` + `\n` +
-      `}`
+      `  box-shadow: ${this.boxShadowColor} ${this.shadowX}px ${this.shadowY}px` +
+      ` ${this.shadowBlur}px ${this.shadowSpread}px${this.shadowInset};` + `\n` +
+      `}`;
   }
 
   snackbar() {
