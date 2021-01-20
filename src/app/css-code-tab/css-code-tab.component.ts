@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { CopyMessageComponent } from '../copy-message/copy-message.component';
 import { BorderSettingsService } from '../services/border-settings.service';
 import { BoxShadowSettingsService } from '../services/box-shadow-settings.service';
 import { ColorSettingsService } from '../services/color-settings.service';
@@ -40,7 +42,8 @@ export class CssCodeTabComponent {
     public transformSettingsService: TransformSettingsService,
     public borderSettingsService: BorderSettingsService,
     public boxShadowSettingsService: BoxShadowSettingsService,
-    public colorSettingsService: ColorSettingsService
+    public colorSettingsService: ColorSettingsService,
+    private _snackBar: MatSnackBar
   ) {
     const colors = this.colorSettingsService.allColors;
     colors.subscribe(colorArray => {
@@ -109,5 +112,12 @@ export class CssCodeTabComponent {
       `  transform: translate(${this.xPos}px, ${this.yPos}px) rotate(${this.rotate}deg);` + `\n` +
       `  box-shadow: ${this.boxShadowColor} ${this.shadowX}px ${this.shadowY}px ${this.shadowBlur}px ${this.shadowSpread}px${this.shadowInset};` + `\n` +
       `}`
+  }
+
+  snackbar() {
+    this._snackBar.openFromComponent(CopyMessageComponent, {
+      duration: 1200
+    });
+
   }
 }

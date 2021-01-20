@@ -10,6 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { ClipboardModule } from '@angular/cdk/clipboard';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { ColorSliderModule } from 'ngx-color/slider';
 import { ColorChromeModule } from 'ngx-color/chrome';
@@ -36,6 +37,7 @@ import { UsedTechnologiesPageComponent } from './used-technologies-page/used-tec
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ScrollIndicatorComponent } from './scroll-indicator/scroll-indicator.component';
 import { CssCodeTabComponent } from './css-code-tab/css-code-tab.component';
+import { CopyMessageComponent } from './copy-message/copy-message.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +59,8 @@ import { CssCodeTabComponent } from './css-code-tab/css-code-tab.component';
     UsedTechnologiesPageComponent,
     NotFoundComponent,
     ScrollIndicatorComponent,
-    CssCodeTabComponent
+    CssCodeTabComponent,
+    CopyMessageComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +77,8 @@ import { CssCodeTabComponent } from './css-code-tab/css-code-tab.component';
     MatButtonModule,
     MatMenuModule,
     MatIconModule,
-    ClipboardModule
+    ClipboardModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -6,9 +6,14 @@
         class="color-value"> {{ backgroundColor }}</span><span class="special-character">;</span><br>
       <span class="special-character"> &#125;</span>
     </p>
-    <div matTooltip="Copy Code Snippet" matTooltipPosition="left" [cdkCopyToClipboard]="cssCode">
+    <div [cdkCopyToClipboard]="cssCode">
       <span>
-        <i class="material-icons copy-icon">content_copy</i>
+        <i
+          class="material-icons copy-icon"
+          matTooltip="Copy Code Snippet"
+          matTooltipPosition="left"
+          (click)="snackbar()"
+        >content_copy</i>
       </span>
     </div>
   </div>
