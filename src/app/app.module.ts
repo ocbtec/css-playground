@@ -38,6 +38,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { ScrollIndicatorComponent } from './scroll-indicator/scroll-indicator.component';
 import { CssCodeTabComponent } from './css-code-tab/css-code-tab.component';
 import { CopyMessageComponent } from './copy-message/copy-message.component';
+import { StartPresetsComponent } from './start-presets/start-presets.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { CopyMessageComponent } from './copy-message/copy-message.component';
     NotFoundComponent,
     ScrollIndicatorComponent,
     CssCodeTabComponent,
-    CopyMessageComponent
+    CopyMessageComponent,
+    StartPresetsComponent
   ],
   imports: [
     BrowserModule,
