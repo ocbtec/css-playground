@@ -132,6 +132,6 @@ export class BoxShadowSettingsService {
 
   resetBoxShadowSettings(preset: string) {
     this.setBoxShadowPreset(preset);
-    this.colorSettingsService.resetBoxShadowColorSettings();
+    this.colorSettingsService.resetBoxShadowColorSettings(preset);
   }
 }

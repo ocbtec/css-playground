@@ -64,6 +64,28 @@ export class ColorSettingsService {
     this.setValues();
   }
 
+  setBorderColorPreset(preset: string) {
+    if (preset === 'vanilla') {
+      this.borderColor = this.colorPresetVanilla.borderColor;
+    } else if (preset === 'experimental') {
+      this.borderColor = this.colorPresetExperimental.borderColor;
+    } else if (preset === 'random') {
+      this.borderColor = this.colorPresetRandom.randomBorderColor();
+    }
+    this.setValues();
+  }
+
+  setBoxShadowColorPreset(preset: string) {
+    if (preset === 'vanilla') {
+      this.boxShadowColor = this.colorPresetVanilla.boxShadowColor;
+    } else if (preset === 'experimental') {
+      this.boxShadowColor = this.colorPresetExperimental.boxShadowColor;
+    } else if (preset === 'random') {
+      this.boxShadowColor = this.colorPresetRandom.randomBorderColor();
+    }
+    this.setValues();
+  }
+
   setCubeColor(color: string) {
     this.cubeColorSubject.next(color);
   }
@@ -83,12 +105,12 @@ export class ColorSettingsService {
   resetBackgroundColorSettings() {
     this.backgroundColorSubject.next(this.backgroundColor);
   }
-  resetBorderColorSettings() {
-    this.borderColorSubject.next(this.borderColor);
+  resetBorderColorSettings(preset: string) {
+    this.setBorderColorPreset(preset);
   }
 
-  resetBoxShadowColorSettings() {
-    this.boxShadowColorSubject.next(this.boxShadowColor);
+  resetBoxShadowColorSettings(preset: string) {
+    this.setBoxShadowColorPreset(preset);
   }
 
   resetAllColorSettings(preset: string) {

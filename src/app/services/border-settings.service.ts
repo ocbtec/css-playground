@@ -97,6 +97,6 @@ export class BorderSettingsService {
 
   resetBorderSettings(preset: string) {
     this.setBorderPreset(preset);
-    this.colorSettingsService.resetBorderColorSettings();
+    this.colorSettingsService.resetBorderColorSettings(preset);
   }
 }
