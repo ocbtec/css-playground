@@ -19,11 +19,15 @@ export class BoxShadowTabComponent {
   boxShadowColor = '';
   boxShadowInset: boolean;
 
+  mobileView: MobileViewService;
+
   constructor(
-    public boxShadowSettingsService: BoxShadowSettingsService,
-    public colorSettingsService: ColorSettingsService,
-    public mobileViewService: MobileViewService
+    private boxShadowSettingsService: BoxShadowSettingsService,
+    private colorSettingsService: ColorSettingsService,
+    private mobileViewService: MobileViewService
   ) {
+    this.mobileView = this.mobileViewService;
+
     this.boxShadowSettingsService.initializeBoxShadowSettings();
     this.items = this.boxShadowSettingsService.items;
     this.boxShadowInset = this.boxShadowSettingsService.shadowInsetSwitch;

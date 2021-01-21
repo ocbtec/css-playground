@@ -1,5 +1,5 @@
 <mat-form-field appearance="fill">
-  <mat-select [value]="startPresetsService.selectedPreset" (selectionChange)="selectedValue($event)">
-    <mat-option [value]="option.value" *ngFor="let option of startPresets">{{ option.viewValue }}</mat-option>
+  <mat-select [value]="presets.selectedPreset" (selectionChange)="selectedValue($event)">
+    <mat-option [value]="option.value" *ngFor="let option of presets.startPresets">{{ option.viewValue }}</mat-option>
   </mat-select>
 </mat-form-field>

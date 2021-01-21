@@ -13,10 +13,14 @@ export class PlaygroundPageComponent implements OnInit {
 
   backgroundColor = '';
 
+  mobileView: MobileViewService;
+
   constructor(
-    public colorSettingsService: ColorSettingsService,
-    public mobileViewService: MobileViewService
+    private colorSettingsService: ColorSettingsService,
+    private mobileViewService: MobileViewService
   ) {
+    this.mobileView = this.mobileViewService;
+
     const colors = this.colorSettingsService.backgroundColorSubject;
     colors.subscribe(color => {
       this.backgroundColor = color;

@@ -9,7 +9,7 @@ import { MobileViewService } from '../services/mobile-view.service';
 export class TopContainerComponent implements OnInit {
   showArrowKeysMessage = true;
 
-  constructor(public mobileViewService: MobileViewService) { }
+  constructor(private mobileViewService: MobileViewService) { }
 
   @HostListener('window:resize', ['$event'])
   onResize() {

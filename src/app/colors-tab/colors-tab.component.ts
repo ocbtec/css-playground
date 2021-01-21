@@ -21,11 +21,14 @@ export class ColorsTabComponent {
 
   colorArray: Array<string> = [];
 
+  mobileView: MobileViewService;
+
   constructor(
-    public colorSettingsService: ColorSettingsService,
-    public boxShadowSettingsService: BoxShadowSettingsService,
-    public mobileViewService: MobileViewService
+    private colorSettingsService: ColorSettingsService,
+    private mobileViewService: MobileViewService
   ) {
+    this.mobileView = this.mobileViewService;
+
     const colors = this.colorSettingsService.allColors;
     colors.subscribe(colorArray => {
       this.colorArray = [];

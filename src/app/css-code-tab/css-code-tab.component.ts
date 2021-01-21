@@ -39,14 +39,18 @@ export class CssCodeTabComponent {
 
   cssCode = '';
 
+  mobileView: MobileViewService;
+
   constructor(
-    public transformSettingsService: TransformSettingsService,
-    public borderSettingsService: BorderSettingsService,
-    public boxShadowSettingsService: BoxShadowSettingsService,
-    public colorSettingsService: ColorSettingsService,
+    private transformSettingsService: TransformSettingsService,
+    private borderSettingsService: BorderSettingsService,
+    private boxShadowSettingsService: BoxShadowSettingsService,
+    private colorSettingsService: ColorSettingsService,
     private _snackBar: MatSnackBar,
-    public mobileViewService: MobileViewService
+    private mobileViewService: MobileViewService
   ) {
+    this.mobileView = this.mobileViewService;
+
     this.shadowInset = this.boxShadowSettingsService.shadowInsetSwitch === true ? ' inset' : '';
     const colors = this.colorSettingsService.allColors;
     colors.subscribe(colorArray => {

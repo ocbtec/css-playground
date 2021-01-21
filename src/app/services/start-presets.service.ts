@@ -10,6 +10,15 @@ import { TransformSettingsService } from './transform-Settings.service';
 export class StartPresetsService {
   selectedPreset = 'vanilla';
 
+  startPresets: {
+    value: string;
+    viewValue: string;
+  }[] = [
+    {value: 'vanilla', viewValue: 'vanilla'},
+    {value: 'experimental', viewValue: 'experimental'},
+    {value: 'random', viewValue: 'random'}
+  ];
+
   constructor(
     private colorSettingsService: ColorSettingsService,
     private borderSettingsService: BorderSettingsService,

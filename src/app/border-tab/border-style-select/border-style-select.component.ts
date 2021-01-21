@@ -35,7 +35,11 @@ export class BorderStyleSelectComponent implements OnInit {
     viewValue: ''
   };
 
-  constructor(public borderSettingsService: BorderSettingsService) { }
+  borderSettings: BorderSettingsService;
+
+  constructor(private borderSettingsService: BorderSettingsService) {
+    this.borderSettings = this.borderSettingsService;
+  }
 
   ngOnInit() {
     this.borderSettingsService.borderStyle = this.border[9].value;

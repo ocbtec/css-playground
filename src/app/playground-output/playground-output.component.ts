@@ -34,10 +34,10 @@ export class PlaygroundOutputComponent {
   shadowInset = '';
 
   constructor(
-    public transformSettingsService: TransformSettingsService,
-    public borderSettingsService: BorderSettingsService,
-    public boxShadowSettingsService: BoxShadowSettingsService,
-    public colorSettingsService: ColorSettingsService
+    private transformSettingsService: TransformSettingsService,
+    private borderSettingsService: BorderSettingsService,
+    private boxShadowSettingsService: BoxShadowSettingsService,
+    private colorSettingsService: ColorSettingsService
   ) {
     const colors = this.colorSettingsService.allColors;
     colors.subscribe(colorArray => {

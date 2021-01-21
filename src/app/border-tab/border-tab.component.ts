@@ -19,11 +19,15 @@ export class BorderTabComponent implements OnInit {
 
   borderColor = '';
 
+  mobileView: MobileViewService;
+
   constructor(
-    public borderSettingsService: BorderSettingsService,
-    public colorSettingsService: ColorSettingsService,
-    public mobileViewService: MobileViewService
+    private borderSettingsService: BorderSettingsService,
+    private colorSettingsService: ColorSettingsService,
+    private mobileViewService: MobileViewService
   ) {
+    this.mobileView = this.mobileViewService;
+
     const borderColor = this.colorSettingsService.borderColorSubject;
     borderColor.subscribe(value => {
       this.borderColor = value;

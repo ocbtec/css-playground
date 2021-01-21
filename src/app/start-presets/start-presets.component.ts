@@ -11,15 +11,6 @@ import { StartPresetsService } from '../services/start-presets.service';
 export class StartPresetsComponent {
   @Output() valueChange = new EventEmitter<number>();
 
-  startPresets: {
-    value: string;
-    viewValue: string;
-  }[] = [
-    {value: 'vanilla', viewValue: 'vanilla'},
-    {value: 'experimental', viewValue: 'experimental'},
-    {value: 'random', viewValue: 'random'}
-  ];
-
   selectedData: {
     value: string;
     viewValue: string;
@@ -28,7 +19,11 @@ export class StartPresetsComponent {
     viewValue: ''
   };
 
-  constructor(public startPresetsService: StartPresetsService) { }
+  presets: StartPresetsService;
+
+  constructor(private startPresetsService: StartPresetsService) {
+    this.presets = this.startPresetsService;
+  }
 
   selectedValue(event: MatSelectChange) {
     this.selectedData = {

@@ -13,10 +13,14 @@ export class TransformTabComponent implements OnInit {
   messageDynamic = 'Reset Transform Settings';
   items: Slider[] = [];
 
+  mobileView: MobileViewService;
+
   constructor(
     private transformSettingsService: TransformSettingsService,
-    public mobileViewService: MobileViewService
-  ) { }
+    private mobileViewService: MobileViewService
+  ) {
+    this.mobileView = this.mobileViewService;
+  }
 
   ngOnInit() {
     this.transformSettingsService.initializeSliders();
