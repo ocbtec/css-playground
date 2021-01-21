@@ -1,21 +1,23 @@
 import { Injectable } from '@angular/core';
 import { Subject, combineLatest } from 'rxjs';
+import { ColorPresetsVanilla, ColorPresetsExperimental, ColorPresetsRandom } from '../start-presets/start-presets';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ColorSettingsService {
-  cubeColor = '#ff4081';
+  cubeColor: string;
+  backgroundColor: string;
+  borderColor: string;
+  boxShadowColor: string;
   cubeColorSubject: Subject<string> = new Subject();
-
-  backgroundColor = '#ffffff';
   backgroundColorSubject: Subject<string> = new Subject();
-
-  borderColor = '#b6ddfd';
   borderColorSubject: Subject<string> = new Subject();
-
-  boxShadowColor = '#343a60';
   boxShadowColorSubject: Subject<string> = new Subject();
+
+  colorPresetVanilla = new ColorPresetsVanilla();
+  colorPresetExperimental = new ColorPresetsExperimental();
+  colorPresetRandom = new ColorPresetsRandom();
 
   allColors = combineLatest([
     this.cubeColorSubject,
@@ -24,11 +26,42 @@ export class ColorSettingsService {
     this.boxShadowColorSubject
   ]);
 
-  initializeColors() {
+  constructor() {
+    this.cubeColor = this.colorPresetVanilla.cubeColor;
+    this.backgroundColor = this.colorPresetVanilla.backgroundColor;
+    this.borderColor = this.colorPresetVanilla.borderColor;
+    this.boxShadowColor = this.colorPresetVanilla.boxShadowColor;
+  }
+
+  setValues() {
     this.cubeColorSubject.next(this.cubeColor);
     this.backgroundColorSubject.next(this.backgroundColor);
     this.borderColorSubject.next(this.borderColor);
     this.boxShadowColorSubject.next(this.boxShadowColor);
+  }
+
+  initializeColors() {
+    this.setValues();
+  }
+
+  setColorPreset(preset: string) {
+    if (preset === 'vanilla') {
+      this.cubeColor = this.colorPresetVanilla.cubeColor;
+      this.backgroundColor = this.colorPresetVanilla.backgroundColor;
+      this.borderColor = this.colorPresetVanilla.borderColor;
+      this.boxShadowColor = this.colorPresetVanilla.boxShadowColor;
+    } else if (preset === 'experimental') {
+      this.cubeColor = this.colorPresetExperimental.cubeColor;
+      this.backgroundColor = this.colorPresetExperimental.backgroundColor;
+      this.borderColor = this.colorPresetExperimental.borderColor;
+      this.boxShadowColor = this.colorPresetExperimental.boxShadowColor;
+    } else if (preset === 'random') {
+      this.cubeColor = this.colorPresetRandom.randomCubeColor();
+      this.backgroundColor = this.colorPresetRandom.randomBackgroundColor();
+      this.borderColor = this.colorPresetRandom.randomBorderColor();
+      this.boxShadowColor = this.colorPresetRandom.randomBoxShadowColor();
+    }
+    this.setValues();
   }
 
   setCubeColor(color: string) {
@@ -58,7 +91,7 @@ export class ColorSettingsService {
     this.boxShadowColorSubject.next(this.boxShadowColor);
   }
 
-  resetAllColorSettings() {
-    this.initializeColors();
+  resetAllColorSettings(preset: string) {
+    this.setColorPreset(preset);
   }
 }

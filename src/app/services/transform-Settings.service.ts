@@ -1,12 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Subject, combineLatest } from 'rxjs';
 import { Slider } from '../slider/slider.model';
+import { TransformPresetsVanilla, TransformPresetsExperimental, TransformPresetsRandom } from '../start-presets/start-presets';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TransformSettingsService {
   items: Slider[] = [];
+  transformPresetVanilla = new TransformPresetsVanilla();
+  transformPresetExperimental = new TransformPresetsExperimental();
+  transformPresetRandom = new TransformPresetsRandom();
 
   sizeSlider: Slider = {
     label: 'Size',
@@ -63,21 +67,52 @@ export class TransformSettingsService {
     this.rotateSliderSubject
   ]);
 
+  transformPreset = '';
+
+  constructor() {
+    this.allSliders.subscribe(sliderArray => {
+      this.items = [];
+      sliderArray.map(slider => this.items.push(slider));
+    });
+    this.sizeSliderSubject.next(this.sizeSlider);
+    this.horizontallySliderSubject.next(this.horizontallySlider);
+    this.verticallySliderSubject.next(this.verticallySlider);
+    this.rotateSliderSubject.next(this.rotateSlider);
+  }
+
+  setValues() {
+    this.sizeSliderSubject.next(this.sizeSlider);
+    this.horizontallySliderSubject.next(this.horizontallySlider);
+    this.verticallySliderSubject.next(this.verticallySlider);
+    this.rotateSliderSubject.next(this.rotateSlider);
+  }
+
   initializeSliders() {
     this.allSliders.subscribe(sliderArray => {
       this.items = [];
       sliderArray.map(slider => this.items.push(slider));
     });
+    this.setValues();
+  }
 
-    this.sizeSlider.currentValue = 100;
-    this.horizontallySlider.currentValue = 0;
-    this.verticallySlider.currentValue = 0;
-    this.rotateSlider.currentValue = 0;
-
-    this.sizeSliderSubject.next(this.sizeSlider);
-    this.horizontallySliderSubject.next(this.horizontallySlider);
-    this.verticallySliderSubject.next(this.verticallySlider);
-    this.rotateSliderSubject.next(this.rotateSlider);
+  setTransformPreset(preset: string) {
+    if (preset === 'vanilla') {
+      this.sizeSlider.currentValue = this.transformPresetVanilla.size;
+      this.horizontallySlider.currentValue = this.transformPresetVanilla.hPos;
+      this.verticallySlider.currentValue = this.transformPresetVanilla.vPos;
+      this.rotateSlider.currentValue = this.transformPresetVanilla.rotate;
+    } else if (preset === 'experimental') {
+      this.sizeSlider.currentValue = this.transformPresetExperimental.size;
+      this.horizontallySlider.currentValue = this.transformPresetExperimental.hPos;
+      this.verticallySlider.currentValue = this.transformPresetExperimental.vPos;
+      this.rotateSlider.currentValue = this.transformPresetExperimental.rotate;
+    } else if (preset === 'random') {
+      this.sizeSlider.currentValue = this.transformPresetRandom.randomSize();
+      this.horizontallySlider.currentValue = this.transformPresetRandom.randomHPos();
+      this.verticallySlider.currentValue = this.transformPresetRandom.randomVPos();
+      this.rotateSlider.currentValue = this.transformPresetRandom.randomRotate();
+    }
+    this.setValues();
   }
 
   setSize(value: number) {
@@ -97,7 +132,7 @@ export class TransformSettingsService {
     this.rotateSliderSubject.next(this.rotateSlider);
   }
 
-  resetTransformSettings() {
-    this.initializeSliders();
+  resetTransformSettings(preset: string) {
+    this.setTransformPreset(preset);
   }
 }

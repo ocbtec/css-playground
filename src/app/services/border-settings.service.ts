@@ -2,12 +2,16 @@ import { Injectable } from '@angular/core';
 import { combineLatest, Subject } from 'rxjs';
 import { Slider } from '../slider/slider.model';
 import { ColorSettingsService } from './color-settings.service';
+import { BorderPresetsVanilla, BorderPresetsExperimental, BorderPresetsRandom } from '../start-presets/start-presets';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BorderSettingsService {
   items: Slider[] = [];
+  borderPresetVanilla = new BorderPresetsVanilla();
+  borderPresetExperimental = new BorderPresetsExperimental();
+  borderPresetRandom = new BorderPresetsRandom();
 
   widthSlider: Slider = {
     label: 'Width',
@@ -41,21 +45,41 @@ export class BorderSettingsService {
     this.radiusSliderSubject,
   ]);
 
-  constructor(private colorSettingsService: ColorSettingsService) { }
+  constructor(private colorSettingsService: ColorSettingsService) {
+    this.widthSlider.currentValue = this.borderPresetVanilla.width;
+    this.radiusSlider.currentValue = this.borderPresetVanilla.radius;
+    this.borderStyle = this.borderPresetVanilla.style;
+  }
+
+  setValues() {
+    this.widthSliderSubject.next(this.widthSlider);
+    this.radiusSliderSubject.next(this.radiusSlider);
+    this.borderStyleSubject.next(this.borderStyle);
+  }
 
   initializeBorderSettings() {
     this.allSliders.subscribe(sliderArray => {
       this.items = [];
       sliderArray.map(slider => this.items.push(slider));
     });
+    this.setValues();
+  }
 
-    this.widthSlider.currentValue = 4;
-    this.radiusSlider.currentValue = 0;
-    this.borderStyle = 'solid';
-
-    this.widthSliderSubject.next(this.widthSlider);
-    this.radiusSliderSubject.next(this.radiusSlider);
-    this.borderStyleSubject.next(this.borderStyle);
+  setBorderPreset(preset: string) {
+    if (preset === 'vanilla') {
+      this.widthSlider.currentValue = this.borderPresetVanilla.width;
+      this.radiusSlider.currentValue = this.borderPresetVanilla.radius;
+      this.borderStyle = this.borderPresetVanilla.style;
+    } else if (preset === 'experimental') {
+      this.widthSlider.currentValue = this.borderPresetExperimental.width;
+      this.radiusSlider.currentValue = this.borderPresetExperimental.radius;
+      this.borderStyle = this.borderPresetExperimental.style;
+    } else if (preset === 'random') {
+      this.widthSlider.currentValue = this.borderPresetRandom.randomWidth();
+      this.radiusSlider.currentValue = this.borderPresetRandom.randomRadius();
+      this.borderStyle = this.borderPresetRandom.randomStyle();
+    }
+    this.setValues();
   }
 
   setWidth(value: number) {
@@ -71,8 +95,8 @@ export class BorderSettingsService {
     this.borderStyleSubject.next(this.borderStyle);
   }
 
-  resetBorderSettings() {
-    this.initializeBorderSettings();
+  resetBorderSettings(preset: string) {
+    this.setBorderPreset(preset);
     this.colorSettingsService.resetBorderColorSettings();
   }
 }

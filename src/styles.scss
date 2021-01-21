@@ -126,6 +126,9 @@ $secondary-color: #083272;
   display: none;  // disableAlpha from documentation causes build error
 }
 
+.mat-select-value {
+  color: #787878;
+}
 
 @media screen and (max-width: 1024px) {
   .color-picker-container {

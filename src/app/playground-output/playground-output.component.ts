@@ -47,7 +47,6 @@ export class PlaygroundOutputComponent {
       this.borderColor = this.colorArray[2];
       this.boxShadowColor = this.colorArray[3];
     });
-    this.colorSettingsService.initializeColors();
 
     const transformSettings = this.transformSettingsService.allSliders;
     transformSettings.subscribe(settings => {
@@ -77,6 +76,8 @@ export class PlaygroundOutputComponent {
       this.shadowBlur = this.boxShadowArray[2];
       this.shadowSpread = this.boxShadowArray[3];
     });
-    this.boxShadowSettingsService.shadowInsetSubject.subscribe(value => this.shadowInset = value);
+    this.boxShadowSettingsService.shadowInsetSubject.subscribe(value => {
+      this.shadowInset = value === true ? 'inset' : '';
+    });
   }
 }

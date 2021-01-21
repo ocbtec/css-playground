@@ -35,7 +35,7 @@ export class CssCodeTabComponent {
   shadowBlur = 0;
   shadowSpread = 0;
   boxShadowArray: Array<number> = [];
-  shadowInset = '';
+  shadowInset: string;
 
   cssCode = '';
 
@@ -47,6 +47,7 @@ export class CssCodeTabComponent {
     private _snackBar: MatSnackBar,
     public mobileViewService: MobileViewService
   ) {
+    this.shadowInset = this.boxShadowSettingsService.shadowInsetSwitch === true ? ' inset' : '';
     const colors = this.colorSettingsService.allColors;
     colors.subscribe(colorArray => {
       this.colorArray = [];
@@ -94,7 +95,7 @@ export class CssCodeTabComponent {
       this.createCodeString();
     });
     this.boxShadowSettingsService.shadowInsetSubject.subscribe(value => {
-      this.shadowInset = value === '' ? '' : ' ' + value;
+      this.shadowInset = value === true ? ' inset' : '';
       this.createCodeString();
     });
   }
