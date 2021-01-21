@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Subject, combineLatest } from 'rxjs';
 import { Slider } from '../slider/slider.model';
+import { TransformPresetsVanilla, TransformPresetsExperimental } from '../start-presets/start-presets';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TransformSettingsService {
   items: Slider[] = [];
+  transformPresetVanilla = new TransformPresetsVanilla();
+  transformPresetExperimental = new TransformPresetsExperimental();
 
   sizeSlider: Slider = {
     label: 'Size',
@@ -69,11 +72,29 @@ export class TransformSettingsService {
       sliderArray.map(slider => this.items.push(slider));
     });
 
-    this.sizeSlider.currentValue = 100;
-    this.horizontallySlider.currentValue = 0;
-    this.verticallySlider.currentValue = 0;
-    this.rotateSlider.currentValue = 0;
+    this.sizeSlider.currentValue = this.transformPresetVanilla.size;
+    this.horizontallySlider.currentValue = this.transformPresetVanilla.hPos;
+    this.verticallySlider.currentValue = this.transformPresetVanilla.vPos;
+    this.rotateSlider.currentValue = this.transformPresetVanilla.rotate;
 
+    this.sizeSliderSubject.next(this.sizeSlider);
+    this.horizontallySliderSubject.next(this.horizontallySlider);
+    this.verticallySliderSubject.next(this.verticallySlider);
+    this.rotateSliderSubject.next(this.rotateSlider);
+  }
+
+  setTransformPreset(preset: string) {
+    if (preset === 'vanilla') {
+      this.sizeSlider.currentValue = this.transformPresetVanilla.size;
+      this.horizontallySlider.currentValue = this.transformPresetVanilla.hPos;
+      this.verticallySlider.currentValue = this.transformPresetVanilla.vPos;
+      this.rotateSlider.currentValue = this.transformPresetVanilla.rotate;
+    } else if (preset === 'experimental') {
+      this.sizeSlider.currentValue = this.transformPresetExperimental.size;
+      this.horizontallySlider.currentValue = this.transformPresetExperimental.hPos;
+      this.verticallySlider.currentValue = this.transformPresetExperimental.vPos;
+      this.rotateSlider.currentValue = this.transformPresetExperimental.rotate;
+    }
     this.sizeSliderSubject.next(this.sizeSlider);
     this.horizontallySliderSubject.next(this.horizontallySlider);
     this.verticallySliderSubject.next(this.verticallySlider);

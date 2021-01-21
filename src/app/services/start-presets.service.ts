@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BorderSettingsService } from './border-settings.service';
 import { ColorSettingsService } from './color-settings.service';
+import { TransformSettingsService } from './transform-Settings.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,8 @@ export class StartPresetsService {
 
   constructor(
     private colorSettingsService: ColorSettingsService,
-    private borderSettingsService: BorderSettingsService
+    private borderSettingsService: BorderSettingsService,
+    private transformSettingsService: TransformSettingsService
   ) {
   }
 
@@ -18,5 +20,6 @@ export class StartPresetsService {
     this.selectedPreset = value;
     this.colorSettingsService.setColorPreset(value);
     this.borderSettingsService.setBorderPreset(value);
+    this.transformSettingsService.setTransformPreset(value);
   }
 }

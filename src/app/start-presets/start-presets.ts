@@ -4,7 +4,6 @@ export class ColorPresetsVanilla {
   borderColor = '#b6ddfd';
   boxShadowColor = '#343a60';
 }
-
 export class ColorPresetsExperimental {
     cubeColor = '#72e69a';
     backgroundColor = '#e47f2b';
@@ -12,9 +11,15 @@ export class ColorPresetsExperimental {
     boxShadowColor = '#90bc3a';
 }
 
-export class TransformPresets {
+export class TransformPresetsVanilla {
     size = 100;
     hPos = 0;
+    vPos = 0;
+    rotate = 0;
+}
+export class TransformPresetsExperimental {
+    size = 200;
+    hPos = -66;
     vPos = 0;
     rotate = 0;
 }
@@ -24,7 +29,6 @@ export class BorderPresetsVanilla {
     radius = 0;
     style = 'solid';
 }
-
 export class BorderPresetsExperimental {
     width = 16;
     radius = 2;
