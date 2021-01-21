@@ -85,7 +85,7 @@ export class ColorSettingsService {
     this.boxShadowColorSubject.next(this.boxShadowColor);
   }
 
-  resetAllColorSettings() {
-    this.initializeColors();
+  resetAllColorSettings(preset: string) {
+    this.setColorPreset(preset);
   }
 }
