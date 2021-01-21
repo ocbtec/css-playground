@@ -5,10 +5,10 @@ export class ColorPresetsVanilla {
   boxShadowColor = '#343a60';
 }
 export class ColorPresetsExperimental {
-    cubeColor = '#72e69a';
-    backgroundColor = '#e47f2b';
-    borderColor = '#c67fe3';
-    boxShadowColor = '#90bc3a';
+    cubeColor = '#415f9c';
+    backgroundColor = '#9d9dff';
+    borderColor = '#b6ddfd';
+    boxShadowColor = '#d279d0';
 }
 
 export class TransformPresetsVanilla {
@@ -18,10 +18,10 @@ export class TransformPresetsVanilla {
     rotate = 0;
 }
 export class TransformPresetsExperimental {
-    size = 200;
-    hPos = -66;
+    size = 300;
+    hPos = 0;
     vPos = 0;
-    rotate = 0;
+    rotate = 45;
 }
 
 export class BorderPresetsVanilla {
@@ -30,15 +30,22 @@ export class BorderPresetsVanilla {
     style = 'solid';
 }
 export class BorderPresetsExperimental {
-    width = 16;
-    radius = 2;
+    width = 26;
+    radius = 0;
     style = 'dashed';
 }
 
-export class BoxShadowPresets {
+export class BoxShadowPresetsVanilla {
     xOffset = 8;
     yOffset = 8;
     blur = 5;
     spread = 0;
     insetSwitch = false;
+}
+export class BoxShadowPresetsExperimental {
+    xOffset = -167;
+    yOffset = 167;
+    blur = 0;
+    spread = -59;
+    insetSwitch = true;
 }
