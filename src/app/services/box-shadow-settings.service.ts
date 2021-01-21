@@ -2,14 +2,16 @@ import { Injectable } from '@angular/core';
 import { combineLatest, Subject } from 'rxjs';
 import { Slider } from '../slider/slider.model';
 import { ColorSettingsService } from './color-settings.service';
-import { BoxShadowPresets } from '../start-presets/start-presets';
+import { BoxShadowPresetsVanilla, BoxShadowPresetsExperimental } from '../start-presets/start-presets';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BoxShadowSettingsService {
   items: Slider[] = [];
-  boxShadowPresets = new BoxShadowPresets();
+
+  boxShadowPresetVanilla = new BoxShadowPresetsVanilla();
+  boxShadowPresetExperimental = new BoxShadowPresetsExperimental();
 
   offsetXSlider: Slider = {
     label: 'Offset x',
@@ -69,25 +71,39 @@ export class BoxShadowSettingsService {
   shadowInsetSwitch!: boolean;
   shadowInsetSubject: Subject<boolean> = new Subject<boolean>();
 
-  constructor(public colorSettingsService: ColorSettingsService) { }
+  constructor(private colorSettingsService: ColorSettingsService) { }
+
+  setValues() {
+    this.offsetXSliderSubject.next(this.offsetXSlider);
+    this.offsetYSliderSubject.next(this.offsetYSlider);
+    this.blurRadiusSliderSubject.next(this.blurRadiusSlider);
+    this.spreadRadiusSliderSubject.next(this.spreadRadiusSlider);
+    this.shadowInsetSubject.next(this.shadowInsetSwitch);
+  }
 
   initializeBoxShadowSettings() {
     this.allSliders.subscribe(sliderArray => {
       this.items = [];
       sliderArray.map(slider => this.items.push(slider));
     });
+    this.setValues();
+  }
 
-    this.offsetXSlider.currentValue = this.boxShadowPresets.xOffset;
-    this.offsetYSlider.currentValue = this.boxShadowPresets.yOffset;
-    this.blurRadiusSlider.currentValue = this.boxShadowPresets.blur;
-    this.spreadRadiusSlider.currentValue = this.boxShadowPresets.spread;
-    this.shadowInsetSwitch = this.boxShadowPresets.insetSwitch;
-
-    this.offsetXSliderSubject.next(this.offsetXSlider);
-    this.offsetYSliderSubject.next(this.offsetYSlider);
-    this.blurRadiusSliderSubject.next(this.blurRadiusSlider);
-    this.spreadRadiusSliderSubject.next(this.spreadRadiusSlider);
-    this.shadowInsetSubject.next(this.shadowInsetSwitch);
+  setBoxShadowPreset(preset: string) {
+    if (preset === 'vanilla') {
+      this.offsetXSlider.currentValue = this.boxShadowPresetVanilla.xOffset;
+      this.offsetYSlider.currentValue = this.boxShadowPresetVanilla.yOffset;
+      this.blurRadiusSlider.currentValue = this.boxShadowPresetVanilla.blur;
+      this.spreadRadiusSlider.currentValue = this.boxShadowPresetVanilla.spread;
+      this.shadowInsetSwitch = this.boxShadowPresetVanilla.insetSwitch;
+    } else if (preset === 'experimental') {
+      this.offsetXSlider.currentValue = this.boxShadowPresetExperimental.xOffset;
+      this.offsetYSlider.currentValue = this.boxShadowPresetExperimental.yOffset;
+      this.blurRadiusSlider.currentValue = this.boxShadowPresetExperimental.blur;
+      this.spreadRadiusSlider.currentValue = this.boxShadowPresetExperimental.spread;
+      this.shadowInsetSwitch = this.boxShadowPresetExperimental.insetSwitch;
+    }
+    this.setValues();
   }
 
   setOffsetX(value: number) {
@@ -107,8 +123,8 @@ export class BoxShadowSettingsService {
     this.spreadRadiusSliderSubject.next(this.spreadRadiusSlider);
   }
 
-  resetBoxShadowSettings() {
-    this.initializeBoxShadowSettings();
+  resetBoxShadowSettings(preset: string) {
+    this.setBoxShadowPreset(preset);
     this.colorSettingsService.resetBoxShadowColorSettings();
   }
 }
