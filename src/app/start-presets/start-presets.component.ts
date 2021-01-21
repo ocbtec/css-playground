@@ -1,6 +1,6 @@
-import { Component, EventEmitter, OnInit, Output, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, Output, ViewEncapsulation } from '@angular/core';
 import { MatSelectChange } from '@angular/material/select';
-import { BorderSettingsService } from '../services/border-settings.service';
+import { StartPresetsService } from '../services/start-presets.service';
 
 @Component({
   selector: 'app-start-presets',
@@ -8,16 +8,16 @@ import { BorderSettingsService } from '../services/border-settings.service';
   styleUrls: ['./start-presets.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class StartPresetsComponent implements OnInit {
+export class StartPresetsComponent {
   @Output() valueChange = new EventEmitter<number>();
 
-  border: {
+  startPresets: {
     value: string;
     viewValue: string;
   }[] = [
-    {value: 'dashed', viewValue: 'dashed'},
-    {value: 'dotted', viewValue: 'dotted'},
-    {value: 'double', viewValue: 'double'}
+    {value: 'vanilla', viewValue: 'vanilla'},
+    {value: 'experimental', viewValue: 'experimental'},
+    {value: 'random', viewValue: 'random'}
   ];
 
   selectedData: {
@@ -28,17 +28,13 @@ export class StartPresetsComponent implements OnInit {
     viewValue: ''
   };
 
-  constructor(public borderSettingsService: BorderSettingsService) { }
-
-  ngOnInit() {
-    this.borderSettingsService.borderStyle = this.border[0].value;
-  }
+  constructor(public startPresetsService: StartPresetsService) { }
 
   selectedValue(event: MatSelectChange) {
     this.selectedData = {
       value: event.value,
       viewValue: event.source.triggerValue
     };
-    this.borderSettingsService.setStyle(this.selectedData.viewValue);
+    this.startPresetsService.setPreset(this.selectedData.viewValue);
   }
 }

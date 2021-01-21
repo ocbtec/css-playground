@@ -1,21 +1,23 @@
 import { Injectable } from '@angular/core';
 import { Subject, combineLatest } from 'rxjs';
+import { ColorPresetsVanilla, ColorPresetsExperimental } from '../start-presets/start-presets';
+import { StartPresetsService } from './start-presets.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ColorSettingsService {
-  cubeColor = '#ff4081';
+  cubeColor: string;
+  backgroundColor: string;
+  borderColor: string;
+  boxShadowColor: string;
   cubeColorSubject: Subject<string> = new Subject();
-
-  backgroundColor = '#ffffff';
   backgroundColorSubject: Subject<string> = new Subject();
-
-  borderColor = '#b6ddfd';
   borderColorSubject: Subject<string> = new Subject();
-
-  boxShadowColor = '#343a60';
   boxShadowColorSubject: Subject<string> = new Subject();
+
+  colorPresetVanilla = new ColorPresetsVanilla();
+  colorPresetExperimental = new ColorPresetsExperimental();
 
   allColors = combineLatest([
     this.cubeColorSubject,
@@ -24,7 +26,34 @@ export class ColorSettingsService {
     this.boxShadowColorSubject
   ]);
 
+  constructor() {
+    this.cubeColor = this.colorPresetVanilla.cubeColor;
+    this.backgroundColor = this.colorPresetVanilla.backgroundColor;
+    this.borderColor = this.colorPresetVanilla.borderColor;
+    this.boxShadowColor = this.colorPresetVanilla.boxShadowColor;
+  }
+
   initializeColors() {
+    this.cubeColorSubject.next(this.cubeColor);
+    this.backgroundColorSubject.next(this.backgroundColor);
+    this.borderColorSubject.next(this.borderColor);
+    this.boxShadowColorSubject.next(this.boxShadowColor);
+  }
+
+  setColorPreset(preset: string) {
+    if (preset === 'vanilla') {
+      console.log(preset);
+      this.cubeColor = this.colorPresetVanilla.cubeColor;
+      this.backgroundColor = this.colorPresetVanilla.backgroundColor;
+      this.borderColor = this.colorPresetVanilla.borderColor;
+      this.boxShadowColor = this.colorPresetVanilla.boxShadowColor;
+    } else if (preset === 'experimental') {
+      console.log(preset);
+      this.cubeColor = this.colorPresetExperimental.cubeColor;
+      this.backgroundColor = this.colorPresetExperimental.backgroundColor;
+      this.borderColor = this.colorPresetExperimental.borderColor;
+      this.boxShadowColor = this.colorPresetExperimental.boxShadowColor;
+    }
     this.cubeColorSubject.next(this.cubeColor);
     this.backgroundColorSubject.next(this.backgroundColor);
     this.borderColorSubject.next(this.borderColor);
