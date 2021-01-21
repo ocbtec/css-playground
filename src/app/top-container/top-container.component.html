@@ -12,8 +12,16 @@
         <mat-icon class="info-icon">info</mat-icon>
       </div>
       <div>
-        <p class="info-text-top">Use the sliders and color pickers to change the appearance of the square.</p>
+        <p>Use the sliders and color pickers to change the appearance of the square.</p>
         <p *ngIf="showArrowKeysMessage">For finer adjustment, you can also click on a slider and use the arrow keys.</p>
+        <p class="info-text-bottom">
+          Hint: Select 'random' in the dropdown menu and hit the
+          <span id="reset-button">
+            <img src="../../assets/images/reset-button-dark.svg" alt="" id="reset-icon">
+            <span id="color-span">All</span>
+          </span>
+          button. Have fun!
+        </p>
       </div>
     </div>
   </div>
