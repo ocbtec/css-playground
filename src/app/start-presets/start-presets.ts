@@ -19,10 +19,16 @@ export class TransformPresets {
     rotate = 0;
 }
 
-export class BorderPresets {
+export class BorderPresetsVanilla {
     width = 4;
     radius = 0;
     style = 'solid';
+}
+
+export class BorderPresetsExperimental {
+    width = 16;
+    radius = 2;
+    style = 'dashed';
 }
 
 export class BoxShadowPresets {

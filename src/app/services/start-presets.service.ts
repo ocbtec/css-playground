@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { BorderSettingsService } from './border-settings.service';
 import { ColorSettingsService } from './color-settings.service';
 
 @Injectable({
@@ -8,11 +8,15 @@ import { ColorSettingsService } from './color-settings.service';
 export class StartPresetsService {
   selectedPreset = 'vanilla';
 
-  constructor(private colorSettingsService: ColorSettingsService) {
+  constructor(
+    private colorSettingsService: ColorSettingsService,
+    private borderSettingsService: BorderSettingsService
+  ) {
   }
 
   setPreset(value: string) {
     this.selectedPreset = value;
     this.colorSettingsService.setColorPreset(value);
+    this.borderSettingsService.setBorderPreset(value);
   }
 }

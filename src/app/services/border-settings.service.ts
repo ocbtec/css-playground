@@ -2,12 +2,15 @@ import { Injectable } from '@angular/core';
 import { combineLatest, Subject } from 'rxjs';
 import { Slider } from '../slider/slider.model';
 import { ColorSettingsService } from './color-settings.service';
+import { BorderPresetsVanilla, BorderPresetsExperimental } from '../start-presets/start-presets';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BorderSettingsService {
   items: Slider[] = [];
+  borderPresetVanilla = new BorderPresetsVanilla();
+  borderPresetExperimental = new BorderPresetsExperimental();
 
   widthSlider: Slider = {
     label: 'Width',
@@ -49,10 +52,25 @@ export class BorderSettingsService {
       sliderArray.map(slider => this.items.push(slider));
     });
 
-    this.widthSlider.currentValue = 4;
-    this.radiusSlider.currentValue = 0;
-    this.borderStyle = 'solid';
+    this.widthSlider.currentValue = this.borderPresetVanilla.width;
+    this.radiusSlider.currentValue = this.borderPresetVanilla.radius;
+    this.borderStyle = this.borderPresetVanilla.style;
 
+    this.widthSliderSubject.next(this.widthSlider);
+    this.radiusSliderSubject.next(this.radiusSlider);
+    this.borderStyleSubject.next(this.borderStyle);
+  }
+
+  setBorderPreset(preset: string) {
+    if (preset === 'vanilla') {
+      this.widthSlider.currentValue = this.borderPresetVanilla.width;
+      this.radiusSlider.currentValue = this.borderPresetVanilla.radius;
+      this.borderStyle = this.borderPresetVanilla.style;
+    } else if (preset === 'experimental') {
+      this.widthSlider.currentValue = this.borderPresetExperimental.width;
+      this.radiusSlider.currentValue = this.borderPresetExperimental.radius;
+      this.borderStyle = this.borderPresetExperimental.style;
+    }
     this.widthSliderSubject.next(this.widthSlider);
     this.radiusSliderSubject.next(this.radiusSlider);
     this.borderStyleSubject.next(this.borderStyle);
