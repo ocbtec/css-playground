@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ColorEvent } from 'ngx-color';
 import { BoxShadowSettingsService } from '../services/box-shadow-settings.service';
 import { ColorSettingsService } from '../services/color-settings.service';
@@ -10,33 +10,38 @@ import { Slider } from '../slider/slider.model';
   templateUrl: './box-shadow-tab.component.html',
   styleUrls: ['./box-shadow-tab.component.scss']
 })
-export class BoxShadowTabComponent implements OnInit {
+export class BoxShadowTabComponent {
   settingsType = 'Box-Shadow';
   messageDynamic = 'Reset Box-Shadow Settings';
 
   items: Slider[] = [];
 
   boxShadowColor = '';
+  boxShadowInset: boolean;
 
   constructor(
     public boxShadowSettingsService: BoxShadowSettingsService,
     public colorSettingsService: ColorSettingsService,
     public mobileViewService: MobileViewService
   ) {
+    this.boxShadowSettingsService.initializeBoxShadowSettings();
+    this.items = this.boxShadowSettingsService.items;
+    this.boxShadowInset = this.boxShadowSettingsService.shadowInsetSwitch;
+
     const boxShadowColor = this.colorSettingsService.boxShadowColorSubject;
     boxShadowColor.subscribe(value => {
       this.boxShadowColor = value;
     });
-  }
 
-  ngOnInit() {
-    this.boxShadowSettingsService.initializeBoxShadowSettings();
-    this.items = this.boxShadowSettingsService.items;
+    const boxShadowInset = this.boxShadowSettingsService.shadowInsetSubject;
+    boxShadowInset.subscribe(value => {
+      this.boxShadowInset = value;
+    });
   }
 
   onChange() {
-    const shadowInset = this.boxShadowSettingsService.shadowInsetSwitch ? 'inset' : '';
-    this.boxShadowSettingsService.shadowInsetSubject.next(shadowInset);
+    this.boxShadowSettingsService.shadowInsetSwitch = !this.boxShadowSettingsService.shadowInsetSwitch;
+    this.boxShadowSettingsService.shadowInsetSubject.next(this.boxShadowSettingsService.shadowInsetSwitch);
   }
 
   changeBoxShadowColor($event: ColorEvent) {

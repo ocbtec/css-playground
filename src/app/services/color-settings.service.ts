@@ -42,13 +42,11 @@ export class ColorSettingsService {
 
   setColorPreset(preset: string) {
     if (preset === 'vanilla') {
-      console.log(preset);
       this.cubeColor = this.colorPresetVanilla.cubeColor;
       this.backgroundColor = this.colorPresetVanilla.backgroundColor;
       this.borderColor = this.colorPresetVanilla.borderColor;
       this.boxShadowColor = this.colorPresetVanilla.boxShadowColor;
     } else if (preset === 'experimental') {
-      console.log(preset);
       this.cubeColor = this.colorPresetExperimental.cubeColor;
       this.backgroundColor = this.colorPresetExperimental.backgroundColor;
       this.borderColor = this.colorPresetExperimental.borderColor;

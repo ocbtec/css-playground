@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 import { combineLatest, Subject } from 'rxjs';
 import { Slider } from '../slider/slider.model';
 import { ColorSettingsService } from './color-settings.service';
+import { BoxShadowPresets } from '../start-presets/start-presets';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BoxShadowSettingsService {
   items: Slider[] = [];
+  boxShadowPresets = new BoxShadowPresets();
 
   offsetXSlider: Slider = {
     label: 'Offset x',
@@ -64,10 +66,8 @@ export class BoxShadowSettingsService {
     this.spreadRadiusSliderSubject
   ]);
 
-  shadowInset = '';
-  shadowInsetSubject: Subject<string> = new Subject<string>();
-
-  shadowInsetSwitch = false;
+  shadowInsetSwitch!: boolean;
+  shadowInsetSubject: Subject<boolean> = new Subject<boolean>();
 
   constructor(public colorSettingsService: ColorSettingsService) { }
 
@@ -77,20 +77,17 @@ export class BoxShadowSettingsService {
       sliderArray.map(slider => this.items.push(slider));
     });
 
-    this.offsetXSlider.currentValue = 8;
-    this.offsetYSlider.currentValue = 8;
-    this.blurRadiusSlider.currentValue = 5;
-    this.spreadRadiusSlider.currentValue = 0;
-
-    this.shadowInsetSubject.next('');
+    this.offsetXSlider.currentValue = this.boxShadowPresets.xOffset;
+    this.offsetYSlider.currentValue = this.boxShadowPresets.yOffset;
+    this.blurRadiusSlider.currentValue = this.boxShadowPresets.blur;
+    this.spreadRadiusSlider.currentValue = this.boxShadowPresets.spread;
+    this.shadowInsetSwitch = this.boxShadowPresets.insetSwitch;
 
     this.offsetXSliderSubject.next(this.offsetXSlider);
     this.offsetYSliderSubject.next(this.offsetYSlider);
     this.blurRadiusSliderSubject.next(this.blurRadiusSlider);
     this.spreadRadiusSliderSubject.next(this.spreadRadiusSlider);
-
-    this.shadowInset = '';
-    this.shadowInsetSwitch = false;
+    this.shadowInsetSubject.next(this.shadowInsetSwitch);
   }
 
   setOffsetX(value: number) {
