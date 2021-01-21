@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
 import { BorderSettingsService } from './border-settings.service';
 import { BoxShadowSettingsService } from './box-shadow-settings.service';
 import { ColorSettingsService } from './color-settings.service';

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject, combineLatest } from 'rxjs';
 import { Slider } from '../slider/slider.model';
-import { TransformPresetsVanilla, TransformPresetsExperimental } from '../start-presets/start-presets';
+import { TransformPresetsVanilla, TransformPresetsExperimental, TransformPresetsRandom } from '../start-presets/start-presets';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +10,7 @@ export class TransformSettingsService {
   items: Slider[] = [];
   transformPresetVanilla = new TransformPresetsVanilla();
   transformPresetExperimental = new TransformPresetsExperimental();
+  transformPresetRandom = new TransformPresetsRandom();
 
   sizeSlider: Slider = {
     label: 'Size',
@@ -105,6 +106,11 @@ export class TransformSettingsService {
       this.horizontallySlider.currentValue = this.transformPresetExperimental.hPos;
       this.verticallySlider.currentValue = this.transformPresetExperimental.vPos;
       this.rotateSlider.currentValue = this.transformPresetExperimental.rotate;
+    } else if (preset === 'random') {
+      this.sizeSlider.currentValue = this.transformPresetRandom.randomSize();
+      this.horizontallySlider.currentValue = this.transformPresetRandom.randomHPos();
+      this.verticallySlider.currentValue = this.transformPresetRandom.randomVPos();
+      this.rotateSlider.currentValue = this.transformPresetRandom.randomRotate();
     }
     this.setValues();
   }

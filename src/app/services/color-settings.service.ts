@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject, combineLatest } from 'rxjs';
-import { ColorPresetsVanilla, ColorPresetsExperimental } from '../start-presets/start-presets';
+import { ColorPresetsVanilla, ColorPresetsExperimental, ColorPresetsRandom } from '../start-presets/start-presets';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +17,7 @@ export class ColorSettingsService {
 
   colorPresetVanilla = new ColorPresetsVanilla();
   colorPresetExperimental = new ColorPresetsExperimental();
+  colorPresetRandom = new ColorPresetsRandom();
 
   allColors = combineLatest([
     this.cubeColorSubject,
@@ -54,6 +55,11 @@ export class ColorSettingsService {
       this.backgroundColor = this.colorPresetExperimental.backgroundColor;
       this.borderColor = this.colorPresetExperimental.borderColor;
       this.boxShadowColor = this.colorPresetExperimental.boxShadowColor;
+    } else if (preset === 'random') {
+      this.cubeColor = this.colorPresetRandom.randomCubeColor();
+      this.backgroundColor = this.colorPresetRandom.randomBackgroundColor();
+      this.borderColor = this.colorPresetRandom.randomBorderColor();
+      this.boxShadowColor = this.colorPresetRandom.randomBoxShadowColor();
     }
     this.setValues();
   }

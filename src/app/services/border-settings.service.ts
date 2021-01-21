@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { combineLatest, Subject } from 'rxjs';
 import { Slider } from '../slider/slider.model';
 import { ColorSettingsService } from './color-settings.service';
-import { BorderPresetsVanilla, BorderPresetsExperimental } from '../start-presets/start-presets';
+import { BorderPresetsVanilla, BorderPresetsExperimental, BorderPresetsRandom } from '../start-presets/start-presets';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +11,7 @@ export class BorderSettingsService {
   items: Slider[] = [];
   borderPresetVanilla = new BorderPresetsVanilla();
   borderPresetExperimental = new BorderPresetsExperimental();
+  borderPresetRandom = new BorderPresetsRandom();
 
   widthSlider: Slider = {
     label: 'Width',
@@ -73,6 +74,10 @@ export class BorderSettingsService {
       this.widthSlider.currentValue = this.borderPresetExperimental.width;
       this.radiusSlider.currentValue = this.borderPresetExperimental.radius;
       this.borderStyle = this.borderPresetExperimental.style;
+    } else if (preset === 'random') {
+      this.widthSlider.currentValue = this.borderPresetRandom.randomWidth();
+      this.radiusSlider.currentValue = this.borderPresetRandom.randomRadius();
+      this.borderStyle = this.borderPresetRandom.randomStyle();
     }
     this.setValues();
   }

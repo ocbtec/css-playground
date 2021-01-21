@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { combineLatest, Subject } from 'rxjs';
 import { Slider } from '../slider/slider.model';
 import { ColorSettingsService } from './color-settings.service';
-import { BoxShadowPresetsVanilla, BoxShadowPresetsExperimental } from '../start-presets/start-presets';
+import { BoxShadowPresetsVanilla, BoxShadowPresetsExperimental, BoxShadowPresetsRandom } from '../start-presets/start-presets';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +12,7 @@ export class BoxShadowSettingsService {
 
   boxShadowPresetVanilla = new BoxShadowPresetsVanilla();
   boxShadowPresetExperimental = new BoxShadowPresetsExperimental();
+  boxShadowPresetRandom = new BoxShadowPresetsRandom();
 
   offsetXSlider: Slider = {
     label: 'Offset x',
@@ -102,6 +103,12 @@ export class BoxShadowSettingsService {
       this.blurRadiusSlider.currentValue = this.boxShadowPresetExperimental.blur;
       this.spreadRadiusSlider.currentValue = this.boxShadowPresetExperimental.spread;
       this.shadowInsetSwitch = this.boxShadowPresetExperimental.insetSwitch;
+    } else if (preset === 'random') {
+      this.offsetXSlider.currentValue = this.boxShadowPresetRandom.randomOffsetX();
+      this.offsetYSlider.currentValue = this.boxShadowPresetRandom.randomOffsetY();
+      this.blurRadiusSlider.currentValue = this.boxShadowPresetRandom.randomBlur();
+      this.spreadRadiusSlider.currentValue = this.boxShadowPresetRandom.randomSpread();
+      this.shadowInsetSwitch = this.boxShadowPresetRandom.randomInset();
     }
     this.setValues();
   }
