@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { BorderSettingsService } from './border-settings.service';
+import { BoxShadowSettingsService } from './box-shadow-settings.service';
 import { ColorSettingsService } from './color-settings.service';
 import { TransformSettingsService } from './transform-Settings.service';
 
@@ -12,7 +14,8 @@ export class StartPresetsService {
   constructor(
     private colorSettingsService: ColorSettingsService,
     private borderSettingsService: BorderSettingsService,
-    private transformSettingsService: TransformSettingsService
+    private transformSettingsService: TransformSettingsService,
+    private boxShadowSettingsService: BoxShadowSettingsService
   ) {
   }
 
@@ -21,5 +24,6 @@ export class StartPresetsService {
     this.colorSettingsService.setColorPreset(value);
     this.borderSettingsService.setBorderPreset(value);
     this.transformSettingsService.setTransformPreset(value);
+    this.boxShadowSettingsService.setBoxShadowPreset(value);
   }
 }

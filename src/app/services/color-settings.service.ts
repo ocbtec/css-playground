@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject, combineLatest } from 'rxjs';
 import { ColorPresetsVanilla, ColorPresetsExperimental } from '../start-presets/start-presets';
-import { StartPresetsService } from './start-presets.service';
 
 @Injectable({
   providedIn: 'root'
@@ -33,11 +32,15 @@ export class ColorSettingsService {
     this.boxShadowColor = this.colorPresetVanilla.boxShadowColor;
   }
 
-  initializeColors() {
+  setValues() {
     this.cubeColorSubject.next(this.cubeColor);
     this.backgroundColorSubject.next(this.backgroundColor);
     this.borderColorSubject.next(this.borderColor);
     this.boxShadowColorSubject.next(this.boxShadowColor);
+  }
+
+  initializeColors() {
+    this.setValues();
   }
 
   setColorPreset(preset: string) {
@@ -52,10 +55,7 @@ export class ColorSettingsService {
       this.borderColor = this.colorPresetExperimental.borderColor;
       this.boxShadowColor = this.colorPresetExperimental.boxShadowColor;
     }
-    this.cubeColorSubject.next(this.cubeColor);
-    this.backgroundColorSubject.next(this.backgroundColor);
-    this.borderColorSubject.next(this.borderColor);
-    this.boxShadowColorSubject.next(this.boxShadowColor);
+    this.setValues();
   }
 
   setCubeColor(color: string) {

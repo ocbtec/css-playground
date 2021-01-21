@@ -66,21 +66,32 @@ export class TransformSettingsService {
     this.rotateSliderSubject
   ]);
 
+  transformPreset = '';
+
+  constructor() {
+    this.allSliders.subscribe(sliderArray => {
+      this.items = [];
+      sliderArray.map(slider => this.items.push(slider));
+    });
+    this.sizeSliderSubject.next(this.sizeSlider);
+    this.horizontallySliderSubject.next(this.horizontallySlider);
+    this.verticallySliderSubject.next(this.verticallySlider);
+    this.rotateSliderSubject.next(this.rotateSlider);
+  }
+
+  setValues() {
+    this.sizeSliderSubject.next(this.sizeSlider);
+    this.horizontallySliderSubject.next(this.horizontallySlider);
+    this.verticallySliderSubject.next(this.verticallySlider);
+    this.rotateSliderSubject.next(this.rotateSlider);
+  }
+
   initializeSliders() {
     this.allSliders.subscribe(sliderArray => {
       this.items = [];
       sliderArray.map(slider => this.items.push(slider));
     });
-
-    this.sizeSlider.currentValue = this.transformPresetVanilla.size;
-    this.horizontallySlider.currentValue = this.transformPresetVanilla.hPos;
-    this.verticallySlider.currentValue = this.transformPresetVanilla.vPos;
-    this.rotateSlider.currentValue = this.transformPresetVanilla.rotate;
-
-    this.sizeSliderSubject.next(this.sizeSlider);
-    this.horizontallySliderSubject.next(this.horizontallySlider);
-    this.verticallySliderSubject.next(this.verticallySlider);
-    this.rotateSliderSubject.next(this.rotateSlider);
+    this.setValues();
   }
 
   setTransformPreset(preset: string) {
@@ -95,10 +106,7 @@ export class TransformSettingsService {
       this.verticallySlider.currentValue = this.transformPresetExperimental.vPos;
       this.rotateSlider.currentValue = this.transformPresetExperimental.rotate;
     }
-    this.sizeSliderSubject.next(this.sizeSlider);
-    this.horizontallySliderSubject.next(this.horizontallySlider);
-    this.verticallySliderSubject.next(this.verticallySlider);
-    this.rotateSliderSubject.next(this.rotateSlider);
+    this.setValues();
   }
 
   setSize(value: number) {
@@ -118,7 +126,7 @@ export class TransformSettingsService {
     this.rotateSliderSubject.next(this.rotateSlider);
   }
 
-  resetTransformSettings() {
-    this.initializeSliders();
+  resetTransformSettings(preset: string) {
+    this.setTransformPreset(preset);
   }
 }

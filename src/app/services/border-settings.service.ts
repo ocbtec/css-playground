@@ -44,21 +44,24 @@ export class BorderSettingsService {
     this.radiusSliderSubject,
   ]);
 
-  constructor(private colorSettingsService: ColorSettingsService) { }
+  constructor(private colorSettingsService: ColorSettingsService) {
+    this.widthSlider.currentValue = this.borderPresetVanilla.width;
+    this.radiusSlider.currentValue = this.borderPresetVanilla.radius;
+    this.borderStyle = this.borderPresetVanilla.style;
+  }
+
+  setValues() {
+    this.widthSliderSubject.next(this.widthSlider);
+    this.radiusSliderSubject.next(this.radiusSlider);
+    this.borderStyleSubject.next(this.borderStyle);
+  }
 
   initializeBorderSettings() {
     this.allSliders.subscribe(sliderArray => {
       this.items = [];
       sliderArray.map(slider => this.items.push(slider));
     });
-
-    this.widthSlider.currentValue = this.borderPresetVanilla.width;
-    this.radiusSlider.currentValue = this.borderPresetVanilla.radius;
-    this.borderStyle = this.borderPresetVanilla.style;
-
-    this.widthSliderSubject.next(this.widthSlider);
-    this.radiusSliderSubject.next(this.radiusSlider);
-    this.borderStyleSubject.next(this.borderStyle);
+    this.setValues();
   }
 
   setBorderPreset(preset: string) {
@@ -71,9 +74,7 @@ export class BorderSettingsService {
       this.radiusSlider.currentValue = this.borderPresetExperimental.radius;
       this.borderStyle = this.borderPresetExperimental.style;
     }
-    this.widthSliderSubject.next(this.widthSlider);
-    this.radiusSliderSubject.next(this.radiusSlider);
-    this.borderStyleSubject.next(this.borderStyle);
+    this.setValues();
   }
 
   setWidth(value: number) {
@@ -89,8 +90,8 @@ export class BorderSettingsService {
     this.borderStyleSubject.next(this.borderStyle);
   }
 
-  resetBorderSettings() {
-    this.initializeBorderSettings();
+  resetBorderSettings(preset: string) {
+    this.setBorderPreset(preset);
     this.colorSettingsService.resetBorderColorSettings();
   }
 }
