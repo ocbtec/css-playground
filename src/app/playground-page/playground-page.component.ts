@@ -43,7 +43,7 @@ export class PlaygroundPageComponent implements OnInit {
   }
 
   checkForScroll() {
-    if (this.mobileViewService.screenWidth <= 480) {
+    if (this.mobileViewService.screenWidth <= 1024) {
       this.showScrollButton = true;
     } else {
       this.showScrollButton = false;
