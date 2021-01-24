@@ -34,12 +34,12 @@ export class PlaygroundOutputComponent {
   shadowInset = '';
 
   constructor(
-    private transformSettingsService: TransformSettingsService,
-    private borderSettingsService: BorderSettingsService,
-    private boxShadowSettingsService: BoxShadowSettingsService,
-    private colorSettingsService: ColorSettingsService
+    transformSettingsService: TransformSettingsService,
+    borderSettingsService: BorderSettingsService,
+    boxShadowSettingsService: BoxShadowSettingsService,
+    colorSettingsService: ColorSettingsService
   ) {
-    const colors = this.colorSettingsService.allColors;
+    const colors = colorSettingsService.allColors;
     colors.subscribe(colorArray => {
       this.colorArray = [];
       colorArray.map(color => this.colorArray.push(color));
@@ -48,7 +48,7 @@ export class PlaygroundOutputComponent {
       this.boxShadowColor = this.colorArray[3];
     });
 
-    const transformSettings = this.transformSettingsService.allSliders;
+    const transformSettings = transformSettingsService.allSliders;
     transformSettings.subscribe(settings => {
       this.transformArray = [];
       settings.map(slider => this.transformArray.push(slider.currentValue));
@@ -58,16 +58,16 @@ export class PlaygroundOutputComponent {
       this.rotate = this.transformArray[3];
     });
 
-    const borderSettings = this.borderSettingsService.allSliders;
+    const borderSettings = borderSettingsService.allSliders;
     borderSettings.subscribe(settings => {
       this.borderArray = [];
       settings.map(slider => this.borderArray.push(slider.currentValue));
       this.borderWidth = this.borderArray[0];
       this.borderRadius = this.borderArray[1];
     });
-    this.borderSettingsService.borderStyleSubject.subscribe(value => this.borderStyle = value);
+    borderSettingsService.borderStyleSubject.subscribe(value => this.borderStyle = value);
 
-    const boxShadowSettings = this.boxShadowSettingsService.allSliders;
+    const boxShadowSettings = boxShadowSettingsService.allSliders;
     boxShadowSettings.subscribe(settings => {
       this.boxShadowArray = [];
       settings.map(slider => this.boxShadowArray.push(slider.currentValue));
@@ -76,7 +76,7 @@ export class PlaygroundOutputComponent {
       this.shadowBlur = this.boxShadowArray[2];
       this.shadowSpread = this.boxShadowArray[3];
     });
-    this.boxShadowSettingsService.shadowInsetSubject.subscribe(value => {
+    boxShadowSettingsService.shadowInsetSubject.subscribe(value => {
       this.shadowInset = value === true ? 'inset' : '';
     });
   }
