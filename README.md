@@ -1,4 +1,4 @@
-# [CSS Playground](https://via.placeholder.com/15/2299f8/000000?text=+)
+# CSS Playground
 
 **Build with Angular + Material, full responsive**
 
