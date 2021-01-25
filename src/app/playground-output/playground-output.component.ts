@@ -77,7 +77,7 @@ export class PlaygroundOutputComponent {
       this.shadowSpread = this.boxShadowArray[3];
     });
     boxShadowSettingsService.shadowInsetSubject.subscribe(value => {
-      this.shadowInset = value === true ? 'inset' : '';
+      this.shadowInset = value === true ? ' inset' : '';
     });
   }
 }
