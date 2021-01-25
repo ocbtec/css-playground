@@ -34,13 +34,17 @@ export class CssCodeTabComponent extends PlaygroundOutputComponent {
     );
     this.mobileView = this.mobileViewService;
 
-    this.shadowInset = boxShadowSettingsService.shadowInsetSwitch === true ? ' inset' : '';
-
     const colors = colorSettingsService.allColors;
     colors.subscribe(colorArray => {
       this.backgroundColor = colorArray[1];
       this.createCodeString();
     });
+
+    transformSettingsService.allSliders.subscribe(() => this.createCodeString());
+    borderSettingsService.allSliders.subscribe(() => this.createCodeString());
+    borderSettingsService.borderStyleSubject.subscribe(() => this.createCodeString());
+    boxShadowSettingsService.allSliders.subscribe(() => this.createCodeString());
+    boxShadowSettingsService.shadowInsetSubject.subscribe(() => this.createCodeString());
 
     colorSettingsService.initializeColors();
   }
