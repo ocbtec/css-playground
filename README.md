@@ -2,7 +2,9 @@
 
 **Build with Angular + Material, full responsive**
 
-Inspired by the website [CSS Playground](https://css-playground.com)
+The app is part of my [portfolio](https://ocbtec.github.io/portfolio), check it out [here](https://ocbtec.github.io/css-playground)
+
+*Inspired by the website [CSS Playground](https://css-playground.com)*
 
 ---
 
