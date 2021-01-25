@@ -1,4 +1,14 @@
-# CssPlayground
+# CSS Playground
+
+**Build with Angular + Material, full responsive**
+
+[<img src="https://raw.githubusercontent.com/ocbtec/portfolio/master/img/playground.jpg">](https://ocbtec.github.io/css-playground)
+
+The app is part of my [portfolio](https://ocbtec.github.io/portfolio), check it out [here](https://ocbtec.github.io/css-playground)
+
+*Inspired by the website [css-playground.com](https://css-playground.com)*
+
+---
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.4.
 
