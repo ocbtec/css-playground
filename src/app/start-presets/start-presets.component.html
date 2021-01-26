@@ -1,4 +1,4 @@
-<mat-form-field appearance="fill">
+<mat-form-field id="output-dropdown" appearance="fill">
   <mat-select [value]="presets.selectedPreset" (selectionChange)="selectedValue($event)">
     <mat-option [value]="option.value" *ngFor="let option of presets.startPresets">{{ option.viewValue }}</mat-option>
   </mat-select>
