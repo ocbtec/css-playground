@@ -126,9 +126,51 @@ $secondary-color: #083272;
   display: none;  // disableAlpha from documentation causes build error
 }
 
+// +++ material drop down +++
 .mat-select-value {
   color: #787878;
 }
+.mat-form-field-wrapper {
+  padding: 0;
+  width: 140px;
+}
+.mat-form-field-underline {
+  bottom: 0;
+}
+.mat-form-field-flex {
+  padding: 0 !important;
+}
+.mat-form-field-infix {
+  padding: 0px 0px 10px 15px !important;
+}
+.mat-select-arrow {
+  margin: 10px 10px 0px 0px !important;
+}
+.mat-form-field-appearance-fill {
+  background-color: #f5f5f5;
+}
+.mat-select-panel {
+  border-radius: 0 !important;
+  max-height: fit-content;
+}
+@media screen and (max-width: 480px) {
+  .mat-select-panel {
+    max-height: 256px;
+  }
+}
+@media screen and (max-width: 768px) {
+  #output-dropdown > .mat-form-field-wrapper {
+    width: 115px;
+    font-size: 12px;
+  }
+  #output-dropdown > div > div > .mat-form-field-infix {
+    padding: 0px 0px 10px 8px !important;
+  }
+  .mat-select-panel {
+    border-radius: 0 !important;
+  }
+}
+// +++ material drop down +++
 
 @media screen and (max-width: 1024px) {
   .color-picker-container {
