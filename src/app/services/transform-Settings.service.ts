@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Subject, combineLatest } from 'rxjs';
 import { Slider } from '../slider/slider.model';
 import { TransformPresetsVanilla, TransformPresetsExperimental, TransformPresetsRandom } from '../start-presets/start-presets';
+import { MobileViewService } from './mobile-view.service';
 
 @Injectable({
   providedIn: 'root'
@@ -69,11 +70,56 @@ export class TransformSettingsService {
 
   transformPreset = '';
 
-  constructor() {
+  onMobile = false;
+
+  constructor(private mobileViewService: MobileViewService) {
     this.allSliders.subscribe(sliderArray => {
       this.items = [];
       sliderArray.map(slider => this.items.push(slider));
     });
+
+    this.mobileViewService.setPlaygroundHeight();
+
+    this.mobileViewService.onMobileDeviceSubject.subscribe(onMobile => {
+      this.onMobile = onMobile;
+      if (this.onMobile) {
+        if (this.sizeSlider.currentValue > 150) {
+          this.sizeSlider.currentValue = 150;
+        }
+        if (this.sizeSlider.currentValue === 100) {
+          this.sizeSlider.currentValue = 50;
+        }
+        if (this.horizontallySlider.currentValue > 150) {
+          this.horizontallySlider.currentValue = 150;
+        }
+        if (this.horizontallySlider.currentValue < -150) {
+          this.horizontallySlider.currentValue = -150;
+        }
+        if (this.verticallySlider.currentValue > 150) {
+          this.verticallySlider.currentValue = 150;
+        }
+        if (this.verticallySlider.currentValue < -150) {
+          this.verticallySlider.currentValue = -150;
+        }
+        this.sizeSlider.maxValue = 150;
+        this.horizontallySlider.minValue = -150;
+        this.horizontallySlider.maxValue = 150;
+        this.verticallySlider.minValue = -150;
+        this.verticallySlider.maxValue = 150;
+      } else {
+        if (this.sizeSlider.currentValue === 50) {
+          this.sizeSlider.currentValue = 100;
+        }
+        this.sizeSlider.maxValue = 300;
+        this.horizontallySlider.minValue = -300;
+        this.horizontallySlider.maxValue = 300;
+        this.verticallySlider.minValue = -300;
+        this.verticallySlider.maxValue = 300;
+      };
+      this.setValues();
+    });
+    this.mobileViewService.checkPlaygroundHeight();
+
     this.sizeSliderSubject.next(this.sizeSlider);
     this.horizontallySliderSubject.next(this.horizontallySlider);
     this.verticallySliderSubject.next(this.verticallySlider);
@@ -111,6 +157,17 @@ export class TransformSettingsService {
       this.horizontallySlider.currentValue = this.transformPresetRandom.randomHPos();
       this.verticallySlider.currentValue = this.transformPresetRandom.randomVPos();
       this.rotateSlider.currentValue = this.transformPresetRandom.randomRotate();
+    }
+    if (this.onMobile) {
+      this.sizeSlider.currentValue = Math.round(this.sizeSlider.currentValue / 2);
+      if (this.sizeSlider.currentValue < 10) { this.sizeSlider.currentValue = 10; }
+      this.horizontallySlider.currentValue = Math.round(this.horizontallySlider.currentValue / 2);
+      this.verticallySlider.currentValue = Math.round(this.verticallySlider.currentValue / 2);
+    } else {
+      this.horizontallySlider.minValue = -300;
+      this.horizontallySlider.maxValue = 300;
+      this.verticallySlider.minValue = -300;
+      this.verticallySlider.maxValue = 300;
     }
     this.setValues();
   }

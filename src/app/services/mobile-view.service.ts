@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -6,6 +7,8 @@ import { Injectable } from '@angular/core';
 export class MobileViewService {
   screenHeight!: number;
   screenWidth!: number;
+  onMobileDevice = false;
+  onMobileDeviceSubject: Subject<boolean> = new Subject<boolean>();
 
   playgroundSectionHeight!: number;
   playgroundInputHeight!: number;
@@ -23,6 +26,18 @@ export class MobileViewService {
       this.playgroundSectionHeight = this.screenHeight;
       this.playgroundInputHeight = this.screenHeight / 2;
       this.playgroundOutputHeight = this.screenHeight / 2;
+    }
+  }
+
+  checkPlaygroundHeight() {
+    if (this.screenWidth > 720) {
+      this.onMobileDevice = false;
+      console.log(this.onMobileDevice);
+      this.onMobileDeviceSubject.next(this.onMobileDevice);
+    } else {
+      this.onMobileDevice = true;
+      console.log(this.onMobileDevice);
+      this.onMobileDeviceSubject.next(this.onMobileDevice);
     }
   }
 }

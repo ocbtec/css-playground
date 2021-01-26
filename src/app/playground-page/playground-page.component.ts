@@ -30,11 +30,11 @@ export class PlaygroundPageComponent implements OnInit {
   @HostListener('window:resize', ['$event'])
   onResize() {
     this.mobileViewService.setPlaygroundHeight();
+    this.mobileViewService.checkPlaygroundHeight();
     this.checkForScroll();
   }
 
   ngOnInit() {
-    this.mobileViewService.setPlaygroundHeight();
     this.checkForScroll();
   }
 
