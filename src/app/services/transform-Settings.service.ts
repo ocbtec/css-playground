@@ -71,16 +71,22 @@ export class TransformSettingsService {
   transformPreset = '';
 
   onMobile = false;
+  currentPreset = 'vanilla';
+  currentPresetSubject = new Subject<string>();
 
-  constructor(private mobileViewService: MobileViewService) {
+  constructor(mobileViewService: MobileViewService) {
     this.allSliders.subscribe(sliderArray => {
       this.items = [];
       sliderArray.map(slider => this.items.push(slider));
     });
 
-    this.mobileViewService.setPlaygroundHeight();
+    mobileViewService.setPlaygroundHeight();
 
-    this.mobileViewService.onMobileDeviceSubject.subscribe(onMobile => {
+    this.currentPresetSubject.subscribe(preset => {
+      this.currentPreset = preset;
+    });
+
+    mobileViewService.onMobileDeviceSubject.subscribe(onMobile => {
       this.onMobile = onMobile;
       if (this.onMobile) {
         if (this.sizeSlider.currentValue > 150) {
@@ -107,8 +113,10 @@ export class TransformSettingsService {
         this.verticallySlider.minValue = -150;
         this.verticallySlider.maxValue = 150;
       } else {
-        if (this.sizeSlider.currentValue === 50) {
+        if (this.currentPreset === 'vanilla' && this.sizeSlider.currentValue === 50) {
           this.sizeSlider.currentValue = 100;
+        } else if (this.currentPreset === 'experimental' && this.sizeSlider.currentValue === 150) {
+          this.sizeSlider.currentValue = 300;
         }
         this.sizeSlider.maxValue = 300;
         this.horizontallySlider.minValue = -300;
@@ -118,7 +126,7 @@ export class TransformSettingsService {
       };
       this.setValues();
     });
-    this.mobileViewService.checkPlaygroundHeight();
+    mobileViewService.checkPlaygroundHeight();
 
     this.sizeSliderSubject.next(this.sizeSlider);
     this.horizontallySliderSubject.next(this.horizontallySlider);
@@ -142,6 +150,7 @@ export class TransformSettingsService {
   }
 
   setTransformPreset(preset: string) {
+    this.currentPresetSubject.next(preset);
     if (preset === 'vanilla') {
       this.sizeSlider.currentValue = this.transformPresetVanilla.size;
       this.horizontallySlider.currentValue = this.transformPresetVanilla.hPos;
