@@ -16,12 +16,12 @@ export class PlaygroundPageComponent implements OnInit {
   mobileView: MobileViewService;
 
   constructor(
-    private colorSettingsService: ColorSettingsService,
-    private mobileViewService: MobileViewService
+    colorSettingsService: ColorSettingsService,
+    mobileViewService: MobileViewService
   ) {
-    this.mobileView = this.mobileViewService;
+    this.mobileView = mobileViewService;
 
-    const colors = this.colorSettingsService.backgroundColorSubject;
+    const colors = colorSettingsService.backgroundColorSubject;
     colors.subscribe(color => {
       this.backgroundColor = color;
     });
@@ -29,8 +29,8 @@ export class PlaygroundPageComponent implements OnInit {
 
   @HostListener('window:resize', ['$event'])
   onResize() {
-    this.mobileViewService.setPlaygroundHeight();
-    this.mobileViewService.checkPlaygroundHeight();
+    this.mobileView.setPlaygroundHeight();
+    this.mobileView.checkPlaygroundHeight();
     this.checkForScroll();
   }
 
@@ -43,7 +43,7 @@ export class PlaygroundPageComponent implements OnInit {
   }
 
   checkForScroll() {
-    if (this.mobileViewService.screenWidth <= 1024) {
+    if (this.mobileView.screenWidth <= 1024) {
       this.showScrollButton = true;
     } else {
       this.showScrollButton = false;

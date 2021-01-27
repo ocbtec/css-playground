@@ -32,11 +32,9 @@ export class MobileViewService {
   checkPlaygroundHeight() {
     if (this.screenWidth > 720) {
       this.onMobileDevice = false;
-      console.log(this.onMobileDevice);
       this.onMobileDeviceSubject.next(this.onMobileDevice);
     } else {
       this.onMobileDevice = true;
-      console.log(this.onMobileDevice);
       this.onMobileDeviceSubject.next(this.onMobileDevice);
     }
   }
