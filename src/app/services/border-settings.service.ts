@@ -3,6 +3,7 @@ import { combineLatest, Subject } from 'rxjs';
 import { Slider } from '../slider/slider.model';
 import { ColorSettingsService } from './color-settings.service';
 import { BorderPresetsVanilla, BorderPresetsExperimental, BorderPresetsRandom } from '../start-presets/start-presets';
+import { MobileViewService } from './mobile-view.service';
 
 @Injectable({
   providedIn: 'root'
@@ -45,7 +46,31 @@ export class BorderSettingsService {
     this.radiusSliderSubject,
   ]);
 
-  constructor(private colorSettingsService: ColorSettingsService) {
+  onMobile = false;
+  currentPreset = 'vanilla';
+  currentPresetSubject = new Subject<string>();
+
+  constructor(
+    private colorSettingsService: ColorSettingsService,
+    mobileViewService: MobileViewService
+  ) {
+
+    mobileViewService.onMobileDeviceSubject.subscribe(onMobile => {
+      this.onMobile = onMobile;
+      if (this.onMobile && this.currentPreset === 'experimental') {
+        this.widthSlider.currentValue = 13;
+      } else if (!this.onMobile && this.currentPreset === 'experimental') {
+        this.widthSlider.currentValue = 26;
+      }
+      this.setValues();
+    });
+
+    mobileViewService.checkPlaygroundHeight();
+
+    this.currentPresetSubject.subscribe(preset => {
+      this.currentPreset = preset;
+    });
+
     this.widthSlider.currentValue = this.borderPresetVanilla.width;
     this.radiusSlider.currentValue = this.borderPresetVanilla.radius;
     this.borderStyle = this.borderPresetVanilla.style;
@@ -66,6 +91,7 @@ export class BorderSettingsService {
   }
 
   setBorderPreset(preset: string) {
+    this.currentPresetSubject.next(preset);
     if (preset === 'vanilla') {
       this.widthSlider.currentValue = this.borderPresetVanilla.width;
       this.radiusSlider.currentValue = this.borderPresetVanilla.radius;
@@ -74,6 +100,9 @@ export class BorderSettingsService {
       this.widthSlider.currentValue = this.borderPresetExperimental.width;
       this.radiusSlider.currentValue = this.borderPresetExperimental.radius;
       this.borderStyle = this.borderPresetExperimental.style;
+      if (this.onMobile) {
+        this.widthSlider.currentValue = 13;
+      }
     } else if (preset === 'random') {
       this.widthSlider.currentValue = this.borderPresetRandom.randomWidth();
       this.radiusSlider.currentValue = this.borderPresetRandom.randomRadius();

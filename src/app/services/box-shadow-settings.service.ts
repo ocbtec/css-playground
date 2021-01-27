@@ -3,6 +3,7 @@ import { combineLatest, Subject } from 'rxjs';
 import { Slider } from '../slider/slider.model';
 import { ColorSettingsService } from './color-settings.service';
 import { BoxShadowPresetsVanilla, BoxShadowPresetsExperimental, BoxShadowPresetsRandom } from '../start-presets/start-presets';
+import { MobileViewService } from './mobile-view.service';
 
 @Injectable({
   providedIn: 'root'
@@ -72,7 +73,32 @@ export class BoxShadowSettingsService {
   shadowInsetSwitch!: boolean;
   shadowInsetSubject: Subject<boolean> = new Subject<boolean>();
 
-  constructor(private colorSettingsService: ColorSettingsService) { }
+  onMobile = false;
+  currentPreset = 'vanilla';
+  currentPresetSubject = new Subject<string>();
+
+  constructor(
+    private colorSettingsService: ColorSettingsService,
+    mobileViewService: MobileViewService
+  ) {
+    mobileViewService.onMobileDeviceSubject.subscribe(onMobile => {
+      this.onMobile = onMobile;
+      if (this.onMobile && this.currentPreset === 'experimental') {
+        this.offsetXSlider.currentValue = -113;
+        this.offsetYSlider.currentValue = 113;
+      } else if (!this.onMobile && this.currentPreset === 'experimental') {
+        this.offsetXSlider.currentValue = -167;
+        this.offsetYSlider.currentValue = 167;
+      }
+      this.setValues();
+    });
+
+    mobileViewService.checkPlaygroundHeight();
+
+    this.currentPresetSubject.subscribe(preset => {
+      this.currentPreset = preset;
+    });
+  }
 
   setValues() {
     this.offsetXSliderSubject.next(this.offsetXSlider);
@@ -91,6 +117,7 @@ export class BoxShadowSettingsService {
   }
 
   setBoxShadowPreset(preset: string) {
+    this.currentPresetSubject.next(preset);
     if (preset === 'vanilla') {
       this.offsetXSlider.currentValue = this.boxShadowPresetVanilla.xOffset;
       this.offsetYSlider.currentValue = this.boxShadowPresetVanilla.yOffset;
@@ -103,6 +130,10 @@ export class BoxShadowSettingsService {
       this.blurRadiusSlider.currentValue = this.boxShadowPresetExperimental.blur;
       this.spreadRadiusSlider.currentValue = this.boxShadowPresetExperimental.spread;
       this.shadowInsetSwitch = this.boxShadowPresetExperimental.insetSwitch;
+      if (this.onMobile) {
+        this.offsetXSlider.currentValue = -113;
+        this.offsetYSlider.currentValue = 113;
+      }
     } else if (preset === 'random') {
       this.offsetXSlider.currentValue = this.boxShadowPresetRandom.randomOffsetX();
       this.offsetYSlider.currentValue = this.boxShadowPresetRandom.randomOffsetY();
