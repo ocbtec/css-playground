@@ -21,6 +21,6 @@ export class TopContainerComponent implements OnInit {
   }
 
   checkScreenWidth() {
-    this.showArrowKeysMessage = this.mobileViewService.screenWidth <= 480 || this.mobileViewService.screenHeight <= 480 ? false : true;
+    this.showArrowKeysMessage = this.mobileViewService.screenWidth <= 1024 || this.mobileViewService.screenHeight <= 480 ? false : true;
   }
 }
