@@ -1,8 +1,10 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, ViewChild, ViewEncapsulation } from '@angular/core';
 import { ColorEvent } from 'ngx-color';
-import { BoxShadowSettingsService } from '../services/box-shadow-settings.service';
+import { Subject } from 'rxjs';
+import { delay } from 'rxjs/operators';
 import { ColorSettingsService } from '../services/color-settings.service';
 import { MobileViewService } from '../services/mobile-view.service';
+import { SettingsTabComponent } from '../settings-tab/settings-tab.component';
 
 @Component({
   selector: 'app-colors-tab',
@@ -10,7 +12,11 @@ import { MobileViewService } from '../services/mobile-view.service';
   styleUrls: ['./colors-tab.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class ColorsTabComponent {
+export class ColorsTabComponent implements AfterViewInit {
+  @ViewChild('containerHeight') containerHeight!: ElementRef;
+  containerHeightSubject = new Subject<number>();
+  showScrollIndicator = false;
+
   settingsType = 'Colors';
   messageDynamic = 'Reset Colors Settings';
 
@@ -25,7 +31,8 @@ export class ColorsTabComponent {
 
   constructor(
     private colorSettingsService: ColorSettingsService,
-    private mobileViewService: MobileViewService
+    private mobileViewService: MobileViewService,
+    settingsTab: SettingsTabComponent
   ) {
     this.mobileView = this.mobileViewService;
 
@@ -38,6 +45,26 @@ export class ColorsTabComponent {
       this.borderColor = this.colorArray[2];
       this.boxShadowColor = this.colorArray[3];
     });
+
+    settingsTab.activeTabSubject.subscribe(activeTab => {
+      if (activeTab === 'Colors') { this.checkForScrollIndicator(); }
+    });
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    this.checkForScrollIndicator();
+  }
+
+  ngAfterViewInit() {
+    this.checkForScrollIndicator();
+  }
+
+  checkForScrollIndicator() {
+    this.containerHeightSubject.pipe(delay(0)).subscribe(() => {
+      this.showScrollIndicator = this.containerHeight.nativeElement.scrollHeight > this.mobileView.playgroundInputHeight;
+    });
+    this.containerHeightSubject.next(this.containerHeight.nativeElement.scrollHeight);
   }
 
   changeCubeColor($event: ColorEvent) {

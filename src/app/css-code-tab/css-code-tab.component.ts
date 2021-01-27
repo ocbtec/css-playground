@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Subject } from 'rxjs';
+import { delay } from 'rxjs/operators';
 import { CopyMessageComponent } from '../copy-message/copy-message.component';
 import { PlaygroundOutputComponent } from '../playground-output/playground-output.component';
 import { BorderSettingsService } from '../services/border-settings.service';
@@ -7,6 +9,7 @@ import { BoxShadowSettingsService } from '../services/box-shadow-settings.servic
 import { ColorSettingsService } from '../services/color-settings.service';
 import { MobileViewService } from '../services/mobile-view.service';
 import { TransformSettingsService } from '../services/transform-Settings.service';
+import { SettingsTabComponent } from '../settings-tab/settings-tab.component';
 
 @Component({
   selector: 'app-css-code-tab',
@@ -14,6 +17,10 @@ import { TransformSettingsService } from '../services/transform-Settings.service
   styleUrls: ['./css-code-tab.component.scss']
 })
 export class CssCodeTabComponent extends PlaygroundOutputComponent {
+  @ViewChild('containerHeight') containerHeight!: ElementRef;
+  containerHeightSubject = new Subject<number>();
+  showScrollIndicator = false;
+
   backgroundColor = '';
   cssCode = '';
   mobileView: MobileViewService;
@@ -24,7 +31,8 @@ export class CssCodeTabComponent extends PlaygroundOutputComponent {
     boxShadowSettingsService: BoxShadowSettingsService,
     colorSettingsService: ColorSettingsService,
     private _snackBar: MatSnackBar,
-    private mobileViewService: MobileViewService
+    private mobileViewService: MobileViewService,
+    settingsTab: SettingsTabComponent
   ) {
     super(
       transformSettingsService,
@@ -47,6 +55,15 @@ export class CssCodeTabComponent extends PlaygroundOutputComponent {
     boxShadowSettingsService.shadowInsetSubject.subscribe(() => this.createCodeString());
 
     colorSettingsService.initializeColors();
+
+    settingsTab.activeTabSubject.subscribe(activeTab => {
+      if (activeTab === 'CSS-Code') { this.checkForScrollIndicator(); }
+    });
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    this.checkForScrollIndicator();
   }
 
   createCodeString() {
@@ -71,5 +88,12 @@ export class CssCodeTabComponent extends PlaygroundOutputComponent {
     this._snackBar.openFromComponent(CopyMessageComponent, {
       duration: 1200
     });
+  }
+
+  checkForScrollIndicator() {
+    this.containerHeightSubject.pipe(delay(0)).subscribe(() => {
+      this.showScrollIndicator = this.containerHeight.nativeElement.scrollHeight + 48 > this.mobileView.playgroundInputHeight;
+    });
+    this.containerHeightSubject.next(this.containerHeight.nativeElement.scrollHeight);
   }
 }

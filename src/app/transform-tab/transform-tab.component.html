@@ -8,7 +8,7 @@
     [messageDynamic]="messageDynamic"
   ></app-reset-buttons>
   <app-scroll-indicator
-    *ngIf="containerHeight.scrollHeight + 48 > mobileView.playgroundInputHeight"
+    *ngIf="showScrollIndicator"
     class="scroll-indicator-container"
   ></app-scroll-indicator>
 </div>

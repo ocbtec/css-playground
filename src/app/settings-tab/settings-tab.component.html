@@ -1,4 +1,4 @@
-<mat-tab-group animationDuration="0ms">
+<mat-tab-group animationDuration="0ms" #tabGroup (selectedTabChange)="tabChanged($event)">
   <mat-tab label="Colors">
     <app-colors-tab></app-colors-tab>
   </mat-tab>

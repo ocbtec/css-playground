@@ -1,8 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { ColorEvent } from 'ngx-color';
+import { Subject } from 'rxjs';
+import { delay } from 'rxjs/operators';
 import { BoxShadowSettingsService } from '../services/box-shadow-settings.service';
 import { ColorSettingsService } from '../services/color-settings.service';
 import { MobileViewService } from '../services/mobile-view.service';
+import { SettingsTabComponent } from '../settings-tab/settings-tab.component';
 import { Slider } from '../slider/slider.model';
 
 @Component({
@@ -11,6 +14,10 @@ import { Slider } from '../slider/slider.model';
   styleUrls: ['./box-shadow-tab.component.scss']
 })
 export class BoxShadowTabComponent {
+  @ViewChild('containerHeight') containerHeight!: ElementRef;
+  containerHeightSubject = new Subject<number>();
+  showScrollIndicator = false;
+
   settingsType = 'Box-Shadow';
   messageDynamic = 'Reset Box-Shadow Settings';
 
@@ -24,7 +31,8 @@ export class BoxShadowTabComponent {
   constructor(
     private boxShadowSettingsService: BoxShadowSettingsService,
     private colorSettingsService: ColorSettingsService,
-    private mobileViewService: MobileViewService
+    private mobileViewService: MobileViewService,
+    settingsTab: SettingsTabComponent
   ) {
     this.mobileView = this.mobileViewService;
 
@@ -41,6 +49,15 @@ export class BoxShadowTabComponent {
     boxShadowInset.subscribe(value => {
       this.boxShadowInset = value;
     });
+
+    settingsTab.activeTabSubject.subscribe(activeTab => {
+      if (activeTab === 'Box-Shadow') { this.checkForScrollIndicator(); }
+    });
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    this.checkForScrollIndicator();
   }
 
   onChange() {
@@ -50,5 +67,12 @@ export class BoxShadowTabComponent {
 
   changeBoxShadowColor($event: ColorEvent) {
     this.colorSettingsService.setBoxShadowColor($event.color.hex);
+  }
+
+  checkForScrollIndicator() {
+    this.containerHeightSubject.pipe(delay(0)).subscribe(() => {
+      this.showScrollIndicator = this.containerHeight.nativeElement.scrollHeight > this.mobileView.playgroundInputHeight;
+    });
+    this.containerHeightSubject.next(this.containerHeight.nativeElement.scrollHeight);
   }
 }
