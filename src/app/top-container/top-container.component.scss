@@ -105,13 +105,16 @@
 #reset-icon {
   width: 25px;
   height: 25px;
-  margin-bottom: -5px;
+  background-image: url('../../assets/images/reset-button-bright.svg');
+  background-size: contain;
+  border-radius: 50%;
+  background-color: #ff4081;
 }
 
 #reset-button {
   display: inline-block;
   background-color: #f7f7f7;
-  padding: 2px;
+  margin-bottom: -5px;
 }
 
 #color-span {
