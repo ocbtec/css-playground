@@ -1,8 +1,7 @@
 @import '../../styles.scss';
 
 .not-found-container {
-  display: flex;
-  align-items: center;
+  @include center-items;
   justify-content: space-around;
   width: 100%;
   height: calc(100vh - 17rem);

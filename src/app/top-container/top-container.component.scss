@@ -1,18 +1,15 @@
 @import '../../styles.scss';
 
 .top-container {
-  display: flex;
-  justify-content: space-between;
+  @include space-between;
   margin: 0 auto;
   padding-top: 6rem;
   width: 80%;
 }
 
 .logo-container {
+  @include center-items-2;
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background-color: #2298f854;
   border: 0.5rem solid $light-blue;
   box-shadow: 10px 10px 30px 0px $box-shadow;
@@ -69,8 +66,7 @@
 }
 
 .site-explanation {
-  display: flex;
-  align-items: center;
+  @include center-items;
   width: 580px;
   margin-left: 120px;
 }
@@ -87,9 +83,7 @@
 }
 
 .info-icon-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include center-items-2;
   width: 45px;
   height: 45px;
   margin-right: 2rem;

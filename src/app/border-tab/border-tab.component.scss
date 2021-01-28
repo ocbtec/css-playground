@@ -10,8 +10,7 @@
 }
 
 .select-menu-container {
-  display: flex;
-  align-items: center;
+  @include center-items;
   width: 100%;
   margin: 1rem 0;
 }

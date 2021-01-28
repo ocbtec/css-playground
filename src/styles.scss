@@ -86,16 +86,26 @@ $very-light-blue: #e6f3fe;
 $info-blue: #b6ddfd;
 
 // Mixins
-@mixin center-text {
+@mixin center-items {
   display: flex;
   align-items: center;
 }
 
-@mixin tab-container {
-  position: relative;
+@mixin center-items-2 {
+  @include center-items;
+  justify-content: center
+}
+
+@mixin space-between {
   display: flex;
+  justify-content: space-between;
+}
+
+
+@mixin tab-container {
+  @include center-items;
+  position: relative;
   flex-flow: column;
-  align-items: center;
   justify-content: space-between;
   height: 100%;
   padding: 0.5rem;
@@ -133,7 +143,13 @@ $info-blue: #b6ddfd;
   display: none;  // disableAlpha from documentation causes build error
 }
 
-// +++ material drop down +++
+
+// Material button
+.mat-raised-button  {
+  padding: 0 16px;
+}
+
+// +++ Material drop down +++
 .mat-select-value {
   color: #787878;
 }

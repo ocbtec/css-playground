@@ -8,17 +8,15 @@
 }
 
 .technologies {
-  display: flex;
+  @include center-items-2;
   flex-wrap: wrap;
-  justify-content: center;
   width: 720px;
   margin: 6rem auto;
 }
 
 .tech-item {
-  display: flex;
+  @include center-items;
   flex-direction: column;
-  align-items: center;
   justify-content: space-between;
   width: 120px;
   height: 150px;

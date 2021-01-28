@@ -1,8 +1,7 @@
 @import '../../styles.scss';
 
 .slider-container {
-  display: flex;
-  align-items: center;
+  @include center-items;
   justify-content: space-between;
   padding: 1rem;
   width: 100%;

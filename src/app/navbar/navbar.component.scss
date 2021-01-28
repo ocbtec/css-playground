@@ -1,8 +1,7 @@
 @import '../../styles.scss';
 
 .navbar {
-  display: flex;
-  justify-content: space-between;
+  @include space-between;
   height: 80px;
   background-color: #083272;
   box-shadow: 0px 0px 0.7rem 0.5rem #140d01;
@@ -10,7 +9,7 @@
 }
 .navbar-headline,
 .navbar-links {
-  @include center-text;
+  @include center-items;
   margin: 0rem 2rem;
   color: $navbar-footer-color;
 }
@@ -37,7 +36,7 @@
 }
 
 .github-link {
-  @include center-text;
+  @include center-items;
 }
 
 .menu-links:hover {
@@ -50,8 +49,7 @@
 }
 
 .ng-star-inserted {
-  display: flex;
-  align-items: center;
+  @include center-items;
   margin-right: 1rem;
 }
 
@@ -60,10 +58,8 @@
 }
 
 .burger-menu-item {
+  @include center-items-2;
   color: $standard-text-color;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 @media screen and (max-width: 360px) {

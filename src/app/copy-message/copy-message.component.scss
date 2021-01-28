@@ -1,7 +1,7 @@
+@import '../../styles.scss';
+
 .copy-message {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include center-items-2;
   margin: 0;
   font-size: 16px;
 }

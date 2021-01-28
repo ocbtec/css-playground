@@ -8,12 +8,11 @@
 }
 
 .footer-container {
+  @include space-between;
   height: 12rem;
   background-color: #083272f5;
   color: $navbar-footer-color;
   font-size: 1rem;
-  display: flex;
-  justify-content: space-between;
   align-items: flex-end;
   padding: 0 4rem;
   padding-bottom: 1rem;
@@ -44,8 +43,7 @@
 }
 
 .link-flex {
-  display: flex;
-  align-items: center;
+  @include center-items;
   padding: 0.5rem;
   width: fit-content;
 }

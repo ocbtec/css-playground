@@ -1,8 +1,7 @@
 @import '../../styles.scss';
 
 .reset-button-flexbox {
-  display: flex;
-  align-items: center;
+  @include center-items;
   flex: 1;
 }
 

@@ -15,8 +15,7 @@
 }
 
 .code-block-flex {
-  display: flex;
-  justify-content: space-between;
+  @include space-between;
 }
 
 .copy-icon {
