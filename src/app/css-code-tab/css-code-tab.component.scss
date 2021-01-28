@@ -1,3 +1,5 @@
+@import '../../styles.scss';
+
 .code-container {
   display: flex;
   flex-direction: column;
@@ -58,22 +60,6 @@
 
 .yellow {
   color: #dcdc8f;
-}
-
-.background {
-  background-color: #ffffff;
-}
-
-.cube {
-   background-color: #ff4081;
-   width: 100px;
-   height: 100px;
-   border-width:2px;
-   border-color: #b6ddfd;
-   border-radius: 0%;
-   border-style: solid;
-   transform: translates(0px, 0px) rotate(0deg);
-   box-shadow: #343a60 8px 8px 5px 0px;
 }
 
 #scroll-indicator-css-tab {

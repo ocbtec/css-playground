@@ -75,8 +75,15 @@ $font-size-headline: 1.6rem;
 $font-size-links: 1.2rem;
 
 // Colors
-$primary-color: #fefefe;
-$secondary-color: #083272;
+$navbar-footer-color: #fefefe;
+$standard-text-color: #505050;
+$label-background: #ededed;
+$vanilla-cube: #ff4081;
+$link-hover: #082858;
+$box-shadow: #898989;
+$light-blue: #2299f8;
+$very-light-blue: #e6f3fe;
+$info-blue: #b6ddfd;
 
 // Mixins
 @mixin center-text {

@@ -1,3 +1,5 @@
+@import '../../styles.scss';
+
 .top-container {
   display: flex;
   justify-content: space-between;
@@ -12,8 +14,8 @@
   align-items: center;
   justify-content: center;
   background-color: #2298f854;
-  border: 0.5rem solid #2299f8;
-  box-shadow: 10px 10px 30px 0px #898989;
+  border: 0.5rem solid $light-blue;
+  box-shadow: 10px 10px 30px 0px $box-shadow;
   border-radius: 50%;
   width: 300px;
   min-width: 300px;
@@ -33,7 +35,7 @@
   left: -78px;
   width: 70px;
   height: 4px;
-  background-color: #2299f8;
+  background-color: $light-blue;
 }
 
 .right-rod {
@@ -41,7 +43,7 @@
   right: -78px;
   width: 70px;
   height: 4px;
-  background-color: #2299f8;
+  background-color: $light-blue;
 }
 
 .left-bubble {
@@ -49,8 +51,8 @@
   left: -98px;
   width: 20px;
   height: 20px;
-  background-color: #e6f3fe;
-  border: 2px solid #2299f8;
+  background-color: $very-light-blue;
+  border: 2px solid $light-blue;
   border-radius: 50%;
   animation: bubble-twinkle 5s ease-in-out infinite;
 }
@@ -60,8 +62,8 @@
   right: -98px;
   width: 20px;
   height: 20px;
-  background-color: #e6f3fe;
-  border: 2px solid #2299f8;
+  background-color: $very-light-blue;
+  border: 2px solid $light-blue;
   border-radius: 50%;
   animation: bubble-twinkle 5s ease-in-out infinite;
 }
@@ -76,8 +78,8 @@
 .explanation-text {
   display: flex;
   background-color: white;
-  color: #505050;
-  box-shadow: 0px 1px 2px 0px #898989;
+  color: $standard-text-color;
+  box-shadow: 0px 1px 2px 0px $box-shadow;
   font-size: 1.2rem;
   line-height: 1.5rem;
   padding: 2rem;
@@ -91,8 +93,8 @@
   width: 45px;
   height: 45px;
   margin-right: 2rem;
-  background-color: #b6ddfd;
-  border: 5px solid #b6ddfd;
+  background-color: $info-blue;
+  border: 5px solid $info-blue;
   border-radius: 50%;
 }
 
@@ -108,17 +110,12 @@
   background-image: url('../../assets/images/reset-button-bright.svg');
   background-size: contain;
   border-radius: 50%;
-  background-color: #ff4081;
+  background-color: $vanilla-cube;
 }
 
 #reset-button {
   display: inline-block;
   margin-bottom: -5px;
-}
-
-#color-span {
-  color: #808080;
-  font-size: 14px;
 }
 
 @keyframes logo-hover {
@@ -135,13 +132,13 @@
 
 @keyframes bubble-twinkle {
   0% {
-    background-color: #e6f3fe;
+    background-color: $very-light-blue;
   }
   50% {
     background-color: #83c5fb;
   }
   100% {
-    background-color: #e6f3fe;
+    background-color: $very-light-blue;
   }
 }
 

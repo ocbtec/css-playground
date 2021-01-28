@@ -4,7 +4,7 @@
   display: flex;
   justify-content: space-between;
   height: 80px;
-  background-color: $secondary-color;
+  background-color: #083272;
   box-shadow: 0px 0px 0.7rem 0.5rem #140d01;
   overflow: overlay;
 }
@@ -12,7 +12,7 @@
 .navbar-links {
   @include center-text;
   margin: 0rem 2rem;
-  color: $primary-color;
+  color: $navbar-footer-color;
 }
 .navbar-headline {
   font-size: $font-size-headline;
@@ -41,7 +41,7 @@
 }
 
 .menu-links:hover {
-  background-color: #082858;
+  background-color: $link-hover;
 }
 
 .menu-links {
@@ -60,7 +60,7 @@
 }
 
 .burger-menu-item {
-  color: #505050;
+  color: $standard-text-color;
   display: flex;
   align-items: center;
   justify-content: center;

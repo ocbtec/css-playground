@@ -1,3 +1,5 @@
+@import '../../styles.scss';
+
 .not-found-container {
   display: flex;
   align-items: center;
@@ -9,7 +11,7 @@
 }
 
 .not-found-text {
-  color: #505050;
+  color: $standard-text-color;
   text-align: center;
   margin: 0 5rem;
   h1 {

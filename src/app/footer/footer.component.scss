@@ -10,7 +10,7 @@
 .footer-container {
   height: 12rem;
   background-color: #083272f5;
-  color: $primary-color;
+  color: $navbar-footer-color;
   font-size: 1rem;
   display: flex;
   justify-content: space-between;
@@ -24,17 +24,7 @@
   margin-left: 8px;
 }
 
-.link-flex {
-  display: flex;
-  align-items: center;
-}
-
-.logo-linkedIn {
-  width: 1.6rem;
-  height: 1.6rem;
-  margin-right: 0.8rem;
-}
-
+.logo-linkedIn,
 .logo-homepage {
   width: 1.6rem;
   height: 1.6rem;
@@ -53,12 +43,15 @@
   margin-bottom: 5px;
 }
 
-a {
+.link-flex {
+  display: flex;
+  align-items: center;
   padding: 0.5rem;
+  width: fit-content;
 }
 
-a:hover {
-  background-color: #082858;
+.link-flex:hover {
+  background-color: $link-hover;
 }
 
 @media screen and (max-width: 1024px) {

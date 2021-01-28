@@ -1,8 +1,10 @@
+@import '../../styles.scss';
+
 .technologies-headline {
   margin: 5rem 0 0 0;
   font-size: 40px;
   text-align: center;
-  color: #505050;
+  color: $standard-text-color;
 }
 
 .technologies {
@@ -22,7 +24,7 @@
   height: 150px;
   margin: 30px;
   font-size: 20px;
-  color: #505050;
+  color: $standard-text-color;
 }
 
 .technologies-logo {

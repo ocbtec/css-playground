@@ -1,3 +1,5 @@
+@import '../../styles.scss';
+
 .playground-section {
   display: flex;
   flex-direction: row;
@@ -5,7 +7,7 @@
   width: 90%;
   margin: 10rem auto;;
   background-color: #f7f7f7;
-  box-shadow: 0px 1px 2px 0px #898989;
+  box-shadow: 0px 1px 2px 0px $box-shadow;
 }
 .input-section {
   width: 482px;

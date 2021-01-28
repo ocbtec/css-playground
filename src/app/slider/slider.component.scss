@@ -1,3 +1,5 @@
+@import '../../styles.scss';
+
 .slider-container {
   display: flex;
   align-items: center;
@@ -8,7 +10,7 @@
 
 .slider-label {
   color: gray;
-  background-color: #f2f2f2;
+  background-color: $label-background;
   padding: 0.5rem;
   margin-left: 0.3rem;
 }
@@ -23,7 +25,7 @@
   height: 30px;
   line-height: 30px;
   text-align: center;
-  background-color: #f2f2f2;
+  background-color: $label-background;
   color: #4d4d4d;
 }
 
