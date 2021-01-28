@@ -8,6 +8,8 @@
     [matTooltipHideDelay]="hideDelay"
     [matTooltip]="messageDynamic"
     (click)="dynamicReset($event)"
+    [@rotatedState]='state'
+    (@rotatedState.done)="rotate()"
   ></div>
   <span class="reset-text">{{ settingsType }}</span>
 </div>
@@ -22,6 +24,8 @@
     [matTooltipHideDelay]="hideDelay"
     [matTooltip]="messageDefault"
     (click)="dynamicReset($event)"
+    [@rotatedState]='state'
+    (@rotatedState.done)="rotate()"
   ></div>
   <span class="reset-text">All</span>
 </div>
