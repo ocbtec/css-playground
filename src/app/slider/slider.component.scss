@@ -20,7 +20,7 @@
 }
 
 .slider-value {
-  width: 50px;
+  width: 70px;
   height: 30px;
   line-height: 30px;
   text-align: center;
@@ -39,6 +39,13 @@
   }
   .mat-slider {
     width: 95%;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .slider-value {
+    font-size: 12px;
+    width: 60px;
   }
 }
 
