@@ -70,13 +70,14 @@
     font-size: 14px;
   }
   .code-block {
-    margin: 0 1rem;
+    margin: 0 4rem;
   }
 }
 
 @media screen and (max-width: 1024px) {
   .code-container {
     height: fit-content;
+    min-height: 100%;
     padding: 0;
     padding-top: 4rem;
     margin: 0;
