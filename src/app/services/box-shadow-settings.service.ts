@@ -81,23 +81,40 @@ export class BoxShadowSettingsService {
     private colorSettingsService: ColorSettingsService,
     mobileViewService: MobileViewService
   ) {
+    this.currentPresetSubject.subscribe(preset => {
+      this.currentPreset = preset;
+    });
+
     mobileViewService.onMobileDeviceSubject.subscribe(onMobile => {
       this.onMobile = onMobile;
-      if (this.onMobile && this.currentPreset === 'experimental') {
-        this.offsetXSlider.currentValue = -113;
-        this.offsetYSlider.currentValue = 113;
-      } else if (!this.onMobile && this.currentPreset === 'experimental') {
-        this.offsetXSlider.currentValue = -167;
-        this.offsetYSlider.currentValue = 167;
+      const sliderArray = [this.offsetXSlider, this.offsetYSlider];
+      if (this.onMobile) {
+        sliderArray.map(slider => {
+          if (slider.currentValue === 167) { slider.currentValue = 113; }
+          if (slider.currentValue === -167) { slider.currentValue = -113; }
+          if (slider.currentValue > 200) { slider.currentValue = 200; }
+          if (slider.currentValue < -200) { slider.currentValue = -200; }
+        });
+        this.offsetXSlider.minValue = -200;
+        this.offsetXSlider.maxValue = 200;
+        this.offsetYSlider.minValue = -200;
+        this.offsetYSlider.maxValue = 200;
+      } else {
+        sliderArray.map(slider => {
+          if (slider.currentValue === 113) { slider.currentValue = 167; }
+          if (slider.currentValue === -113) { slider.currentValue = -167; }
+        });
+        this.offsetXSlider.minValue = -300;
+        this.offsetXSlider.maxValue = 300;
+        this.offsetYSlider.minValue = -300;
+        this.offsetYSlider.maxValue = 300;
       }
       this.setValues();
     });
 
     mobileViewService.checkPlaygroundHeight();
 
-    this.currentPresetSubject.subscribe(preset => {
-      this.currentPreset = preset;
-    });
+    this.setValues();
   }
 
   setValues() {
