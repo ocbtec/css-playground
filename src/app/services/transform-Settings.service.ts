@@ -89,24 +89,20 @@ export class TransformSettingsService {
     mobileViewService.onMobileDeviceSubject.subscribe(onMobile => {
       this.onMobile = onMobile;
       if (this.onMobile) {
-        if (this.sizeSlider.currentValue > 150) {
-          this.sizeSlider.currentValue = 150;
-        }
+        const sliderArrayOfThree = [this.sizeSlider, this.horizontallySlider, this.verticallySlider];
+        sliderArrayOfThree.map(slider => {
+          if (slider.currentValue > 150) { slider.currentValue = 150; }
+        });
+
+        const sliderArrayOfTwo = [this.horizontallySlider, this.verticallySlider];
+        sliderArrayOfTwo.map(slider => {
+          if (slider.currentValue < -150) { slider.currentValue = -150; }
+        });
+
         if (this.sizeSlider.currentValue === 100) {
           this.sizeSlider.currentValue = 50;
         }
-        if (this.horizontallySlider.currentValue > 150) {
-          this.horizontallySlider.currentValue = 150;
-        }
-        if (this.horizontallySlider.currentValue < -150) {
-          this.horizontallySlider.currentValue = -150;
-        }
-        if (this.verticallySlider.currentValue > 150) {
-          this.verticallySlider.currentValue = 150;
-        }
-        if (this.verticallySlider.currentValue < -150) {
-          this.verticallySlider.currentValue = -150;
-        }
+
         this.sizeSlider.maxValue = 150;
         this.horizontallySlider.minValue = -150;
         this.horizontallySlider.maxValue = 150;
@@ -128,10 +124,7 @@ export class TransformSettingsService {
     });
     mobileViewService.checkPlaygroundHeight();
 
-    this.sizeSliderSubject.next(this.sizeSlider);
-    this.horizontallySliderSubject.next(this.horizontallySlider);
-    this.verticallySliderSubject.next(this.verticallySlider);
-    this.rotateSliderSubject.next(this.rotateSlider);
+    this.setValues();
   }
 
   setValues() {
@@ -168,10 +161,11 @@ export class TransformSettingsService {
       this.rotateSlider.currentValue = this.transformPresetRandom.randomRotate();
     }
     if (this.onMobile) {
-      this.sizeSlider.currentValue = Math.round(this.sizeSlider.currentValue / 2);
+      const sliderArray = [this.sizeSlider, this.horizontallySlider, this.verticallySlider];
+      sliderArray.map(slider => {
+        slider.currentValue = Math.round(this.sizeSlider.currentValue / 2);
+      });
       if (this.sizeSlider.currentValue < 10) { this.sizeSlider.currentValue = 10; }
-      this.horizontallySlider.currentValue = Math.round(this.horizontallySlider.currentValue / 2);
-      this.verticallySlider.currentValue = Math.round(this.verticallySlider.currentValue / 2);
     } else {
       this.horizontallySlider.minValue = -300;
       this.horizontallySlider.maxValue = 300;
