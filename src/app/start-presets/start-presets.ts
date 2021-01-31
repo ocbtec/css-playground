@@ -99,39 +99,39 @@ export class RandomBorderPreset {
   }
 }
 
-export class BoxShadowPresetsVanilla {
-  xOffset = 8;
-  yOffset = 8;
-  blur = 5;
-  spread = 0;
-  insetSwitch = false;
-}
-export class BoxShadowPresetsExperimental {
-  xOffset = -167;
-  yOffset = 167;
-  blur = 0;
-  spread = -59;
-  insetSwitch = true;
-}
-export class BoxShadowPresetsRandom {
+export class RandomBoxShadowPreset {
+  xOffset: number;
+  yOffset: number;
+  blur: number;
+  spread: number;
+  insetSwitch: boolean;
+
+  constructor() {
+    this.xOffset = this.randomOffsetX();
+    this.yOffset = this.randomOffsetY();
+    this.blur = this.randomBlur();
+    this.spread = this.randomSpread();
+    this.insetSwitch = this.randomInset();
+  }
+
   randomOffsetX() {
-    const offset = Math.random() * (300 - -300) + -300;
-    return Math.floor(offset);
+    this.xOffset = Math.floor(Math.random() * (300 - -300) + -300);
+    return this.xOffset;
   }
   randomOffsetY() {
-    const offset = Math.random() * (300 - -300) + -300;
-    return Math.floor(offset);
+    this.yOffset = Math.floor(Math.random() * (300 - -300) + -300);
+    return this.yOffset;
   }
   randomBlur() {
-    const offset = Math.random() * (150 - 0) + 0;
-    return Math.floor(offset);
+    this.blur = Math.floor(Math.random() * (150 - 0) + 0);
+    return this.blur;
   }
   randomSpread() {
-    const offset = Math.random() * (150 - -100) + -100;
-    return Math.floor(offset);
+    this.spread = Math.floor(Math.random() * (150 - -100) + -100);
+    return this.spread;
   }
   randomInset() {
-    const offset = Math.random() * (1 - 0) + 0;
-    return Math.round(offset) === 1 ? true : false;
+    this.insetSwitch = Math.round(Math.random() * (1 - 0) + 0) === 1 ? true : false;
+    return this.insetSwitch;
   }
 }

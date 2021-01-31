@@ -32,5 +32,19 @@
     "width": 26,
     "radius": 0,
     "style": "dashed"
+  },
+  "vanillaBoxShadow": {
+    "xOffset": 8,
+    "yOffset": 8,
+    "blur": 5,
+    "spread": 0,
+    "insetSwitch": false
+  },
+  "experimentalBoxShadow": {
+    "xOffset": -167,
+    "yOffset": 167,
+    "blur": 0,
+    "spread": -59,
+    "insetSwitch": true
   }
 }
