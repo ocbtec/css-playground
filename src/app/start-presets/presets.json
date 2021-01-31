@@ -22,5 +22,15 @@
     "hPos": 0,
     "vPos": 0,
     "rotate": 45
+  },
+  "vanillaBorder": {
+    "width": 4,
+    "radius": 0,
+    "style": "solid"
+  },
+  "experimentalBorder": {
+    "width": 26,
+    "radius": 0,
+    "style": "dashed"
   }
 }

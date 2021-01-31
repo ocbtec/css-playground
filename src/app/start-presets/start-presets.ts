@@ -61,18 +61,12 @@ export class RandomTransformPreset {
   }
 }
 
-export class BorderPresetsVanilla {
-  width = 4;
-  radius = 0;
-  style = 'solid';
-}
-export class BorderPresetsExperimental {
-  width = 26;
-  radius = 0;
-  style = 'dashed';
-}
-export class BorderPresetsRandom {
-  style = [
+export class RandomBorderPreset {
+  width: number;
+  radius: number;
+  style: string;
+
+  styleArray = [
     'dashed',
     'dotted',
     'double',
@@ -85,17 +79,23 @@ export class BorderPresetsRandom {
     'solid'
   ];
 
+  constructor() {
+    this.width = this.randomWidth();
+    this.radius = this.randomRadius();
+    this.style = this.randomStyle();
+  }
+
   randomWidth() {
-    const offset = Math.random() * (50 - 0) + 0;
-    return Math.floor(offset);
+    this.width = Math.floor(Math.random() * (50 - 0) + 0);
+    return this.width;
   }
   randomRadius() {
-    const offset = Math.random() * (50 - 0) + 0;
-    return Math.floor(offset);
+    this.radius = Math.floor(Math.random() * (50 - 0) + 0);
+    return this.radius;
   }
   randomStyle() {
-    const offset = Math.random() * (9 - 0) + 0;
-    return this.style[Math.round(offset)];
+    this.style = this.styleArray[Math.round(Math.random() * (9 - 0) + 0)];
+    return this.style;
   }
 }
 

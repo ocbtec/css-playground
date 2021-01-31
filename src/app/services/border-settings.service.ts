@@ -2,17 +2,17 @@ import { Injectable } from '@angular/core';
 import { combineLatest, Subject } from 'rxjs';
 import { Slider } from '../slider/slider.model';
 import { ColorSettingsService } from './color-settings.service';
-import { BorderPresetsVanilla, BorderPresetsExperimental, BorderPresetsRandom } from '../start-presets/start-presets';
+import { RandomBorderPreset } from '../start-presets/start-presets';
 import { MobileViewService } from './mobile-view.service';
+import * as presets from '../start-presets/presets.json';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BorderSettingsService {
   items: Slider[] = [];
-  borderPresetVanilla = new BorderPresetsVanilla();
-  borderPresetExperimental = new BorderPresetsExperimental();
-  borderPresetRandom = new BorderPresetsRandom();
+
+  randomBorderPreset = new RandomBorderPreset();
 
   widthSlider: Slider = {
     label: 'Width',
@@ -71,9 +71,7 @@ export class BorderSettingsService {
       this.currentPreset = preset;
     });
 
-    this.widthSlider.currentValue = this.borderPresetVanilla.width;
-    this.radiusSlider.currentValue = this.borderPresetVanilla.radius;
-    this.borderStyle = this.borderPresetVanilla.style;
+    this.setBorderPreset('vanilla');
   }
 
   setValues() {
@@ -93,20 +91,20 @@ export class BorderSettingsService {
   setBorderPreset(preset: string) {
     this.currentPresetSubject.next(preset);
     if (preset === 'vanilla') {
-      this.widthSlider.currentValue = this.borderPresetVanilla.width;
-      this.radiusSlider.currentValue = this.borderPresetVanilla.radius;
-      this.borderStyle = this.borderPresetVanilla.style;
+      this.widthSlider.currentValue = presets.vanillaBorder.width;
+      this.radiusSlider.currentValue = presets.vanillaBorder.radius;
+      this.borderStyle = presets.vanillaBorder.style;
     } else if (preset === 'experimental') {
-      this.widthSlider.currentValue = this.borderPresetExperimental.width;
-      this.radiusSlider.currentValue = this.borderPresetExperimental.radius;
-      this.borderStyle = this.borderPresetExperimental.style;
+      this.widthSlider.currentValue = presets.experimentalBorder.width;
+      this.radiusSlider.currentValue = presets.experimentalBorder.radius;
+      this.borderStyle = presets.experimentalBorder.style;
       if (this.onMobile) {
         this.widthSlider.currentValue = 13;
       }
     } else if (preset === 'random') {
-      this.widthSlider.currentValue = this.borderPresetRandom.randomWidth();
-      this.radiusSlider.currentValue = this.borderPresetRandom.randomRadius();
-      this.borderStyle = this.borderPresetRandom.randomStyle();
+      this.widthSlider.currentValue = this.randomBorderPreset.randomWidth();
+      this.radiusSlider.currentValue = this.randomBorderPreset.randomRadius();
+      this.borderStyle = this.randomBorderPreset.randomStyle();
     }
     this.setValues();
   }
