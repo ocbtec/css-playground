@@ -97,12 +97,6 @@ export class ColorSettingsService {
     this.boxShadowColorSubject.next(color);
   }
 
-  resetCubeColorSettings() {
-    this.cubeColorSubject.next(this.cubeColor);
-  }
-  resetBackgroundColorSettings() {
-    this.backgroundColorSubject.next(this.backgroundColor);
-  }
   resetBorderColorSettings(preset: string) {
     this.setBorderColorPreset(preset);
   }
