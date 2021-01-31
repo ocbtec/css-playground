@@ -161,10 +161,7 @@ export class TransformSettingsService {
       this.rotateSlider.currentValue = this.randomTransformPresets.randomRotate();
     }
     if (this.onMobile) {
-      const sliderArray = [this.sizeSlider, this.horizontallySlider, this.verticallySlider];
-      sliderArray.map(slider => {
-        slider.currentValue = Math.round(this.sizeSlider.currentValue / 2);
-      });
+      this.sizeSlider.currentValue = Math.round(this.sizeSlider.currentValue / 2);
       if (this.sizeSlider.currentValue < 10) { this.sizeSlider.currentValue = 10; }
     } else {
       this.horizontallySlider.minValue = -300;
