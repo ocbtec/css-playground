@@ -5,10 +5,10 @@ export class RandomColorPreset {
   boxShadowColor: string;
 
   constructor() {
-      this.cubeColor = this.randomCubeColor();
-      this.backgroundColor = this.randomBackgroundColor();
-      this.borderColor = this.randomBorderColor();
-      this.boxShadowColor = this.randomBoxShadowColor();
+    this.cubeColor = this.randomCubeColor();
+    this.backgroundColor = this.randomBackgroundColor();
+    this.borderColor = this.randomBorderColor();
+    this.boxShadowColor = this.randomBoxShadowColor();
   }
 
   randomCubeColor() {
@@ -30,34 +30,34 @@ export class RandomColorPreset {
 
 }
 
-export class TransformPresetsVanilla {
-  size = 100;
-  hPos = 0;
-  vPos = 0;
-  rotate = 0;
-}
-export class TransformPresetsExperimental {
-  size = 300;
-  hPos = 0;
-  vPos = 0;
-  rotate = 45;
-}
-export class TransformPresetsRandom {
+export class RandomTransformPreset {
+  size: number;
+  hPos: number;
+  vPos: number;
+  rotate: number;
+
+  constructor() {
+    this.size = this.randomSize();
+    this.hPos = this.randomHPos();
+    this.vPos = this.randomVPos();
+    this.rotate = this.randomRotate();
+  }
+
   randomSize() {
-    const size = Math.random() * (300 - 10) + 10;
-    return Math.floor(size);
+    this.size = Math.floor(Math.random() * (300 - 10) + 10);
+    return this.size;
   }
   randomHPos() {
-    const hPos = Math.random() * (300 - -300) + -300;
-    return Math.floor(hPos);
+    this.hPos = Math.floor(Math.random() * (300 - -300) + -300);
+    return this.hPos;
   }
   randomVPos() {
-    const vPos = Math.random() * (300 - -300) + -300;
-    return Math.floor(vPos);
+    this.vPos = Math.floor(Math.random() * (300 - -300) + -300);
+    return this.vPos;
   }
   randomRotate() {
-    const rotate = Math.random() * (360 - 0) + 0;
-    return Math.floor(rotate);
+    this.rotate = Math.floor(Math.random() * (360 - 0) + 0);
+    return this.rotate;
   }
 }
 

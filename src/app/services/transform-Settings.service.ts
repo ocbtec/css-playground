@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Subject, combineLatest } from 'rxjs';
 import { Slider } from '../slider/slider.model';
-import { TransformPresetsVanilla, TransformPresetsExperimental, TransformPresetsRandom } from '../start-presets/start-presets';
+import { RandomTransformPreset } from '../start-presets/start-presets';
 import { MobileViewService } from './mobile-view.service';
+import * as presets from '../start-presets/presets.json';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TransformSettingsService {
   items: Slider[] = [];
-  transformPresetVanilla = new TransformPresetsVanilla();
-  transformPresetExperimental = new TransformPresetsExperimental();
-  transformPresetRandom = new TransformPresetsRandom();
+
+  randomTransformPresets = new RandomTransformPreset();
 
   sizeSlider: Slider = {
     label: 'Size',
@@ -145,20 +145,20 @@ export class TransformSettingsService {
   setTransformPreset(preset: string) {
     this.currentPresetSubject.next(preset);
     if (preset === 'vanilla') {
-      this.sizeSlider.currentValue = this.transformPresetVanilla.size;
-      this.horizontallySlider.currentValue = this.transformPresetVanilla.hPos;
-      this.verticallySlider.currentValue = this.transformPresetVanilla.vPos;
-      this.rotateSlider.currentValue = this.transformPresetVanilla.rotate;
+      this.sizeSlider.currentValue = presets.vanillaTransform.size;
+      this.horizontallySlider.currentValue = presets.vanillaTransform.hPos;
+      this.verticallySlider.currentValue = presets.vanillaTransform.vPos;
+      this.rotateSlider.currentValue = presets.vanillaTransform.rotate;
     } else if (preset === 'experimental') {
-      this.sizeSlider.currentValue = this.transformPresetExperimental.size;
-      this.horizontallySlider.currentValue = this.transformPresetExperimental.hPos;
-      this.verticallySlider.currentValue = this.transformPresetExperimental.vPos;
-      this.rotateSlider.currentValue = this.transformPresetExperimental.rotate;
+      this.sizeSlider.currentValue = presets.experimentalTransform.size;
+      this.horizontallySlider.currentValue = presets.experimentalTransform.hPos;
+      this.verticallySlider.currentValue = presets.experimentalTransform.vPos;
+      this.rotateSlider.currentValue = presets.experimentalTransform.rotate;
     } else if (preset === 'random') {
-      this.sizeSlider.currentValue = this.transformPresetRandom.randomSize();
-      this.horizontallySlider.currentValue = this.transformPresetRandom.randomHPos();
-      this.verticallySlider.currentValue = this.transformPresetRandom.randomVPos();
-      this.rotateSlider.currentValue = this.transformPresetRandom.randomRotate();
+      this.sizeSlider.currentValue = this.randomTransformPresets.randomSize();
+      this.horizontallySlider.currentValue = this.randomTransformPresets.randomHPos();
+      this.verticallySlider.currentValue = this.randomTransformPresets.randomVPos();
+      this.rotateSlider.currentValue = this.randomTransformPresets.randomRotate();
     }
     if (this.onMobile) {
       const sliderArray = [this.sizeSlider, this.horizontallySlider, this.verticallySlider];

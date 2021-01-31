@@ -10,5 +10,17 @@
     "backgroundColor": "#9d9dff",
     "borderColor": "#b6ddfd",
     "boxShadowColor": "#d279d0"
+  },
+  "vanillaTransform": {
+    "size": 100,
+    "hPos": 0,
+    "vPos": 0,
+    "rotate": 0
+  },
+  "experimentalTransform": {
+    "size": 300,
+    "hPos": 0,
+    "vPos": 0,
+    "rotate": 45
   }
 }
