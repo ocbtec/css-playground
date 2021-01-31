@@ -3,8 +3,6 @@ import { Subject, combineLatest } from 'rxjs';
 import { RandomColorPreset } from '../start-presets/start-presets';
 import * as presets from '../start-presets/presets.json';
 
-
-
 @Injectable({
   providedIn: 'root'
 })
@@ -44,15 +42,15 @@ export class ColorSettingsService {
 
   setColorPreset(preset: string) {
     if (preset === 'vanilla') {
-      this.cubeColor = presets.vanilla.cubeColor;
-      this.backgroundColor = presets.vanilla.backgroundColor;
-      this.borderColor = presets.vanilla.borderColor;
-      this.boxShadowColor = presets.vanilla.boxShadowColor;
+      this.cubeColor = presets.vanillaColor.cubeColor;
+      this.backgroundColor = presets.vanillaColor.backgroundColor;
+      this.borderColor = presets.vanillaColor.borderColor;
+      this.boxShadowColor = presets.vanillaColor.boxShadowColor;
     } else if (preset === 'experimental') {
-      this.cubeColor = presets.experimental.cubeColor;
-      this.backgroundColor = presets.experimental.backgroundColor;
-      this.borderColor = presets.experimental.borderColor;
-      this.boxShadowColor = presets.experimental.boxShadowColor;
+      this.cubeColor = presets.experimentalColor.cubeColor;
+      this.backgroundColor = presets.experimentalColor.backgroundColor;
+      this.borderColor = presets.experimentalColor.borderColor;
+      this.boxShadowColor = presets.experimentalColor.boxShadowColor;
     } else if (preset === 'random') {
       this.cubeColor = this.randomColorPreset.randomCubeColor();
       this.backgroundColor = this.randomColorPreset.randomBackgroundColor();
@@ -64,9 +62,9 @@ export class ColorSettingsService {
 
   setBorderColorPreset(preset: string) {
     if (preset === 'vanilla') {
-      this.borderColor = presets.vanilla.borderColor;
+      this.borderColor = presets.vanillaColor.borderColor;
     } else if (preset === 'experimental') {
-      this.borderColor = presets.experimental.borderColor;
+      this.borderColor = presets.experimentalColor.borderColor;
     } else if (preset === 'random') {
       this.borderColor = this.randomColorPreset.randomBorderColor();
     }
@@ -75,9 +73,9 @@ export class ColorSettingsService {
 
   setBoxShadowColorPreset(preset: string) {
     if (preset === 'vanilla') {
-      this.boxShadowColor = presets.vanilla.boxShadowColor;
+      this.boxShadowColor = presets.vanillaColor.boxShadowColor;
     } else if (preset === 'experimental') {
-      this.boxShadowColor = presets.experimental.boxShadowColor;
+      this.boxShadowColor = presets.experimentalColor.boxShadowColor;
     } else if (preset === 'random') {
       this.boxShadowColor = this.randomColorPreset.randomBoxShadowColor();
     }
