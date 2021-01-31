@@ -1,38 +1,33 @@
-export class ColorPresetsVanilla {
-  cubeColor = '#ff4081';
-  backgroundColor = '#ffffff';
-  borderColor = '#b6ddfd';
-  boxShadowColor = '#343a60';
-}
-export class ColorPresetsExperimental {
-  cubeColor = '#415f9c';
-  backgroundColor = '#9d9dff';
-  borderColor = '#b6ddfd';
-  boxShadowColor = '#d279d0';
+export class RandomColorPreset {
+  cubeColor: string;
+  backgroundColor: string;
+  borderColor: string;
+  boxShadowColor: string;
 
-}
-export class ColorPresetsRandom {
-  cubeColor = '';
-  backgroundColor = '';
-  borderColor = '';
-  boxShadowColor = '';
+  constructor() {
+      this.cubeColor = this.randomCubeColor();
+      this.backgroundColor = this.randomBackgroundColor();
+      this.borderColor = this.randomBorderColor();
+      this.boxShadowColor = this.randomBoxShadowColor();
+  }
 
   randomCubeColor() {
-    const color = Math.floor(Math.random()*16777215).toString(16);
-    return '#' + color;
+    this.cubeColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+    return this.cubeColor;
   }
   randomBackgroundColor() {
-    const color = Math.floor(Math.random()*16777215).toString(16);
-    return '#' + color;
+    this.backgroundColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+    return this.backgroundColor;
   }
   randomBorderColor() {
-    const color = Math.floor(Math.random()*16777215).toString(16);
-    return '#' + color;
+    this.borderColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+    return this.borderColor;
   }
   randomBoxShadowColor() {
-    const color = Math.floor(Math.random()*16777215).toString(16);
-    return '#' + color;
+    this.boxShadowColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+    return this.boxShadowColor;
   }
+
 }
 
 export class TransformPresetsVanilla {

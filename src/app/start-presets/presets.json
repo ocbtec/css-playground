@@ -1,0 +1,14 @@
+{
+  "vanilla": {
+    "cubeColor": "#ff4081",
+    "backgroundColor": "#ffffff",
+    "borderColor": "#b6ddfd",
+    "boxShadowColor": "#343a60"
+  },
+  "experimental": {
+    "cubeColor": "#415f9c",
+    "backgroundColor": "#9d9dff",
+    "borderColor": "#b6ddfd",
+    "boxShadowColor": "#d279d0"
+  }
+}
