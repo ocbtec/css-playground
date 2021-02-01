@@ -9,23 +9,29 @@ export class MobileViewService {
   screenWidth!: number;
   onMobileDevice = false;
   onMobileDeviceSubject: Subject<boolean> = new Subject<boolean>();
+  smallScreen = false;
+  landscape = false;
+  portrait = false;
 
   playgroundSectionHeight!: number;
   playgroundInputHeight!: number;
   playgroundOutputHeight!: number;
 
   setPlaygroundHeight() {
-    this.screenHeight = window.innerHeight;
-    this.screenWidth = window.innerWidth;
+    this.checkAspectRatio();
 
-    if (this.screenWidth > 1024) {
+    if (this.screenWidth >= 1366 && this.screenWidth > this.screenHeight) {
       this.playgroundSectionHeight = 700;
       this.playgroundInputHeight = 700;
       this.playgroundOutputHeight = 700;
-    } else if (this.screenWidth <= 1024) {
+    } else if (this.screenWidth <= 1024 && this.screenWidth < this.screenHeight) {
       this.playgroundSectionHeight = this.screenHeight;
       this.playgroundInputHeight = this.screenHeight / 2;
       this.playgroundOutputHeight = this.screenHeight / 2;
+    } else if (this.screenWidth <= 1024 && this.screenWidth > this.screenHeight) {
+      this.playgroundSectionHeight = this.screenHeight;
+      this.playgroundInputHeight = this.screenHeight;
+      this.playgroundOutputHeight = this.screenHeight;
     }
   }
 
@@ -36,6 +42,20 @@ export class MobileViewService {
     } else {
       this.onMobileDevice = true;
       this.onMobileDeviceSubject.next(this.onMobileDevice);
+    }
+  }
+
+  checkAspectRatio() {
+    this.screenHeight = window.innerHeight;
+    this.screenWidth = window.innerWidth;
+
+    this.smallScreen = this.screenWidth <= 1024;
+
+    if(this.smallScreen) {
+      this.landscape = this.screenWidth > this.screenHeight;
+      this.portrait = this.screenWidth < this.screenHeight;
+    } else {this.landscape = false;
+      this.portrait = false;
     }
   }
 }

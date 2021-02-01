@@ -11,15 +11,24 @@
 <div
   class="playground-section"
   [style.height.px]=mobileView.playgroundSectionHeight
+  [ngClass]="{
+    'playground-section-landscape': mobileView.landscape === true,
+    'playground-section-portrait': mobileView.portrait === true}"
   #target
 >
   <app-playground-input
     class="input-section"
     [style.height.px]=mobileView.playgroundInputHeight
+    [ngClass]="{
+      'input-output-section-landscape': mobileView.landscape === true,
+      'input-output-section-portrait': mobileView.portrait === true}"
   ></app-playground-input>
   <app-playground-output
     class="output-section"
     [style.backgroundColor]=backgroundColor
     [style.height.px]=mobileView.playgroundOutputHeight
+    [ngClass]="{
+      'input-output-section-landscape': mobileView.landscape === true,
+      'input-output-section-portrait': mobileView.portrait === true}"
   ></app-playground-output>
 </div>
