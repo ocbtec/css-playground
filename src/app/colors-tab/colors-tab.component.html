@@ -6,6 +6,7 @@
         class="color-picker-chrome"
         color="{{ cubeColor }}"
         (onChange)="changeCubeColor($event)"
+        [disableAlpha]="true"
       ></color-chrome>
     </div>
     <div class="color-picker-top">
@@ -14,6 +15,7 @@
         class="color-picker-chrome"
         color="{{ backgroundColor }}"
         (onChange)="changeBackgroundColor($event)"
+        [disableAlpha]="true"
       ></color-chrome>
     </div>
   </div>
