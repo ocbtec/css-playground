@@ -36,11 +36,11 @@ export class MobileViewService {
   }
 
   checkPlaygroundHeight() {
-    if (this.screenWidth > 720) {
-      this.onMobileDevice = false;
+    if (this.screenWidth < 560 || this.screenHeight < 560) {
+      this.onMobileDevice = true;
       this.onMobileDeviceSubject.next(this.onMobileDevice);
     } else {
-      this.onMobileDevice = true;
+      this.onMobileDevice = false;
       this.onMobileDeviceSubject.next(this.onMobileDevice);
     }
   }
