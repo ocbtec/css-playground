@@ -70,11 +70,17 @@
     font-size: 14px;
   }
   .code-block {
+    margin: 0 2rem;
+  }
+}
+
+@media screen and (max-width: 1440px) and (min-width: 768px) and (orientation: portrait) {
+   .code-block {
     margin: 0 4rem;
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 920px) {
   .code-container {
     height: fit-content;
     min-height: 100%;
