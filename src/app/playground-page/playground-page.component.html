@@ -19,6 +19,7 @@
   <app-playground-input
     class="input-section"
     [style.height.px]=mobileView.playgroundInputHeight
+    [style]=mobileView.playgroundInputWidth
     [ngClass]="{
       'input-output-section-landscape': mobileView.landscape === true,
       'input-output-section-portrait': mobileView.portrait === true}"

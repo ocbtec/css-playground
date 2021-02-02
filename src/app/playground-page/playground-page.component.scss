@@ -31,6 +31,7 @@
 }
 
 // +++ for smaller screens +++
+// will be assigned from mobile-view.service
 .playground-section-landscape  {
   flex-direction: row;
   width: 100%;
@@ -48,9 +49,3 @@
   width: 100%;
 }
 // +++ for smaller screens +++
-
-@media screen and (min-width: 1024px) and (max-width: 1440px) and (orientation: landscape) {
-  .input-section {
-    width: 482px;
-  }
-}
