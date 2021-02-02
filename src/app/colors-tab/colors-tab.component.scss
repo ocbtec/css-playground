@@ -60,7 +60,7 @@
     font-size: 11px;
   }
   .mobile-margin {
-    margin-left: 10px;
+    margin-left: 0.5rem;
   }
   .slider-picker {
     margin-top: 0 !important;
@@ -73,5 +73,20 @@
   }
   .chrome-toggle {
     width: 22px !important;
+  }
+}
+
+@media screen and (max-height: 420px) {
+  .color-picker-text {
+    font-size: 11px;
+  }
+  .chrome-picker {
+    margin: 0 !important;
+  }
+  .colors-flexbox {
+    padding-top: 0;
+  }
+  .mobile-margin {
+    margin-left: 0.5rem;
   }
 }
