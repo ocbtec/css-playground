@@ -163,6 +163,10 @@ export class TransformSettingsService {
     if (this.onMobile) {
       this.sizeSlider.currentValue = Math.round(this.sizeSlider.currentValue / 2);
       if (this.sizeSlider.currentValue < 10) { this.sizeSlider.currentValue = 10; }
+      if (preset === 'random') {
+        this.horizontallySlider.currentValue = Math.round(this.horizontallySlider.currentValue / 2);
+        this.verticallySlider.currentValue = Math.round(this.verticallySlider.currentValue / 2);
+      }
     } else {
       this.horizontallySlider.minValue = -300;
       this.horizontallySlider.maxValue = 300;
