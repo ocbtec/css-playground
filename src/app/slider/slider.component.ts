@@ -30,7 +30,6 @@ export class SliderComponent {
 
   getSliderType(sliderEvent: MatSliderChange) {
     if (sliderEvent.value !== null) {
-      this.slider.currentValue = sliderEvent.value;
 
       if (sliderEvent.source._elementRef.nativeElement.getAttribute('data-tabType') === 'transform') {
         if (sliderEvent.source._elementRef.nativeElement.id === 'size') {
