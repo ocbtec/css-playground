@@ -51,3 +51,9 @@
     margin: 0;
   }
 }
+
+@media screen and (max-width: 720px) {
+  .select-menu-container {
+    font-size: 12px;
+  }
+}

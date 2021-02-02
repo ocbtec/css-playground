@@ -36,3 +36,9 @@
     padding-bottom: 0;
   }
 }
+
+@media screen and (max-width: 720px) {
+  .toggle-label {
+    font-size: 12px;
+  }
+}

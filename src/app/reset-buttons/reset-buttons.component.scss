@@ -25,11 +25,19 @@
   color: gray;
 }
 
-@media screen and(max-width: 360px) {
+
+@mixin mobile-button-styling {
   .reset-button {
     margin-right: 0.5rem;
   }
   .reset-text {
     font-size: 11px;
   }
+}
+@media screen and (max-width: 560px) and (orientation: portrait) {
+  @include mobile-button-styling();
+}
+
+@media screen and (max-height: 560px) and (orientation: landscape) {
+  @include mobile-button-styling();
 }
