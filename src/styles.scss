@@ -75,20 +75,37 @@ $font-size-headline: 1.6rem;
 $font-size-links: 1.2rem;
 
 // Colors
-$primary-color: #fefefe;
-$secondary-color: #083272;
+$navbar-footer-color: #fefefe;
+$standard-text-color: #505050;
+$label-background: #ededed;
+$vanilla-cube: #ff4081;
+$link-hover: #082858;
+$box-shadow: #898989;
+$light-blue: #2299f8;
+$very-light-blue: #e6f3fe;
+$info-blue: #b6ddfd;
 
 // Mixins
-@mixin center-text {
+@mixin center-items {
   display: flex;
   align-items: center;
 }
 
-@mixin tab-container {
-  position: relative;
+@mixin center-items-2 {
+  @include center-items;
+  justify-content: center
+}
+
+@mixin space-between {
   display: flex;
+  justify-content: space-between;
+}
+
+
+@mixin tab-container {
+  @include center-items;
+  position: relative;
   flex-flow: column;
-  align-items: center;
   justify-content: space-between;
   height: 100%;
   padding: 0.5rem;
@@ -104,7 +121,7 @@ $secondary-color: #083272;
   padding: 0 1rem;
   width: 100%;
   height: 50px;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .scroll-indicator-container {
@@ -122,11 +139,12 @@ $secondary-color: #083272;
   padding: 1.5rem;
 }
 
-.chrome-alpha {
-  display: none;  // disableAlpha from documentation causes build error
+// Material button
+.mat-raised-button  {
+  padding: 0 16px;
 }
 
-// +++ material drop down +++
+// +++ Material drop down +++
 .mat-select-value {
   color: #787878;
 }

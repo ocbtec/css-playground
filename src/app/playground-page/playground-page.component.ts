@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { ColorSettingsService } from '../services/color-settings.service';
 import { MobileViewService } from '../services/mobile-view.service';
 
@@ -8,7 +8,6 @@ import { MobileViewService } from '../services/mobile-view.service';
   styleUrls: ['./playground-page.component.scss']
 })
 export class PlaygroundPageComponent implements OnInit {
-  @ViewChild('playground') playground!: ElementRef;
   showScrollButton = false;
 
   backgroundColor = '';

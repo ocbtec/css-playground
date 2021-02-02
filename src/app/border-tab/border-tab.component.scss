@@ -10,8 +10,7 @@
 }
 
 .select-menu-container {
-  display: flex;
-  align-items: center;
+  @include center-items;
   width: 100%;
   margin: 1rem 0;
 }
@@ -22,7 +21,7 @@
 
 .select-menu-span {
   color: gray;
-  background-color: #f2f2f2;
+  background-color: $label-background;
   padding: 0.5rem;
 }
 
@@ -36,7 +35,7 @@
 
 .color-picker-text {
   color: gray;
-  background-color: #f2f2f2;
+  background-color: $label-background;
   padding: 0.5rem;
   margin-bottom: 0.5rem;
 }

@@ -1,71 +1,51 @@
+@import '../../styles.scss';
+
 .playground-section {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   width: 90%;
-  margin: 10rem auto;;
+  max-width: 1800px;
+  margin: 10rem auto;
   background-color: #f7f7f7;
-  box-shadow: 0px 1px 2px 0px #898989;
+  box-shadow: 0px 1px 2px 0px $box-shadow;
 }
 .input-section {
-  width: 482px;
+  width: 640px;
   border-top: 1px solid #bababa;
   border-bottom: 1px solid #bababa;
   border-left: 1px solid #bababa;
 }
 .output-section {
+  @include center-items-2;
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   flex: 1;
   border: 1px solid #bababa;
   overflow: hidden;
 }
 
 .center-button {
+  @include center-items-2;
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin-top: 6rem;
+}
+
+// +++ for smaller screens +++
+// will be assigned from mobile-view.service
+.playground-section-landscape  {
+  flex-direction: row;
+  width: 100%;
   margin-top: 4rem;
 }
-
-@media screen and (max-width: 1024px) {
-  .playground-section {
-    flex-direction: column;
-    margin-top: 5rem;
-    height: 1150px;
-  }
-  .input-section {
-    width: 100%;
-    border-right: 1px solid #bababa;
-  }
-  .output-section {
-    min-height: 482px;
-  }
+.playground-section-portrait  {
+  flex-direction: column;
+  width: 100%;
+  margin-top: 4rem;
 }
-
-@media screen and (max-width: 480px) {
-  .playground-section {
-    margin-top: 2rem;
-  }
+.input-output-section-landscape  {
+  width: 50%;
 }
-
-@media screen and (max-width: 420px) {
-  .playground-section {
-    width: 100%;
-    height: fit-content;
-  }
-  .output-section {
-    min-height: 300px;
-  }
+.input-output-section-portrait  {
+  width: 100%;
 }
-
-
-
-@media screen and (min-width: 1440px) {
-  .input-section {
-    width: 640px;
-  }
-}
+// +++ for smaller screens +++

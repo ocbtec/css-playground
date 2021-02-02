@@ -1,6 +1,7 @@
+@import '../../styles.scss';
+
 .reset-button-flexbox {
-  display: flex;
-  align-items: center;
+  @include center-items;
   flex: 1;
 }
 
@@ -13,7 +14,7 @@
 }
 
 .reset-button:hover {
-  background-color: #ff4081;
+  background-color: $vanilla-cube;
   border-radius: 50%;
   background-image: url('../../assets/images/reset-button-bright.svg');
   background-size: contain;

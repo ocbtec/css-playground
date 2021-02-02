@@ -71,7 +71,7 @@ export class BoxShadowTabComponent {
 
   checkForScrollIndicator() {
     this.containerHeightSubject.pipe(delay(0)).subscribe(() => {
-      this.showScrollIndicator = this.containerHeight.nativeElement.scrollHeight > this.mobileView.playgroundInputHeight;
+      this.showScrollIndicator = this.containerHeight.nativeElement.scrollHeight + 48 > this.mobileView.playgroundInputHeight;
     });
     this.containerHeightSubject.next(this.containerHeight.nativeElement.scrollHeight);
   }

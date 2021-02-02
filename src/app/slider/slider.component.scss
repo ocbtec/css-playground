@@ -1,6 +1,7 @@
+@import '../../styles.scss';
+
 .slider-container {
-  display: flex;
-  align-items: center;
+  @include center-items;
   justify-content: space-between;
   padding: 1rem;
   width: 100%;
@@ -8,7 +9,7 @@
 
 .slider-label {
   color: gray;
-  background-color: #f2f2f2;
+  background-color: $label-background;
   padding: 0.5rem;
   margin-left: 0.3rem;
 }
@@ -19,11 +20,11 @@
 }
 
 .slider-value {
-  width: 50px;
+  width: 70px;
   height: 30px;
   line-height: 30px;
   text-align: center;
-  background-color: #f2f2f2;
+  background-color: $label-background;
   color: #4d4d4d;
 }
 
@@ -38,6 +39,13 @@
   }
   .mat-slider {
     width: 95%;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .slider-value {
+    font-size: 12px;
+    width: 60px;
   }
 }
 
