@@ -83,15 +83,19 @@ export class ColorSettingsService {
   }
 
   setCubeColor(color: string) {
+    this.cubeColor = color;
     this.cubeColorSubject.next(color);
   }
   setBackgroundColor(color: string) {
+    this.backgroundColor = color;
     this.backgroundColorSubject.next(color);
   }
   setBorderColor(color: string) {
+    this.borderColor = color;
     this.borderColorSubject.next(color);
   }
   setBoxShadowColor(color: string) {
+    this.boxShadowColor = color;
     this.boxShadowColorSubject.next(color);
   }
 
