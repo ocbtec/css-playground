@@ -38,7 +38,7 @@ export class BorderSettingsService {
   };
   radiusSliderSubject: Subject<Slider> = new Subject<Slider>();
 
-  borderStyle = '';
+  borderStyle = presets.vanillaBorder.style;
   borderStyleSubject: Subject<string> = new Subject<string>();
 
   allSliders = combineLatest([

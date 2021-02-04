@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, Output, ViewEncapsulation } from '@angular/core';
 import { MatSelectChange } from '@angular/material/select';
 import { BorderSettingsService } from 'src/app/services/border-settings.service';
 
@@ -8,7 +8,7 @@ import { BorderSettingsService } from 'src/app/services/border-settings.service'
   styleUrls: ['./border-style-select.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class BorderStyleSelectComponent implements OnInit {
+export class BorderStyleSelectComponent {
   @Output() valueChange = new EventEmitter<number>();
 
   border: {
@@ -39,10 +39,12 @@ export class BorderStyleSelectComponent implements OnInit {
 
   constructor(private borderSettingsService: BorderSettingsService) {
     this.borderSettings = this.borderSettingsService;
-  }
 
-  ngOnInit() {
-    this.borderSettingsService.borderStyle = this.border[9].value;
+    const borderStyle = this.borderSettingsService.borderStyleSubject;
+    borderStyle.subscribe(value => {
+      this.borderSettingsService.borderStyle = value;
+    });
+
   }
 
   selectedValue(event: MatSelectChange) {
