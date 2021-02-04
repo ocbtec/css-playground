@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { ColorEvent } from 'ngx-color';
 import { Subject } from 'rxjs';
 import { delay } from 'rxjs/operators';
@@ -13,7 +13,7 @@ import { Slider } from '../slider/slider.model';
   templateUrl: './box-shadow-tab.component.html',
   styleUrls: ['./box-shadow-tab.component.scss']
 })
-export class BoxShadowTabComponent {
+export class BoxShadowTabComponent implements OnInit {
   @ViewChild('containerHeight') containerHeight!: ElementRef;
   containerHeightSubject = new Subject<number>();
   showScrollIndicator = false;
@@ -58,6 +58,10 @@ export class BoxShadowTabComponent {
   @HostListener('window:resize', ['$event'])
   onResize() {
     this.checkForScrollIndicator();
+  }
+
+  ngOnInit() {
+    this.boxShadowSettingsService.setValues();
   }
 
   onChange() {
