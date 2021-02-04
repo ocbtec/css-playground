@@ -68,8 +68,6 @@ export class TransformSettingsService {
     this.rotateSliderSubject
   ]);
 
-  transformPreset = '';
-
   onMobile = false;
   currentPreset = 'vanilla';
   currentPresetSubject = new Subject<string>();
