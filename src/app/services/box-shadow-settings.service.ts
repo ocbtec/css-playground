@@ -112,8 +112,6 @@ export class BoxShadowSettingsService {
     });
 
     mobileViewService.checkPlaygroundHeight();
-
-    this.setValues();
   }
 
   setValues() {
