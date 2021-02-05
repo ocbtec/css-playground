@@ -41,7 +41,13 @@ export class MobileViewService {
       this.playgroundInputHeight = this.screenHeight / 2;
       this.playgroundOutputHeight = this.screenHeight / 2;
       this.playgroundInputWidth = 'width: 100%';
-    } else if (this.screenWidth <= 1024 && this.screenWidth > this.screenHeight) {
+    } else if (this.screenWidth > 768 && this.screenWidth <= 1024 && this.screenWidth > this.screenHeight) {
+      // landscape tablets and mobiles
+      this.playgroundSectionHeight = this.screenHeight;
+      this.playgroundInputHeight = this.screenHeight;
+      this.playgroundOutputHeight = this.screenHeight;
+      this.playgroundInputWidth = 'width: 440px';
+    } else if (this.screenWidth <= 768 && this.screenWidth > this.screenHeight) {
       // landscape tablets and mobiles
       this.playgroundSectionHeight = this.screenHeight;
       this.playgroundInputHeight = this.screenHeight;
