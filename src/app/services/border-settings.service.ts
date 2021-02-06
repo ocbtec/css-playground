@@ -11,6 +11,7 @@ import * as presets from '../start-presets/presets.json';
 })
 export class BorderSettingsService {
   items: Slider[] = [];
+  preset = presets.vanillaBorder;
 
   randomBorderPreset = new RandomBorderPreset();
 
@@ -21,7 +22,7 @@ export class BorderSettingsService {
     minValue: 0,
     maxValue: 50,
     step: 1,
-    currentValue: 4,
+    currentValue: this.preset.width,
     unit: 'px'
   };
   widthSliderSubject: Subject<Slider> = new Subject<Slider>();
@@ -33,12 +34,12 @@ export class BorderSettingsService {
     minValue: 0,
     maxValue: 50,
     step: 1,
-    currentValue: 0,
+    currentValue: this.preset.radius,
     unit: '%'
   };
   radiusSliderSubject: Subject<Slider> = new Subject<Slider>();
 
-  borderStyle = presets.vanillaBorder.style;
+  borderStyle = this.preset.style;
   borderStyleSubject: Subject<string> = new Subject<string>();
 
   allSliders = combineLatest([

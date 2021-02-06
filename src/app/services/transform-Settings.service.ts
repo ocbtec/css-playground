@@ -10,6 +10,7 @@ import * as presets from '../start-presets/presets.json';
 })
 export class TransformSettingsService {
   items: Slider[] = [];
+  preset = presets.vanillaTransform;
 
   randomTransformPresets = new RandomTransformPreset();
 
@@ -20,7 +21,7 @@ export class TransformSettingsService {
     minValue: 10,
     maxValue: 300,
     step: 1,
-    currentValue: 100,
+    currentValue: this.preset.size,
     unit: 'px'
   };
   sizeSliderSubject: Subject<Slider> = new Subject<Slider>();
@@ -32,7 +33,7 @@ export class TransformSettingsService {
     minValue: -300,
     maxValue: 300,
     step: 1,
-    currentValue: 0,
+    currentValue: this.preset.hPos,
     unit: 'px'
   };
   horizontallySliderSubject: Subject<Slider> = new Subject<Slider>();
@@ -44,7 +45,7 @@ export class TransformSettingsService {
     minValue: -300,
     maxValue: 300,
     step: 1,
-    currentValue: 0,
+    currentValue: this.preset.vPos,
     unit: 'px'
   };
   verticallySliderSubject: Subject<Slider> = new Subject<Slider>();
@@ -56,7 +57,7 @@ export class TransformSettingsService {
     minValue: 0,
     maxValue: 360,
     step: 1,
-    currentValue: 0,
+    currentValue: this.preset.rotate,
     unit: '°'
   };
   rotateSliderSubject: Subject<Slider> = new Subject<Slider>();

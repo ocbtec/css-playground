@@ -11,6 +11,7 @@ import * as presets from '../start-presets/presets.json';
 })
 export class BoxShadowSettingsService {
   items: Slider[] = [];
+  preset = presets.vanillaBoxShadow;
 
   randomBoxShadowPreset = new RandomBoxShadowPreset();
 
@@ -21,7 +22,7 @@ export class BoxShadowSettingsService {
     minValue: -300,
     maxValue: 300,
     step: 1,
-    currentValue: 8,
+    currentValue: this.preset.xOffset,
     unit: 'px'
   };
   offsetXSliderSubject: Subject<Slider> = new Subject<Slider>();
@@ -33,7 +34,7 @@ export class BoxShadowSettingsService {
     minValue: -300,
     maxValue: 300,
     step: 1,
-    currentValue: 8,
+    currentValue: this.preset.yOffset,
     unit: 'px'
   };
   offsetYSliderSubject: Subject<Slider> = new Subject<Slider>();
@@ -45,7 +46,7 @@ export class BoxShadowSettingsService {
     minValue: 0,
     maxValue: 150,
     step: 1,
-    currentValue: 5,
+    currentValue: this.preset.blur,
     unit: 'px'
   };
   blurRadiusSliderSubject: Subject<Slider> = new Subject<Slider>();
@@ -57,7 +58,7 @@ export class BoxShadowSettingsService {
     minValue: -100,
     maxValue: 150,
     step: 1,
-    currentValue: 0,
+    currentValue: this.preset.spread,
     unit: 'px'
   };
   spreadRadiusSliderSubject: Subject<Slider> = new Subject<Slider>();
